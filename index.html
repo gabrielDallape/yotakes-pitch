@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -39,7 +39,7 @@
       width: min(100vw, calc(100vh * 16 / 9));
       aspect-ratio: 16 / 9;
       overflow: hidden;
-      font-size: calc(min(100vw, 100vh * 16 / 9) / 100 * 9 / 16);
+      font-size: calc(min(100vw, 100vh * 16 / 9) / 100 * 9 / 16 * 1.2);
       display: none;
       box-shadow: 0 0 100px rgba(0,0,0,0.5);
       color: var(--ink);
@@ -52,6 +52,7 @@
 
     /* ============== shared chrome ============== */
     .pitch-tag {
+      display: none;
       position: absolute;
       top: 3.6em;
       left: 5em;
@@ -78,7 +79,7 @@
 
     .eyebrow {
       font-weight: 700;
-      font-size: 1.5em;
+      font-size: 2.2em;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--tomate);
@@ -103,17 +104,18 @@
     .s1 { background: var(--creme); position: relative; }
     .s1-stack { display: flex; flex-direction: column; align-items: center; gap: 3em; text-align: center; }
     .s1-number {
-      font-weight: 900; font-size: 32em; line-height: 1; letter-spacing: -0.05em;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800; font-size: 26em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa);
     }
-    .s1-number .pct { color: var(--tomate); }
+    .s1-number .pct { color: var(--tomate); font-size: 0.5em; font-weight: 700; letter-spacing: -0.02em; margin-left: 0.06em; }
     .s1-sub {
       font-weight: 500; font-size: 4em; line-height: 1.15; letter-spacing: -0.012em;
       color: var(--garrafa); max-width: 22ch;
     }
     .s1-source {
       position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
-      font-weight: 600; font-size: 1.4em; letter-spacing: 0.22em;
+      font-weight: 600; font-size: 2em; letter-spacing: 0.22em;
       text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
     }
 
@@ -122,16 +124,21 @@
        ============================================ */
     .slide.active.s2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      padding: 0 9em;
-      gap: 6em;
+      padding: 0 6em;
+      gap: 3em;
       position: relative;
     }
     .s2 { background: var(--creme); }
     .s2-col { display: flex; flex-direction: column; gap: 2.6em; justify-content: center; }
+    .s2-persona { flex-direction: row; align-items: center; gap: 1.4em; }
+    .s2-portrait { width: 44em; flex-shrink: 0; }
+    .s2-portrait img {
+      width: 100%; height: auto; display: block;
+    }
     .s2-name {
-      font-weight: 900; font-size: 13em; line-height: 0.95; letter-spacing: -0.045em;
+      font-weight: 900; font-size: 6em; line-height: 0.95; letter-spacing: -0.045em;
       color: var(--garrafa);
     }
     .s2-bio {
@@ -139,8 +146,8 @@
       color: var(--garrafa); max-width: 22ch;
     }
     .s2-quote {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
-      font-size: 3.6em; line-height: 1.3; letter-spacing: -0.005em;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      font-size: 7.6em; line-height: 1.3; letter-spacing: -0.005em;
       color: var(--garrafa);
       padding-left: 1.2em; border-left: 0.2em solid var(--tomate);
     }
@@ -157,11 +164,12 @@
     .s3 { background: var(--creme); position: relative; }
     .s3-stack { display: flex; flex-direction: column; align-items: center; gap: 2em; text-align: center; }
     .s3-eyebrow-c {
-      font-weight: 700; font-size: 1.5em; letter-spacing: 0.3em;
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em;
       text-transform: uppercase; color: var(--tomate);
     }
     .s3-number {
-      font-weight: 900; font-size: 28em; line-height: 1; letter-spacing: -0.05em;
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800; font-size: 23em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa);
     }
     .s3-number .unit { font-size: 0.5em; font-weight: 700; letter-spacing: -0.02em; margin-left: 0.18em; }
@@ -171,13 +179,13 @@
     }
     .s3-add {
       margin-top: 1.6em;
-      font-weight: 600; font-size: 2.6em; letter-spacing: -0.005em;
+      font-weight: 600; font-size: 3.4em; letter-spacing: -0.005em;
       color: rgba(31, 77, 64, 0.7);
     }
     .s3-add strong { color: var(--tomate); font-weight: 800; }
     .s3-source {
       position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
-      font-weight: 600; font-size: 1.4em; letter-spacing: 0.22em;
+      font-weight: 600; font-size: 2em; letter-spacing: 0.22em;
       text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
       white-space: nowrap;
     }
@@ -196,7 +204,7 @@
     .s4 { background: var(--tomate); }
     .s4-col { display: flex; flex-direction: column; gap: 2.4em; justify-content: center; }
     .s4-eyebrow-c {
-      font-weight: 700; font-size: 1.5em; letter-spacing: 0.3em;
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em;
       text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
       display: flex; align-items: center; align-self: flex-start;
     }
@@ -239,130 +247,102 @@
       z-index: 5;
     }
 
-    .phone-bar {
-      height: 7em;
-      background: var(--creme-200);
-      border-bottom: 0.2em solid var(--tomate);
-      display: flex; align-items: flex-end; justify-content: space-between;
-      padding: 0 2.4em 1.6em;
+    /* ---- header editorial (estilo app atual) ---- */
+    .phone-head {
+      padding: 2.8em 2.4em 1.5em;
+      border-bottom: 0.16em solid #d9cdb3;
     }
-    .phone-bar .mark {
-      font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
-      font-size: 2.8em; letter-spacing: -0.025em; color: var(--tomate);
-      line-height: 1;
+    .phone-head .mark {
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 3em; letter-spacing: -0.03em; color: var(--tomate); line-height: 1;
     }
-    .phone-bar .date {
-      font-weight: 700; font-size: 0.95em; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(95, 27, 31, 0.6);
+    .phone-head .since {
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      font-size: 1.1em; color: rgba(31, 77, 64, 0.5); margin-left: 0.5em;
     }
-    .phone-bar .bell {
-      width: 2em; height: 2em; border-radius: 50%;
-      background: var(--tomate); opacity: 0.88;
-      position: relative;
-    }
-    .phone-bar .bell::after {
-      content: ""; position: absolute; top: -0.2em; right: -0.2em;
-      width: 0.9em; height: 0.9em; border-radius: 50%;
-      background: var(--garrafa);
+    .phone-head .editorial {
+      margin-top: 1em;
+      font-weight: 700; font-size: 0.82em; letter-spacing: 0.28em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.55);
     }
 
-    .phone-stats {
-      padding: 1.4em 2.4em 0;
-      display: flex; gap: 1.8em;
-      font-weight: 700; font-size: 0.95em; letter-spacing: 0.04em;
-      color: var(--garrafa);
-    }
-    .phone-stats .stat strong {
-      font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
-      font-size: 1.4em; color: var(--tomate); margin-right: 0.25em;
+    /* ---- datelines (rótulos de seção) ---- */
+    .phone-dateline {
+      padding: 1.7em 2.4em 0.7em;
+      font-weight: 700; font-size: 0.82em; letter-spacing: 0.26em;
+      text-transform: uppercase; color: #6b6b6b;
     }
 
-    .phone-section {
-      padding: 1.6em 2.4em 0.4em;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .phone-section .h {
-      font-weight: 800; font-size: 1.1em; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--bordo);
-    }
-    .phone-section .more {
-      font-weight: 600; font-size: 0.85em; letter-spacing: 0.18em;
-      text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
-    }
-
-    .phone-feed { padding: 0.3em 2em 0.6em; display: flex; flex-direction: column; gap: 1.2em; }
-    .take {
-      background: var(--creme-200);
+    /* ---- hero: take da semana ---- */
+    .phone-hero {
+      margin: 0 2.4em;
+      height: 17em;
       border-radius: 1.6em;
-      padding: 1.4em 1.6em;
-      display: flex; flex-direction: column; gap: 0.8em;
-      box-shadow: 0 0.4em 0.8em rgba(0,0,0,0.06);
-    }
-    .take.with-photo .take-photo {
-      height: 5em;
-      border-radius: 1em;
+      overflow: hidden;
+      position: relative;
       background:
-        radial-gradient(ellipse at 30% 30%, rgba(255,200,140,0.55), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(40,12,10,0.88) 100%),
+        radial-gradient(ellipse at 30% 25%, rgba(255,200,140,0.5), transparent 60%),
         linear-gradient(135deg, #c97a3a 0%, #7b3624 60%, #401910 100%);
-      box-shadow: inset 0 0 1em rgba(0,0,0,0.15);
+      box-shadow: 0 0.8em 1.6em rgba(0,0,0,0.14);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.6em;
+    }
+    .phone-hero .h-name {
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 2.6em; line-height: 1; letter-spacing: -0.02em; color: var(--creme);
+    }
+    .phone-hero .h-meta {
+      margin-top: 0.6em;
+      font-weight: 700; font-size: 0.9em; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
     }
 
-    .take.with-photos .take-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4em;
-      height: 4.6em;
+    /* ---- following rows (denso, estilo Letterboxd do app) ---- */
+    .phone-rows { padding: 0 2.4em; }
+    .trow {
+      display: flex; gap: 1.2em; align-items: flex-start;
+      padding: 1.35em 0;
+      border-bottom: 0.14em solid #e2d8bf;
     }
-    .take-photos .ph {
-      border-radius: 0.9em;
-      box-shadow: inset 0 0 0.8em rgba(0,0,0,0.18);
-    }
-    .take-photos .ph.a {
+    .trow:last-child { border-bottom: none; }
+    .trow-thumb {
+      width: 5.4em; height: 5.4em; border-radius: 1em; flex-shrink: 0;
       background:
         radial-gradient(ellipse at 30% 30%, rgba(255,210,150,0.55), transparent 60%),
         linear-gradient(135deg, #c5793a 0%, #8a4427 55%, #3e1a0d 100%);
+      box-shadow: inset 0 0 0.8em rgba(0,0,0,0.18);
     }
-    .take-photos .ph.b {
+    .trow-thumb.b {
       background:
-        radial-gradient(ellipse at 70% 25%, rgba(255,225,160,0.45), transparent 60%),
+        radial-gradient(ellipse at 65% 30%, rgba(255,225,160,0.45), transparent 60%),
         linear-gradient(135deg, #a26339 0%, #6b3520 55%, #321408 100%);
     }
-    .take-head { display: flex; align-items: center; gap: 0.9em; }
-    .take-avatar {
-      width: 2.4em; height: 2.4em; border-radius: 50%;
-      background: var(--bordo); color: var(--creme);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1em;
-      flex-shrink: 0;
+    .trow-thumb.c {
+      background:
+        radial-gradient(ellipse at 40% 25%, rgba(255,205,150,0.5), transparent 60%),
+        linear-gradient(135deg, #b06a3a 0%, #5f1b1f 70%);
     }
-    .take-meta { display: flex; flex-direction: column; gap: 0.1em; min-width: 0; }
-    .take-handle { font-weight: 700; font-size: 1em; color: var(--ink); }
-    .take-ctx {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
-      font-size: 0.85em; color: rgba(31, 77, 64, 0.7);
+    .trow-body { flex: 1; min-width: 0; }
+    .trow-top { display: flex; align-items: baseline; gap: 0.6em; }
+    .trow-rest {
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.5em;
+      letter-spacing: -0.01em; color: var(--garrafa); line-height: 1.05;
     }
-    .take-row { display: flex; align-items: baseline; gap: 0.6em; }
-    .take-rest {
-      font-weight: 800; font-size: 1.45em; letter-spacing: -0.012em;
-      color: var(--garrafa); line-height: 1.1;
+    .trow-rate { margin-left: auto; display: flex; align-items: center; gap: 0.3em; }
+    .trow-rate .glyphs { color: var(--tomate); font-size: 1em; letter-spacing: 0.04em; }
+    .trow-rate .num {
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2em; color: var(--tomate);
     }
-    .take-stars {
-      margin-left: auto;
-      display: flex; align-items: center; gap: 0.3em;
+    .trow-who {
+      margin-top: 0.25em;
+      font-weight: 600; font-size: 0.95em; color: #6b6b6b;
     }
-    .take-stars .glyphs {
-      font-size: 1em; letter-spacing: 0.05em;
-    }
-    .take-stars .glyphs .on  { color: var(--tomate); }
-    .take-stars .glyphs .off { color: rgba(232, 75, 63, 0.28); }
-    .take-stars .num {
-      font-family: 'Fraunces', serif; font-weight: 700;
-      font-size: 1.2em; color: var(--tomate);
-    }
-    .take-quote {
-      font-weight: 500; font-size: 1em; line-height: 1.4; letter-spacing: -0.005em;
-      color: rgba(26, 26, 26, 0.82);
-      padding-left: 0.8em; border-left: 0.16em solid var(--tomate);
+    .trow-who .dot { opacity: 0.5; margin: 0 0.4em; }
+    .trow-quote {
+      margin-top: 0.45em;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      font-size: 1.08em; line-height: 1.32; color: rgba(26, 26, 26, 0.7);
     }
 
     .phone-nav {
@@ -453,7 +433,7 @@
       border-radius: 999px;
       color: var(--garrafa);
     }
-    .s5-cell .chip.tom { color: var(--tomate); border-color: rgba(232, 75, 63, 0.35); }
+    .s5-cell .chip.tom { color: var(--garrafa); border-color: rgba(31, 77, 64, 0.14); }
 
     /* ============================================
        SLIDE 6 — Tração (single statement)
@@ -492,14 +472,14 @@
       font-style: normal; color: var(--tomate);
     }
     .s6-url {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-family: 'Inter', sans-serif; font-weight: 500;
       font-size: 5em; letter-spacing: -0.015em;
       color: var(--creme);
     }
     .s6-stat {
-      position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
-      font-weight: 700; font-size: 1.6em; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(242, 234, 215, 0.6);
+      position: absolute; bottom: 4em; left: 50%; transform: translateX(-50%);
+      font-weight: 700; font-size: 2.6em; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
       white-space: nowrap;
     }
     .s6-stat strong { color: var(--tomate); font-weight: 800; }
@@ -510,19 +490,33 @@
        Direita: mockup do painel que o restaurante recebe.
        ============================================ */
     .slide.active.s7 {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      align-items: center;
-      padding: 0 8em;
-      gap: 5em;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 4em 8em;
+      gap: 0;
       position: relative;
     }
     .s7 { background: var(--creme); }
 
+    .s7-block {
+      display: flex; flex-direction: column; gap: 1.2em;
+      padding: 1.2em 0;
+    }
+    .s7-block-name {
+      font-weight: 900; font-size: 17em; line-height: 0.92; letter-spacing: -0.05em;
+    }
+    .s7-block.users .s7-block-name { color: var(--garrafa); }
+    .s7-block.resto .s7-block-name { color: var(--tomate); }
+    .s7-block-items { display: flex; flex-direction: column; gap: 0.25em; }
+    .s7-block-item {
+      font-weight: 500; font-size: 3.6em; line-height: 1.2; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.6);
+    }
+
     .s7-col { display: flex; flex-direction: column; gap: 2.4em; }
 
     .s7-eyebrow {
-      font-weight: 700; font-size: 1.6em; letter-spacing: 0.3em;
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em;
       text-transform: uppercase; color: var(--tomate);
       align-self: flex-start; display: flex; align-items: center;
     }
@@ -545,7 +539,7 @@
     .s7-foot {
       display: flex; align-items: center; gap: 0.9em;
       margin-top: 1em;
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-family: 'Inter', sans-serif; font-weight: 500;
       font-size: 2.2em; letter-spacing: -0.005em;
       color: rgba(31, 77, 64, 0.72);
     }
@@ -565,7 +559,6 @@
         0 3em 5em rgba(31, 77, 64, 0.18),
         0 0.8em 1.6em rgba(31, 77, 64, 0.1);
       overflow: hidden;
-      transform: rotate(-1.5deg);
     }
     .dash-bar {
       background: var(--creme-200);
@@ -605,7 +598,7 @@
       margin-bottom: 0.6em;
     }
     .dash-section-h .week {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-family: 'Inter', sans-serif; font-weight: 500;
       font-size: 0.85em; letter-spacing: 0;
       color: rgba(31, 77, 64, 0.55); margin-left: 0.6em; text-transform: none;
     }
@@ -623,7 +616,7 @@
       letter-spacing: -0.025em; color: var(--garrafa);
     }
     .dash-stat .num .delta {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-family: 'Inter', sans-serif; font-weight: 500;
       font-size: 0.4em; color: var(--tomate);
       margin-left: 0.3em; vertical-align: 0.3em;
     }
@@ -678,7 +671,7 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .dash-rev .rate {
-      font-family: 'Fraunces', serif; font-weight: 700;
+      font-family: 'Inter', sans-serif; font-weight: 700;
       font-size: 1.2em; color: var(--tomate); flex-shrink: 0;
     }
     .dash-rev .respond {
@@ -706,7 +699,7 @@
 
     .s8-col { display: flex; flex-direction: column; gap: 2em; }
     .s8-eyebrow {
-      font-weight: 700; font-size: 1.4em; letter-spacing: 0.32em;
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.32em;
       text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
       display: flex; align-items: center;
     }
@@ -715,16 +708,16 @@
       background: var(--creme); margin-right: 1em; opacity: 0.85;
     }
     .s8-slogan {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
-      font-size: 8.2em; line-height: 1.04; letter-spacing: -0.025em;
+      font-family: 'Inter', sans-serif; font-weight: 800;
+      font-size: 7.4em; line-height: 1.02; letter-spacing: -0.035em;
       color: var(--creme);
     }
     .s8-slogan em {
-      font-style: italic; font-weight: 700; color: #fff;
+      font-style: normal; font-weight: 900; color: #fff;
     }
     .s8-url-line {
       margin-top: 1.4em;
-      font-weight: 800; font-size: 2.4em; letter-spacing: 0.2em;
+      font-weight: 800; font-size: 3.2em; letter-spacing: 0.2em;
       text-transform: uppercase; color: rgba(242, 234, 215, 0.95);
     }
 
@@ -743,8 +736,8 @@
       border-radius: 0.6em;
     }
     .s8-scan {
-      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
-      font-size: 3.2em; line-height: 1.15;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      font-size: 3.8em; line-height: 1.15;
       letter-spacing: -0.012em;
       color: var(--creme);
       text-align: center;
@@ -761,335 +754,473 @@
       pointer-events: none; z-index: 100;
     }
     :fullscreen .nav-hint { display: none; }
+
+    /* ============================================
+       SLIDE 4 — Mercado B (R$ 495 bi) — reusa .s3
+       ============================================ */
+    .s3-prefix {
+      font-size: 0.4em; font-weight: 800; vertical-align: 0.55em;
+      margin-right: 0.12em; color: var(--garrafa);
+    }
+
+    /* ============================================
+       SLIDES 6–8 — Como funciona (1 verbo por slide)
+       ============================================ */
+    .slide.active.step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.5em;
+      padding: 0 9em;
+      position: relative;
+    }
+    .step { background: var(--creme); }
+    .step-eyebrow {
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--tomate);
+      display: flex; align-items: center;
+    }
+    .step-eyebrow::before {
+      content: ""; display: inline-block; width: 2.4em; height: 0.16em;
+      background: var(--tomate); margin-right: 1em;
+    }
+    .step-icon {
+      width: 7em; height: 7em; border-radius: 1.7em;
+      background: var(--tomate); color: var(--creme);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0.8em 1.6em rgba(232, 75, 63, 0.3);
+    }
+    .step-icon svg { width: 4.2em; height: 4.2em; stroke-width: 2.2; }
+    .step-verb {
+      font-weight: 900; font-size: 13em; line-height: 0.9; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .step-chips { margin-top: 0.4em; }
+    .step-chip {
+      display: inline-block; vertical-align: middle;
+      margin: 0 0.4em;
+      font-weight: 700; font-size: 3.2em; letter-spacing: -0.005em;
+      padding: 0.55em 1.3em; background: #fff;
+      border: 0.14em solid rgba(31, 77, 64, 0.14); border-radius: 999px;
+      color: var(--garrafa); white-space: nowrap;
+    }
+
+    /* ============================================
+       SLIDE 10 — Modelo: motor de duas pontas
+       ============================================ */
+    .s7-top { display: flex; flex-direction: column; align-items: center; gap: 0.8em; text-align: center; }
+    .s7-top .s7-eyebrow { align-self: center; }
+    .s7 .s7-headline { font-size: 6.6em; max-width: 24ch; text-align: center; }
+
+    .s7-engine {
+      display: flex; align-items: stretch; justify-content: center;
+      gap: 2.2em; width: 100%; margin-top: 0.4em;
+    }
+    .s7-side {
+      flex: 1; max-width: 40em;
+      border-radius: 2em; padding: 2.6em;
+      display: flex; flex-direction: column; gap: 0.9em;
+    }
+    .s7-side.free {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      box-shadow: 0 1em 2em rgba(31, 77, 64, 0.08);
+    }
+    .s7-side.paid {
+      background: var(--tomate); color: var(--creme);
+      box-shadow: 0 1.2em 2.6em rgba(232, 75, 63, 0.32);
+    }
+    .s7-badge {
+      align-self: flex-start;
+      font-weight: 800; font-size: 2.2em; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 0.5em 1em; border-radius: 999px;
+    }
+    .s7-side.free .s7-badge { background: rgba(31, 77, 64, 0.1); color: var(--garrafa); }
+    .s7-side.paid .s7-badge { background: rgba(255, 255, 255, 0.22); color: #fff; }
+    .s7-side .who { font-weight: 900; font-size: 3.3em; line-height: 1; letter-spacing: -0.03em; }
+    .s7-side.free .who { color: var(--garrafa); }
+    .s7-side .desc { font-weight: 500; font-size: 2.15em; line-height: 1.3; letter-spacing: -0.01em; }
+    .s7-side.free .desc { color: rgba(31, 77, 64, 0.82); }
+    .s7-side.paid .desc { color: rgba(242, 234, 215, 0.94); }
+
+    .s7-side .price {
+      font-family: 'Unbounded', sans-serif; font-weight: 700;
+      font-size: 3.2em; line-height: 1.05; letter-spacing: -0.03em;
+    }
+    .s7-side.free .price { color: var(--garrafa); }
+    .s7-side .price .per {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.4em; letter-spacing: 0; opacity: 0.75;
+    }
+
+    .s7-tier { display: flex; flex-direction: column; gap: 0.3em; }
+    .s7-tier + .s7-tier {
+      margin-top: 0.8em; padding-top: 0.8em;
+      border-top: 0.12em solid rgba(31, 77, 64, 0.12);
+    }
+    .tier-name {
+      font-weight: 800; font-size: 2.6em; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.5);
+    }
+    .tier-name.premium { color: var(--tomate); }
+
+    .s7-chips { display: flex; flex-wrap: wrap; gap: 0.5em; margin-top: 0.2em; }
+    .s7-chip {
+      font-weight: 700; font-size: 2.8em; letter-spacing: -0.005em;
+      padding: 0.4em 0.9em; border-radius: 999px; white-space: nowrap;
+    }
+    .s7-side.free .s7-chip { background: rgba(31, 77, 64, 0.08); color: var(--garrafa); }
+    .s7-side.paid .s7-chip { background: rgba(255,255,255,0.2); color: #fff; }
+
+    /* ============================================
+       SLIDES DE APOIO (pós-pitch)
+       ============================================ */
+
+    /* Slide preto separador */
+    .s-black { background: #000; }
+
+    /* Q&A */
+    .slide.active.s-qa {
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 5em 10em;
+      gap: 2.4em;
+      position: relative;
+    }
+    .s-qa { background: var(--creme); }
+    .s-qa-tag {
+      font-weight: 800; font-size: 1.6em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--tomate);
+    }
+    .s-qa-q {
+      font-weight: 900; font-size: 6.2em; line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--garrafa);
+    }
+    .s-qa-a {
+      font-weight: 500; font-size: 3.8em; line-height: 1.3; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.72); max-width: 36ch;
+      border-left: 0.18em solid var(--tomate); padding-left: 0.8em;
+    }
+
+    /* Dados / analogias */
+    .slide.active.s-dado {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; gap: 2em;
+      position: relative;
+    }
+    .s-dado { background: var(--creme); }
+    .s-dado-eyebrow {
+      font-weight: 700; font-size: 2em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--tomate);
+    }
+    .s-dado-num {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800; font-size: 20em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--garrafa);
+    }
+    .s-dado-num .unit { font-size: 0.45em; font-weight: 700; letter-spacing: -0.02em; margin-left: 0.12em; }
+    .s-dado-num .pct { color: var(--tomate); font-size: 0.5em; font-weight: 700; }
+    .s-dado-num .prefix { font-size: 0.38em; font-weight: 800; vertical-align: 0.55em; margin-right: 0.1em; color: var(--garrafa); }
+    .s-dado-sub {
+      font-weight: 500; font-size: 3.8em; line-height: 1.2; letter-spacing: -0.012em;
+      color: var(--garrafa); max-width: 26ch;
+    }
+    .s-dado-source {
+      position: absolute; bottom: 4em; left: 50%; transform: translateX(-50%);
+      font-weight: 600; font-size: 1.8em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.45);
+      white-space: nowrap;
+    }
+
+    /* ---- Algo slide ---- */
+    .s-algo { background: var(--garrafa); }
+    .s-algo-stack {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.8em; text-align: center;
+    }
+    .s-algo-claim {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 800; font-size: 11em; line-height: 1.05; letter-spacing: -0.04em;
+      color: var(--creme);
+    }
+    .s-algo-claim em { font-style: normal; color: var(--tomate); }
+    .s-algo-sub {
+      font-weight: 500; font-size: 4em; line-height: 1.3; letter-spacing: -0.012em;
+      color: rgba(242, 234, 215, 0.7); max-width: 32ch;
+    }
+
+    .s7-link {
+      display: flex; flex-direction: column; align-items: center; gap: 0.4em;
+      margin-top: 0.7em; text-align: center;
+    }
+    .s7-link .pill {
+      font-weight: 800; font-size: 2.6em; letter-spacing: -0.012em;
+      color: var(--creme); background: var(--garrafa);
+      padding: 0.42em 1.1em; border-radius: 999px;
+    }
+    .s7-link .cap {
+      font-weight: 600; font-size: 1.7em; letter-spacing: -0.005em;
+      color: rgba(31, 77, 64, 0.6);
+    }
+
+    /* ============================================
+       SLIDE 11 — 2 Takes por 1 (promoções) — vitrine
+       ============================================ */
+    .slide.active.promo {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; gap: 1.4em;
+      position: relative;
+    }
+    .promo { background: var(--tomate); }
+    .promo-eyebrow {
+      font-weight: 700; font-size: 2.8em; letter-spacing: 0.34em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
+    }
+    .promo-tag {
+      font-family: 'Unbounded', sans-serif; font-weight: 700;
+      font-size: 6.8em; line-height: 1; letter-spacing: -0.03em;
+      background: var(--creme); color: var(--tomate);
+      padding: 0.34em 0.6em; border-radius: 0.32em;
+      box-shadow: 0 1.4em 3em rgba(0, 0, 0, 0.22);
+    }
+    .promo-sub {
+      margin-top: 0.6em;
+      font-weight: 500; font-size: 4.2em; line-height: 1.2; letter-spacing: -0.012em;
+      color: rgba(242, 234, 215, 0.95); max-width: 22ch;
+    }
   </style>
 </head>
 <body>
 
 <div class="deck">
 
-  <!-- SLIDE 1 — Big Number 10,7% -->
+  <!-- SLIDE 1 — Big Number 1 em 3 -->
   <section class="slide s1 active" data-slide="1">
     <div class="pitch-tag">Pitch 1 · 01</div>
     <div class="s1-stack">
-      <div class="s1-number">10,7<span class="pct">%</span></div>
-      <div class="s1-sub">das avaliações no Google são falsas.</div>
+      <div class="s1-number">1<span class="pct"> em 3</span></div>
+      <div class="s1-sub">e você ainda confia.</div>
     </div>
-    <div class="s1-source">BrightLocal · 2024</div>
+    <div class="s1-source">Fakespot · Mozilla · 2023</div>
   </section>
 
   <!-- SLIDE 2 — Persona Júlia -->
   <section class="slide s2" data-slide="2">
     <div class="pitch-tag">Pitch 1 · 02</div>
 
-    <div class="s2-col">
-      <div class="eyebrow">conheça a Júlia</div>
+    <div class="s2-col s2-persona">
+      <div class="s2-portrait">
+        <img src="julia-v2.png" alt="Júlia" />
+      </div>
       <div class="s2-name">Júlia,<br/>25 anos.</div>
-      <div class="s2-bio">Arquiteta. Mora na Vila Madalena.<br/>Hoje é aniversário do namorado.</div>
     </div>
 
     <div class="s2-col">
       <div class="s2-quote">
         “Quatro vírgula sete estrelas. Duas mil avaliações. Parecia certo.”
-        <span class="author">— Júlia, 20h13</span>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 3 — Mercado -->
+  <!-- SLIDE 3 — Mercado A (156 mil) -->
   <section class="slide s3" data-slide="3">
     <div class="pitch-tag">Pitch 1 · 03</div>
     <div class="s3-stack">
-      <div class="s3-eyebrow-c">o tamanho da armadilha</div>
       <div class="s3-number">156<span class="unit">mil</span></div>
       <div class="s3-sub">bares e restaurantes só em São Paulo.</div>
-      <div class="s3-add"><strong>R$ 495 bi</strong> · food service no Brasil em 2025</div>
     </div>
-    <div class="s3-source">ABRASEL-SP · ABRASEL Nacional · 2024–2025</div>
+    <div class="s3-source">ABRASEL-SP · 2024</div>
   </section>
 
-  <!-- SLIDE 4 — Yotakes + Phone mockup -->
-  <section class="slide s4" data-slide="4">
-    <div class="pitch-tag light">Pitch 1 · 04</div>
+  <!-- SLIDE 4 — Mercado B (R$ 495 bi) -->
+  <section class="slide s3" data-slide="4">
+    <div class="pitch-tag">Pitch 1 · 04</div>
+    <div class="s3-stack">
+      <div class="s3-number"><span class="s3-prefix">R$</span>495<span class="unit">bi</span></div>
+      <div class="s3-sub">movimentados pelo food service brasileiro em 2025.</div>
+    </div>
+    <div class="s3-source">ABRASEL Nacional · 2025</div>
+  </section>
+
+  <!-- SLIDE 5 — Yotakes + Phone mockup (app atual) -->
+  <section class="slide s4" data-slide="5">
+    <div class="pitch-tag light">Pitch 1 · 05</div>
+    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
 
     <div class="s4-col">
-      <div class="s4-eyebrow-c">existe outro jeito</div>
       <div class="s4-word">Yotakes</div>
-      <div class="s4-tagline">todos os seus takes <em>num só feed.</em></div>
+      <div class="s4-tagline">todos os seus takes<br/><em>num só feed.</em></div>
     </div>
 
     <div class="phone">
-      <div class="phone-bar">
-        <div class="mark">Yotakes</div>
-        <div class="date">QUI · 22 MAI</div>
-        <div class="bell"></div>
+      <div class="phone-head">
+        <div><span class="mark">Yotakes</span><span class="since">since '26</span></div>
+        <div class="editorial">São Paulo · 2026 · Nº 01</div>
       </div>
 
-      <div class="phone-stats">
-        <div class="stat"><strong>23</strong>takes</div>
-        <div class="stat"><strong>142</strong>seguindo</div>
-        <div class="stat"><strong>8</strong>listas</div>
-      </div>
-
-      <div class="phone-section">
-        <div class="h">o que andam dizendo</div>
-        <div class="more">ver tudo →</div>
-      </div>
-
-      <div class="phone-feed">
-        <div class="take with-photo">
-          <div class="take-photo"></div>
-          <div class="take-head">
-            <div class="take-avatar">G</div>
-            <div class="take-meta">
-              <div class="take-handle">@gadallape</div>
-              <div class="take-ctx">há 2 horas · jantar</div>
+      <div class="phone-dateline">quem você segue</div>
+      <div class="phone-rows">
+        <div class="trow">
+          <div class="trow-thumb"></div>
+          <div class="trow-body">
+            <div class="trow-top">
+              <div class="trow-rest">Mocotó</div>
+              <div class="trow-rate">
+                <span class="glyphs">★★★★½</span><span class="num">4,5</span>
+              </div>
             </div>
+            <div class="trow-who">@gabriel<span class="dot">·</span>ontem</div>
+            <div class="trow-quote">Lugar caloroso, daqueles que dá vontade de ficar até fechar.</div>
           </div>
-          <div class="take-row">
-            <div class="take-rest">Mocotó</div>
-            <div class="take-stars">
-              <span class="glyphs"><span class="on">★★★★½</span></span>
-              <span class="num">4,5</span>
+        </div>
+
+        <div class="trow">
+          <div class="trow-thumb b"></div>
+          <div class="trow-body">
+            <div class="trow-top">
+              <div class="trow-rest">Tuju</div>
+              <div class="trow-rate">
+                <span class="glyphs">★★★★★</span><span class="num">5,0</span>
+              </div>
             </div>
+            <div class="trow-who">@julia.arq<span class="dot">·</span>há 3 dias</div>
+            <div class="trow-quote">Atendimento impecável e a comida ainda melhor — voltaria amanhã.</div>
           </div>
-          <div class="take-quote">caldo de mocofava espetacular, atendimento atencioso, conta justa.</div>
         </div>
 
-        <div class="take">
-          <div class="take-head">
-            <div class="take-avatar">J</div>
-            <div class="take-meta">
-              <div class="take-handle">@juliarezende</div>
-              <div class="take-ctx">ontem · degustação</div>
+        <div class="trow">
+          <div class="trow-thumb c"></div>
+          <div class="trow-body">
+            <div class="trow-top">
+              <div class="trow-rest">Komah</div>
+              <div class="trow-rate">
+                <span class="glyphs">★★★★</span><span class="num">4,0</span>
+              </div>
             </div>
+            <div class="trow-who">@mika<span class="dot">·</span>hoje</div>
+            <div class="trow-quote">Detalhe no acabamento de cada prato — vale o passeio.</div>
           </div>
-          <div class="take-row">
-            <div class="take-rest">A Casa do Porco</div>
-            <div class="take-stars">
-              <span class="glyphs"><span class="on">★★★★★</span></span>
-              <span class="num">5,0</span>
+        </div>
+
+        <div class="trow">
+          <div class="trow-thumb"></div>
+          <div class="trow-body">
+            <div class="trow-top">
+              <div class="trow-rest">A Casa do Porco</div>
+              <div class="trow-rate">
+                <span class="glyphs">★★★★★</span><span class="num">5,0</span>
+              </div>
             </div>
+            <div class="trow-who">@ana.gomes<span class="dot">·</span>há 2 dias</div>
+            <div class="trow-quote">A melhor experiência da cidade — ponto final.</div>
           </div>
-          <div class="take-quote">menu no nível dos melhores do mundo. inesquecível.</div>
-        </div>
-
-        <div class="take with-photos">
-          <div class="take-photos">
-            <div class="ph a"></div>
-            <div class="ph b"></div>
-          </div>
-          <div class="take-head">
-            <div class="take-avatar">M</div>
-            <div class="take-meta">
-              <div class="take-handle">@mikapocker</div>
-              <div class="take-ctx">há 1h · lanche da tarde</div>
-            </div>
-          </div>
-          <div class="take-row">
-            <div class="take-rest">Z Deli</div>
-            <div class="take-stars">
-              <span class="glyphs"><span class="on">★★</span><span class="off">☆☆☆</span></span>
-              <span class="num">2,0</span>
-            </div>
-          </div>
-          <div class="take-quote">demorou pra sair. quando veio, veio cru. dois é meu limite.</div>
-        </div>
-      </div>
-
-      <div class="phone-nav">
-        <button class="nav-item active" aria-label="início">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12L12 4l9 8"/>
-            <path d="M5 10v10h14V10"/>
-          </svg>
-        </button>
-        <button class="nav-item" aria-label="buscar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="7"/>
-            <path d="M21 21l-4.5-4.5"/>
-          </svg>
-        </button>
-        <button class="nav-item center" aria-label="publicar take">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
-            <path d="M12 5v14M5 12h14"/>
-          </svg>
-        </button>
-        <button class="nav-item" aria-label="atividade">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-        </button>
-        <button class="nav-item" aria-label="perfil">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!--
-    SLIDE 5 — Falas do apresentador (NÃO aparecem no slide):
-      Avalie. — Nota de 0 a 5 com meias, foto e um take em texto curto.
-      Siga.   — Amigos, foodies e gente com paladar parecido. Pessoas reais, não bots.
-      Descubra. — Restaurantes pela voz de quem você confia, não de quem pagou pra aparecer.
-  -->
-  <section class="slide s5" data-slide="5">
-    <div class="pitch-tag">Pitch 1 · 05</div>
-    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
-
-    <div class="eyebrow">como funciona</div>
-
-    <div class="s5-grid">
-      <div class="s5-cell">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
-            <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
-          </svg>
-        </div>
-        <div class="num">01</div>
-        <div class="verb">Avalie.</div>
-        <div class="examples">
-          <span class="chip tom">★★★★½ 4,5</span>
-          <span class="chip">📷 foto + take</span>
-        </div>
-      </div>
-
-      <div class="s5-cell">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="8" r="3.5"/>
-            <circle cx="17" cy="9" r="2.8"/>
-            <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
-            <path d="M16 20c0-2.6 2.2-4 5-4"/>
-          </svg>
-        </div>
-        <div class="num">02</div>
-        <div class="verb">Siga.</div>
-        <div class="examples">
-          <span class="chip">@amigos</span>
-          <span class="chip">@foodies</span>
-          <span class="chip tom">paladar afim</span>
-        </div>
-      </div>
-
-      <div class="s5-cell">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="10" cy="10" r="6.5"/>
-            <path d="M21 21l-5.5-5.5"/>
-            <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
-          </svg>
-        </div>
-        <div class="num">03</div>
-        <div class="verb">Descubra.</div>
-        <div class="examples">
-          <span class="chip tom">por afinidade</span>
-          <span class="chip">listas dos amigos</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 6 — Tração (single statement) -->
-  <section class="slide s6" data-slide="6">
-    <div class="pitch-tag light">Pitch 1 · 06</div>
-    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+  <!-- SLIDE 6 — Como funciona · Avalie -->
+  <section class="slide step" data-slide="6">
+    <div class="pitch-tag">Pitch 1 · 06</div>
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
 
-    <div class="s6-stack">
-      <div class="s6-live">Ao vivo</div>
-      <div class="s6-headline">Já no <em>ar</em>.</div>
-      <div class="s6-url">yotakes.com</div>
+    <div class="step-icon">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
+        <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
+      </svg>
     </div>
-
-    <div class="s6-stat"><strong>535</strong> restaurantes mapeados em São Paulo</div>
+    <div class="step-verb">Avalie</div>
+    <div class="step-chips">
+      <span class="step-chip">★★★★½ 4,5</span>
+      <span class="step-chip">📷 foto + take</span>
+    </div>
   </section>
 
-  <!-- SLIDE 7 — Modelo (split editorial + dashboard B2B) -->
-  <section class="slide s7" data-slide="7">
+  <!-- SLIDE 7 — Como funciona · Siga -->
+  <section class="slide step" data-slide="7">
     <div class="pitch-tag">Pitch 1 · 07</div>
-    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
 
-    <div class="s7-col">
-      <div class="s7-eyebrow">como o yotakes ganha</div>
-      <div class="s7-headline">A receita vem do <em>restaurante</em>.</div>
-      <div class="s7-body">Mensalidade do restaurante destrava painel de insights, perfil verificado e resposta direta a quem avaliou.</div>
-      <div class="s7-foot">A Júlia continua grátis. Ela é o oxigênio da rede.</div>
+    <div class="step-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="8" r="3.5"/>
+        <circle cx="17" cy="9" r="2.8"/>
+        <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
+        <path d="M16 20c0-2.6 2.2-4 5-4"/>
+      </svg>
     </div>
-
-    <!-- Dashboard B2B mockup -->
-    <div class="dash">
-      <div class="dash-bar">
-        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="crumb">Painel<span class="sep">·</span><span class="rest">Mocotó</span></div>
-        <div class="right"><span class="badge">premium</span></div>
-      </div>
-
-      <div class="dash-body">
-        <div>
-          <div class="dash-section-h">esta semana <span class="week">22 — 28 mai</span></div>
-          <div class="dash-stats">
-            <div class="dash-stat">
-              <div class="num">1.247<span class="delta">+18%</span></div>
-              <div class="lbl">visualizações</div>
-            </div>
-            <div class="dash-stat">
-              <div class="num">+24<span class="delta">+9</span></div>
-              <div class="lbl">novos seguidores</div>
-            </div>
-            <div class="dash-stat">
-              <div class="num">4,5 ★</div>
-              <div class="lbl">média da semana</div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="dash-section-h">atividade nos últimos 7 dias</div>
-          <div class="dash-chart">
-            <div class="bar muted" style="height:35%"><span class="v">12</span></div>
-            <div class="bar muted" style="height:48%"><span class="v">19</span></div>
-            <div class="bar" style="height:62%"><span class="v">28</span></div>
-            <div class="bar muted" style="height:42%"><span class="v">15</span></div>
-            <div class="bar" style="height:78%"><span class="v">41</span></div>
-            <div class="bar" style="height:92%"><span class="v">58</span></div>
-            <div class="bar" style="height:70%"><span class="v">33</span></div>
-          </div>
-          <div class="dash-days">
-            <span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span><span>dom</span>
-          </div>
-        </div>
-
-        <div>
-          <div class="dash-section-h">avaliações pendentes <span class="week">2 novas</span></div>
-          <div class="dash-reviews">
-            <div class="dash-rev">
-              <div class="av">G</div>
-              <div class="who">@gadallape</div>
-              <div class="quo">"caldo de mocofava espetacular, atendimento atencioso..."</div>
-              <div class="rate">4,5</div>
-              <div class="respond">responder</div>
-            </div>
-            <div class="dash-rev">
-              <div class="av">J</div>
-              <div class="who">@juliarezende</div>
-              <div class="quo">"voltei depois de meses e tava ainda melhor que da última vez."</div>
-              <div class="rate">5,0</div>
-              <div class="respond">responder</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="step-verb">Siga</div>
+    <div class="step-chips">
+      <span class="step-chip">@amigos</span>
+      <span class="step-chip">@foodies</span>
+      <span class="step-chip">paladar afim</span>
     </div>
   </section>
 
-  <!-- SLIDE 8 — CTA (novo conceito: slogan + QR side-by-side) -->
-  <section class="slide s8" data-slide="8">
-    <div class="pitch-tag light">Pitch 1 · 08</div>
+  <!-- SLIDE 8 — Como funciona · Descubra -->
+  <section class="slide step" data-slide="8">
+    <div class="pitch-tag">Pitch 1 · 08</div>
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+
+    <div class="step-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="10" cy="10" r="6.5"/>
+        <path d="M21 21l-5.5-5.5"/>
+        <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
+      </svg>
+    </div>
+    <div class="step-verb">Descubra</div>
+    <div class="step-chips">
+      <span class="step-chip">por afinidade</span>
+      <span class="step-chip">listas dos amigos</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 9 — Algoritmo -->
+  <section class="slide s-algo" data-slide="9">
+    <div class="pitch-tag light">Pitch 1 · 09</div>
+    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+    <div class="s-algo-stack">
+      <div class="s-algo-claim">Não são todas<br/><em>iguais.</em></div>
+      <div class="s-algo-sub">Nosso algoritmo pondera cada avaliação pelo histórico e frequência real de uso.</div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10 — Usuário -->
+  <section class="slide s7" data-slide="10">
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+
+    <div class="s7-block users">
+      <div class="s7-block-name">Usuário</div>
+      <div class="s7-block-items">
+        <div class="s7-block-item">Free — feed, avaliações e descoberta</div>
+        <div class="s7-block-item">Premium — promoções exclusivas e destaque no perfil</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SLIDE 11 — Restaurante Parceiro -->
+  <section class="slide s7" data-slide="11">
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+
+    <div class="s7-block resto">
+      <div class="s7-block-name">Restaurante<br/>Parceiro</div>
+      <div class="s7-block-items">
+        <div class="s7-block-item">Plano Destaque — analytics, visibilidade e promoções</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SLIDE 12 — CTA (slogan + QR side-by-side) -->
+  <section class="slide s8" data-slide="12">
+    <div class="pitch-tag light">Pitch 1 · 13</div>
 
     <div class="s8-col">
-      <div class="s8-eyebrow">comece agora</div>
       <div class="s8-slogan">
         Suas críticas.<br/>
         Seu paladar.<br/>
@@ -1104,6 +1235,106 @@
       </div>
       <div class="s8-scan">escaneie pra entrar no feed</div>
     </div>
+  </section>
+
+
+  <!-- SLIDE 14 — PRETO (separador fim do pitch) -->
+  <section class="slide s-black" data-slide="14"></section>
+
+  <!-- Q&A 1 -->
+  <section class="slide s-qa" data-slide="15">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">Por que o Google<br/>não faz isso?</div>
+    <div class="s-qa-a">Google precisa de anúncio, não de comunidade. Cultura autêntica não se compra — eles nunca conseguiram criar isso e não vão começar agora.</div>
+  </section>
+
+  <!-- Q&A 2 -->
+  <section class="slide s-qa" data-slide="16">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">Por que alguém vai<br/>migrar do Maps?</div>
+    <div class="s-qa-a">Não é migração — é adição. A pessoa continua no Google. Só que agora tem um lugar onde a nota significa algo.</div>
+  </section>
+
+  <!-- Q&A 3 -->
+  <section class="slide s-qa" data-slide="17">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">Dependem do<br/>Google Places?</div>
+    <div class="s-qa-a">Hoje sim, para o cadastro inicial. O plano é reduzir essa dependência à medida que os restaurantes gerenciam o próprio perfil na plataforma.</div>
+  </section>
+
+  <!-- Q&A 4 -->
+  <section class="slide s-qa" data-slide="18">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">E se o iFood<br/>copiar?</div>
+    <div class="s-qa-a">iFood é logística. Comunidade editorial é o oposto do DNA deles. Seria como o Uber tentar virar Letterboxd.</div>
+  </section>
+
+  <!-- Q&A 5 -->
+  <section class="slide s-qa" data-slide="19">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">Restaurante paga<br/>e recebe notas ruins?</div>
+    <div class="s-qa-a">Nada muda nas notas — ele não comprou estrela, comprou visibilidade. Isso inclusive aumenta a credibilidade da plataforma.</div>
+  </section>
+
+  <!-- Q&A 6 -->
+  <section class="slide s-qa" data-slide="20">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">E se ninguém<br/>quiser avaliar?</div>
+    <div class="s-qa-a">Nota, foto, uma frase. Menos de 30 segundos. E a avaliação aparece no feed de quem você segue — não é tarefa, é contribuição visível.</div>
+  </section>
+
+  <!-- Q&A 7 -->
+  <section class="slide s-qa" data-slide="21">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">Como convencer<br/>o restaurante?</div>
+    <div class="s-qa-a">Ele já paga por visibilidade no iFood e no Google. O Yotakes entrega o que eles não têm: inteligência de público — quem avaliou, com que frequência come fora, onde mais vai.</div>
+  </section>
+
+  <!-- Q&A 8 -->
+  <section class="slide s-qa" data-slide="22">
+    <div class="s-qa-tag">Q&A</div>
+    <div class="s-qa-q">E se um grande<br/>concorrente entrar?</div>
+    <div class="s-qa-a">Se entrar, provou que o mercado existe. A pergunta então é quem tem a comunidade mais autêntica — e isso não se compra com budget.</div>
+  </section>
+
+  <!-- DADO 1 — Letterboxd -->
+  <section class="slide s-dado" data-slide="23">
+    <div class="s-dado-eyebrow">Analogia · Letterboxd</div>
+    <div class="s-dado-num">17<span class="unit">mi</span></div>
+    <div class="s-dado-sub">membros em 2024. Eram 1,8 mi em 2020. Comunidade editorial de nicho escala.</div>
+    <div class="s-dado-source">Letterboxd · 2024</div>
+  </section>
+
+  <!-- DADO 2 — Instagram → Restaurante -->
+  <section class="slide s-dado" data-slide="24">
+    <div class="s-dado-eyebrow">Comportamento · Brasil</div>
+    <div class="s-dado-num">70<span class="pct">%</span></div>
+    <div class="s-dado-sub">dos brasileiros já foram a um restaurante depois de vê-lo no Instagram.</div>
+    <div class="s-dado-source">Opinion Box · 2023</div>
+  </section>
+
+  <!-- DADO 3 — Gastronomia no Instagram -->
+  <section class="slide s-dado" data-slide="25">
+    <div class="s-dado-eyebrow">Interesse · Instagram Brasil</div>
+    <div class="s-dado-num">3º</div>
+    <div class="s-dado-sub">Gastronomia e receitas é o 3º tema que mais atrai usuários no Instagram brasileiro — 44% de interesse declarado.</div>
+    <div class="s-dado-source">Opinion Box · 2023</div>
+  </section>
+
+  <!-- DADO 4 — 4 estrelas -->
+  <section class="slide s-dado" data-slide="26">
+    <div class="s-dado-eyebrow">Decisão de compra · Brasil</div>
+    <div class="s-dado-num">33<span class="pct">%</span></div>
+    <div class="s-dado-sub">descartam restaurantes com menos de 4 estrelas. Mais de 60% consultam avaliações online antes de escolher.</div>
+    <div class="s-dado-source">BrightLocal · 2023</div>
+  </section>
+
+  <!-- DADO 5 — Mercado global -->
+  <section class="slide s-dado" data-slide="27">
+    <div class="s-dado-eyebrow">Mercado Global · Food Service</div>
+    <div class="s-dado-num"><span class="prefix">US$</span>4<span class="unit">tri</span></div>
+    <div class="s-dado-sub">em 2025. Projeção de US$ 6,8 trilhões até 2032.</div>
+    <div class="s-dado-source">Restroworks · 2025</div>
   </section>
 
 </div>

@@ -8,8 +8,10 @@ ranking genérico.
 
 ## Como funciona
 
-`index.html` é um arquivo único auto-contido: 8 slides em 16:9, navegáveis pelo teclado.
-Cada `<section class="slide sN">` ocupa a viewport e só a que tem `.active` aparece.
+`index.html` é um arquivo único auto-contido: 26 seções em 16:9, navegáveis pelo teclado —
+13 slides de pitch, um separador preto que marca o fim da apresentação, e um bloco de
+Q&A guardado para as perguntas da banca. Cada `<section class="slide sN">` ocupa a
+viewport e só a que tem `.active` aparece.
 
 - `?slide=N` (1-indexed) abre direto no slide N — é o que o batch de screenshot usa.
 - O `font-size` do slide é calculado para `1em = 1% da altura`, então todo tamanho
@@ -18,6 +20,8 @@ Cada `<section class="slide sN">` ocupa a viewport e só a que tem `.active` apa
 ## Assets
 
 - `yo-bubble.png` — mascote Yo em creme, para fundos tomate/garrafa.
+- `yo-bubble-red.png` — variante vermelha, para fundos claros.
+- `julia-v2.png` — foto de abertura.
 - `qr-yotakes.png` — QR do último slide, apontando para a produção.
 
 Fontes (Inter + Fraunces) vêm do Google Fonts. Paleta: tomate `#e84b3f`,
@@ -25,5 +29,6 @@ garrafa `#1f4d40`, bordô `#5f1b1f`, creme `#f2ead7`.
 
 ## Origem
 
-A fonte canônica vive em `docs/pitch-1.html` no repositório principal do produto
-(privado). Este repositório é a cópia publicada — para editar, mexa lá e sincronize.
+A fonte canônica vive em `yotakes-pitch/index.html` na branch `monorepo` do repositório
+principal do produto (privado). Este repositório é a cópia publicada — para editar, mexa
+lá e sincronize.
