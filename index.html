@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yotakes — Pitch 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --tomate: #e84b3f;
+      --garrafa: #1f4d40;
+      --bordo: #5f1b1f;
+      --creme: #f2ead7;
+      --creme-200: #ede2c5;
+      --ink: #1a1a1a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .deck { position: relative; width: 100vw; height: 100vh; }
+
+    .slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(100vw, calc(100vh * 16 / 9));
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      font-size: calc(min(100vw, 100vh * 16 / 9) / 100 * 9 / 16);
+      display: none;
+      box-shadow: 0 0 100px rgba(0,0,0,0.5);
+      color: var(--ink);
+    }
+    .slide.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============== shared chrome ============== */
+    .pitch-tag {
+      position: absolute;
+      top: 3.6em;
+      left: 5em;
+      font-weight: 700;
+      font-size: 1.3em;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(95, 27, 31, 0.42);
+      z-index: 4;
+    }
+    .pitch-tag.light { color: rgba(242, 234, 215, 0.55); }
+
+    /* Logo Yo (bubble) — nos slides após o reveal */
+    .yo-logo {
+      position: absolute;
+      top: 3em;
+      right: 4.5em;
+      height: 11em;
+      width: auto;
+      z-index: 4;
+    }
+    /* Slide 8 (CTA) — logo maior */
+    .s8 .yo-logo { height: 14em; top: 3em; right: 4em; }
+
+    .eyebrow {
+      font-weight: 700;
+      font-size: 1.5em;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--tomate);
+      align-self: flex-start;
+      display: flex; align-items: center;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 2.4em;
+      height: 0.16em;
+      background: var(--tomate);
+      margin-right: 1em;
+    }
+    .eyebrow.centered { align-self: center; }
+    .eyebrow.light { color: rgba(242, 234, 215, 0.9); }
+    .eyebrow.light::before { background: var(--creme); opacity: 0.85; }
+
+    /* ============================================
+       SLIDE 1 — Big Number 10,7%
+       ============================================ */
+    .s1 { background: var(--creme); position: relative; }
+    .s1-stack { display: flex; flex-direction: column; align-items: center; gap: 3em; text-align: center; }
+    .s1-number {
+      font-weight: 900; font-size: 32em; line-height: 1; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .s1-number .pct { color: var(--tomate); }
+    .s1-sub {
+      font-weight: 500; font-size: 4em; line-height: 1.15; letter-spacing: -0.012em;
+      color: var(--garrafa); max-width: 22ch;
+    }
+    .s1-source {
+      position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
+      font-weight: 600; font-size: 1.4em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
+    }
+
+    /* ============================================
+       SLIDE 2 — Persona Júlia
+       ============================================ */
+    .slide.active.s2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 9em;
+      gap: 6em;
+      position: relative;
+    }
+    .s2 { background: var(--creme); }
+    .s2-col { display: flex; flex-direction: column; gap: 2.6em; justify-content: center; }
+    .s2-name {
+      font-weight: 900; font-size: 13em; line-height: 0.95; letter-spacing: -0.045em;
+      color: var(--garrafa);
+    }
+    .s2-bio {
+      font-weight: 500; font-size: 3em; line-height: 1.3; letter-spacing: -0.012em;
+      color: var(--garrafa); max-width: 22ch;
+    }
+    .s2-quote {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 3.6em; line-height: 1.3; letter-spacing: -0.005em;
+      color: var(--garrafa);
+      padding-left: 1.2em; border-left: 0.2em solid var(--tomate);
+    }
+    .s2-quote .author {
+      display: block; margin-top: 1.4em;
+      font-family: 'Inter', sans-serif; font-style: normal;
+      font-size: 0.4em; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.6);
+    }
+
+    /* ============================================
+       SLIDE 3 — Mercado (Big Number 156 mil)
+       ============================================ */
+    .s3 { background: var(--creme); position: relative; }
+    .s3-stack { display: flex; flex-direction: column; align-items: center; gap: 2em; text-align: center; }
+    .s3-eyebrow-c {
+      font-weight: 700; font-size: 1.5em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--tomate);
+    }
+    .s3-number {
+      font-weight: 900; font-size: 28em; line-height: 1; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .s3-number .unit { font-size: 0.5em; font-weight: 700; letter-spacing: -0.02em; margin-left: 0.18em; }
+    .s3-sub {
+      font-weight: 500; font-size: 3.6em; line-height: 1.18; letter-spacing: -0.012em;
+      color: var(--garrafa); max-width: 24ch;
+    }
+    .s3-add {
+      margin-top: 1.6em;
+      font-weight: 600; font-size: 2.6em; letter-spacing: -0.005em;
+      color: rgba(31, 77, 64, 0.7);
+    }
+    .s3-add strong { color: var(--tomate); font-weight: 800; }
+    .s3-source {
+      position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
+      font-weight: 600; font-size: 1.4em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       SLIDE 4 — Yotakes + Phone mockup (rico)
+       ============================================ */
+    .slide.active.s4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 9em 0 9em;
+      gap: 5em;
+      position: relative;
+    }
+    .s4 { background: var(--tomate); }
+    .s4-col { display: flex; flex-direction: column; gap: 2.4em; justify-content: center; }
+    .s4-eyebrow-c {
+      font-weight: 700; font-size: 1.5em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
+      display: flex; align-items: center; align-self: flex-start;
+    }
+    .s4-eyebrow-c::before {
+      content: ""; display: inline-block; width: 2.4em; height: 0.16em;
+      background: var(--creme); margin-right: 1em; opacity: 0.85;
+    }
+    .s4-word {
+      font-weight: 900; font-size: 20em; line-height: 0.95; letter-spacing: -0.055em;
+      color: var(--creme);
+    }
+    .s4-tagline {
+      font-weight: 500; font-size: 3.6em; line-height: 1.18; letter-spacing: -0.014em;
+      color: var(--creme); max-width: 22ch;
+    }
+    .s4-tagline em { font-style: normal; font-weight: 800; color: #fff; }
+
+    /* ---- Phone mockup ---- */
+    .phone {
+      position: relative;
+      width: 44em;
+      height: 90em;
+      background: var(--creme);
+      border-radius: 5em;
+      box-shadow:
+        0 0 0 0.9em #1a1a1a,
+        0 0 0 1.4em rgba(255,255,255,0.18),
+        0 5em 7em rgba(0,0,0,0.35),
+        0 1.5em 2.5em rgba(0,0,0,0.2);
+      overflow: hidden;
+      justify-self: center;
+      transform: rotate(-3deg);
+    }
+    .phone::before { /* notch */
+      content: "";
+      position: absolute;
+      top: 0.6em; left: 50%; transform: translateX(-50%);
+      width: 14em; height: 2.2em;
+      background: #1a1a1a; border-radius: 1.2em;
+      z-index: 5;
+    }
+
+    .phone-bar {
+      height: 7em;
+      background: var(--creme-200);
+      border-bottom: 0.2em solid var(--tomate);
+      display: flex; align-items: flex-end; justify-content: space-between;
+      padding: 0 2.4em 1.6em;
+    }
+    .phone-bar .mark {
+      font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
+      font-size: 2.8em; letter-spacing: -0.025em; color: var(--tomate);
+      line-height: 1;
+    }
+    .phone-bar .date {
+      font-weight: 700; font-size: 0.95em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.6);
+    }
+    .phone-bar .bell {
+      width: 2em; height: 2em; border-radius: 50%;
+      background: var(--tomate); opacity: 0.88;
+      position: relative;
+    }
+    .phone-bar .bell::after {
+      content: ""; position: absolute; top: -0.2em; right: -0.2em;
+      width: 0.9em; height: 0.9em; border-radius: 50%;
+      background: var(--garrafa);
+    }
+
+    .phone-stats {
+      padding: 1.4em 2.4em 0;
+      display: flex; gap: 1.8em;
+      font-weight: 700; font-size: 0.95em; letter-spacing: 0.04em;
+      color: var(--garrafa);
+    }
+    .phone-stats .stat strong {
+      font-family: 'Fraunces', serif; font-weight: 700; font-style: italic;
+      font-size: 1.4em; color: var(--tomate); margin-right: 0.25em;
+    }
+
+    .phone-section {
+      padding: 1.6em 2.4em 0.4em;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .phone-section .h {
+      font-weight: 800; font-size: 1.1em; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--bordo);
+    }
+    .phone-section .more {
+      font-weight: 600; font-size: 0.85em; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(95, 27, 31, 0.5);
+    }
+
+    .phone-feed { padding: 0.3em 2em 0.6em; display: flex; flex-direction: column; gap: 1.2em; }
+    .take {
+      background: var(--creme-200);
+      border-radius: 1.6em;
+      padding: 1.4em 1.6em;
+      display: flex; flex-direction: column; gap: 0.8em;
+      box-shadow: 0 0.4em 0.8em rgba(0,0,0,0.06);
+    }
+    .take.with-photo .take-photo {
+      height: 5em;
+      border-radius: 1em;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(255,200,140,0.55), transparent 60%),
+        linear-gradient(135deg, #c97a3a 0%, #7b3624 60%, #401910 100%);
+      box-shadow: inset 0 0 1em rgba(0,0,0,0.15);
+    }
+
+    .take.with-photos .take-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4em;
+      height: 4.6em;
+    }
+    .take-photos .ph {
+      border-radius: 0.9em;
+      box-shadow: inset 0 0 0.8em rgba(0,0,0,0.18);
+    }
+    .take-photos .ph.a {
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(255,210,150,0.55), transparent 60%),
+        linear-gradient(135deg, #c5793a 0%, #8a4427 55%, #3e1a0d 100%);
+    }
+    .take-photos .ph.b {
+      background:
+        radial-gradient(ellipse at 70% 25%, rgba(255,225,160,0.45), transparent 60%),
+        linear-gradient(135deg, #a26339 0%, #6b3520 55%, #321408 100%);
+    }
+    .take-head { display: flex; align-items: center; gap: 0.9em; }
+    .take-avatar {
+      width: 2.4em; height: 2.4em; border-radius: 50%;
+      background: var(--bordo); color: var(--creme);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1em;
+      flex-shrink: 0;
+    }
+    .take-meta { display: flex; flex-direction: column; gap: 0.1em; min-width: 0; }
+    .take-handle { font-weight: 700; font-size: 1em; color: var(--ink); }
+    .take-ctx {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 0.85em; color: rgba(31, 77, 64, 0.7);
+    }
+    .take-row { display: flex; align-items: baseline; gap: 0.6em; }
+    .take-rest {
+      font-weight: 800; font-size: 1.45em; letter-spacing: -0.012em;
+      color: var(--garrafa); line-height: 1.1;
+    }
+    .take-stars {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 0.3em;
+    }
+    .take-stars .glyphs {
+      font-size: 1em; letter-spacing: 0.05em;
+    }
+    .take-stars .glyphs .on  { color: var(--tomate); }
+    .take-stars .glyphs .off { color: rgba(232, 75, 63, 0.28); }
+    .take-stars .num {
+      font-family: 'Fraunces', serif; font-weight: 700;
+      font-size: 1.2em; color: var(--tomate);
+    }
+    .take-quote {
+      font-weight: 500; font-size: 1em; line-height: 1.4; letter-spacing: -0.005em;
+      color: rgba(26, 26, 26, 0.82);
+      padding-left: 0.8em; border-left: 0.16em solid var(--tomate);
+    }
+
+    .phone-nav {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 6em;
+      background: var(--creme-200);
+      border-top: 0.2em solid var(--tomate);
+      display: flex; align-items: center; justify-content: space-around;
+      padding: 0 1.4em 1em;
+    }
+    .nav-item {
+      width: 3.4em; height: 3.4em;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(95, 27, 31, 0.45);
+      background: none; border: none; cursor: pointer;
+      padding: 0;
+    }
+    .nav-item.active { color: var(--tomate); }
+    .nav-item.center {
+      width: 3.8em; height: 3.8em;
+      border-radius: 50%;
+      background: var(--tomate);
+      color: #fff;
+      box-shadow: 0 0.5em 0.9em rgba(232, 75, 63, 0.55);
+    }
+    .nav-item svg {
+      width: 1.9em; height: 1.9em;
+      stroke-width: 2.2;
+    }
+    .nav-item.center svg {
+      width: 2em; height: 2em;
+      stroke-width: 2.8;
+    }
+
+    /* ============================================
+       SLIDE 5 — Como funciona (3 verbos)
+       ============================================ */
+    .slide.active.s5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8em 9em;
+      gap: 3.6em;
+      position: relative;
+    }
+    .s5 { background: var(--creme); }
+    .s5-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 4em;
+      margin-top: 1em;
+    }
+    .s5-cell {
+      display: flex; flex-direction: column; gap: 1.2em;
+      padding: 0;
+      align-items: center;
+      text-align: center;
+    }
+    .s5-cell .icon {
+      width: 4.6em; height: 4.6em;
+      border-radius: 1.2em;
+      background: var(--tomate);
+      color: var(--creme);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0.5em 1em rgba(232, 75, 63, 0.3);
+    }
+    .s5-cell .icon svg { width: 2.8em; height: 2.8em; stroke-width: 2.2; }
+    .s5-cell .num {
+      font-weight: 700; font-size: 1.4em; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--tomate);
+    }
+    .s5-cell .verb {
+      font-weight: 900; font-size: 7.4em; line-height: 1; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .s5-cell .desc {
+      font-weight: 500; font-size: 2.4em; line-height: 1.3; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.85); max-width: 20ch;
+    }
+    .s5-cell .examples {
+      display: flex; flex-wrap: wrap; gap: 0.8em;
+      margin-top: 1em;
+      justify-content: center;
+    }
+    .s5-cell .chip {
+      font-weight: 700; font-size: 1.9em; letter-spacing: -0.005em;
+      padding: 0.55em 1.1em;
+      background: #fff;
+      border: 0.14em solid rgba(31, 77, 64, 0.14);
+      border-radius: 999px;
+      color: var(--garrafa);
+    }
+    .s5-cell .chip.tom { color: var(--tomate); border-color: rgba(232, 75, 63, 0.35); }
+
+    /* ============================================
+       SLIDE 6 — Tração (single statement)
+       3 elementos: badge ao vivo + headline + url
+       ============================================ */
+    .s6 { background: var(--garrafa); position: relative; }
+    .s6 .pitch-tag { color: rgba(242, 234, 215, 0.55); }
+    .s6-stack {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 2em; text-align: center;
+    }
+    .s6-live {
+      display: inline-flex; align-items: center; gap: 0.9em;
+      font-weight: 800; font-size: 1.6em;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--tomate);
+    }
+    .s6-live::before {
+      content: "";
+      width: 0.9em; height: 0.9em;
+      background: var(--tomate);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0.35em rgba(232, 75, 63, 0.32);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0.35em rgba(232, 75, 63, 0.32); }
+      50% { box-shadow: 0 0 0 0.7em rgba(232, 75, 63, 0.08); }
+    }
+    .s6-headline {
+      font-weight: 900; font-size: 18em; line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--creme);
+    }
+    .s6-headline em {
+      font-style: normal; color: var(--tomate);
+    }
+    .s6-url {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 5em; letter-spacing: -0.015em;
+      color: var(--creme);
+    }
+    .s6-stat {
+      position: absolute; bottom: 4.5em; left: 50%; transform: translateX(-50%);
+      font-weight: 700; font-size: 1.6em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.6);
+      white-space: nowrap;
+    }
+    .s6-stat strong { color: var(--tomate); font-weight: 800; }
+
+    /* ============================================
+       SLIDE 7 — Modelo (split + dashboard B2B real)
+       Esquerda: copy editorial.
+       Direita: mockup do painel que o restaurante recebe.
+       ============================================ */
+    .slide.active.s7 {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      padding: 0 8em;
+      gap: 5em;
+      position: relative;
+    }
+    .s7 { background: var(--creme); }
+
+    .s7-col { display: flex; flex-direction: column; gap: 2.4em; }
+
+    .s7-eyebrow {
+      font-weight: 700; font-size: 1.6em; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--tomate);
+      align-self: flex-start; display: flex; align-items: center;
+    }
+    .s7-eyebrow::before {
+      content: ""; display: inline-block; width: 2.4em; height: 0.16em;
+      background: var(--tomate); margin-right: 1em;
+    }
+    .s7-headline {
+      font-weight: 900; font-size: 7.8em; line-height: 0.98;
+      letter-spacing: -0.045em; color: var(--garrafa);
+    }
+    .s7-headline em {
+      font-style: normal; color: var(--tomate);
+    }
+    .s7-body {
+      font-weight: 500; font-size: 2.6em; line-height: 1.32;
+      letter-spacing: -0.012em; color: rgba(31, 77, 64, 0.85);
+      max-width: 26ch;
+    }
+    .s7-foot {
+      display: flex; align-items: center; gap: 0.9em;
+      margin-top: 1em;
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 2.2em; letter-spacing: -0.005em;
+      color: rgba(31, 77, 64, 0.72);
+    }
+    .s7-foot::before {
+      content: ""; display: inline-block; width: 1em; height: 1em;
+      background: var(--tomate); border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ---- Dashboard B2B mockup ---- */
+    .dash {
+      width: 100%; max-width: 78em;
+      background: #fff;
+      border-radius: 2em;
+      box-shadow:
+        0 0 0 0.8em rgba(31, 77, 64, 0.06),
+        0 3em 5em rgba(31, 77, 64, 0.18),
+        0 0.8em 1.6em rgba(31, 77, 64, 0.1);
+      overflow: hidden;
+      transform: rotate(-1.5deg);
+    }
+    .dash-bar {
+      background: var(--creme-200);
+      border-bottom: 0.16em solid var(--tomate);
+      padding: 1.2em 2em;
+      display: flex; align-items: center; gap: 1.2em;
+    }
+    .dash-bar .dots { display: flex; gap: 0.5em; }
+    .dash-bar .dot {
+      width: 0.9em; height: 0.9em; border-radius: 50%;
+      background: rgba(95, 27, 31, 0.22);
+    }
+    .dash-bar .crumb {
+      margin-left: 1em;
+      font-weight: 700; font-size: 1.2em; letter-spacing: 0.04em;
+      color: var(--garrafa);
+    }
+    .dash-bar .crumb .sep { opacity: 0.4; margin: 0 0.5em; }
+    .dash-bar .crumb .rest { color: var(--tomate); }
+    .dash-bar .right {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 0.8em;
+      font-weight: 700; font-size: 1em; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.55);
+    }
+    .dash-bar .badge {
+      background: var(--tomate); color: var(--creme);
+      padding: 0.4em 0.8em; border-radius: 999px;
+      font-size: 0.85em; letter-spacing: 0.18em;
+    }
+
+    .dash-body { padding: 2em 2em 1.8em; display: flex; flex-direction: column; gap: 1.8em; }
+
+    .dash-section-h {
+      font-weight: 800; font-size: 1.3em; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--garrafa);
+      margin-bottom: 0.6em;
+    }
+    .dash-section-h .week {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 0.85em; letter-spacing: 0;
+      color: rgba(31, 77, 64, 0.55); margin-left: 0.6em; text-transform: none;
+    }
+
+    .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2em; }
+    .dash-stat {
+      background: var(--creme);
+      border-radius: 1em;
+      padding: 1.4em 1.4em 1.2em;
+      display: flex; flex-direction: column; gap: 0.3em;
+      border-left: 0.3em solid var(--tomate);
+    }
+    .dash-stat .num {
+      font-weight: 900; font-size: 3.4em; line-height: 1;
+      letter-spacing: -0.025em; color: var(--garrafa);
+    }
+    .dash-stat .num .delta {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 0.4em; color: var(--tomate);
+      margin-left: 0.3em; vertical-align: 0.3em;
+    }
+    .dash-stat .lbl {
+      font-weight: 600; font-size: 1em; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.6);
+    }
+
+    .dash-chart {
+      display: flex; align-items: flex-end; gap: 0.9em;
+      height: 9em;
+      padding: 1em 0.4em 0;
+      border-bottom: 0.14em solid rgba(31, 77, 64, 0.12);
+    }
+    .dash-chart .bar {
+      flex: 1; border-radius: 0.4em 0.4em 0 0;
+      background: linear-gradient(180deg, var(--tomate) 0%, var(--bordo) 100%);
+      position: relative;
+    }
+    .dash-chart .bar.muted {
+      background: linear-gradient(180deg, rgba(31, 77, 64, 0.28) 0%, rgba(31, 77, 64, 0.18) 100%);
+    }
+    .dash-chart .bar .v {
+      position: absolute; top: -1.3em; left: 50%; transform: translateX(-50%);
+      font-weight: 700; font-size: 0.7em;
+      color: rgba(31, 77, 64, 0.7);
+    }
+    .dash-days {
+      display: flex; gap: 0.9em;
+      font-weight: 600; font-size: 0.85em; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.45);
+      padding: 0.5em 0.4em 0;
+    }
+    .dash-days span { flex: 1; text-align: center; }
+
+    .dash-reviews { display: flex; flex-direction: column; gap: 0.7em; }
+    .dash-rev {
+      display: flex; align-items: center; gap: 0.9em;
+      padding: 0.9em 1em; background: var(--creme);
+      border-radius: 0.9em;
+    }
+    .dash-rev .av {
+      width: 2em; height: 2em; border-radius: 50%;
+      background: var(--bordo); color: var(--creme);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9em; flex-shrink: 0;
+    }
+    .dash-rev .who { font-weight: 700; font-size: 1em; color: var(--garrafa); white-space: nowrap; }
+    .dash-rev .quo {
+      flex: 1; font-weight: 500; font-size: 0.95em;
+      color: rgba(26, 26, 26, 0.7);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .dash-rev .rate {
+      font-family: 'Fraunces', serif; font-weight: 700;
+      font-size: 1.2em; color: var(--tomate); flex-shrink: 0;
+    }
+    .dash-rev .respond {
+      font-weight: 700; font-size: 0.85em; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--creme);
+      background: var(--tomate);
+      padding: 0.4em 0.8em; border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       SLIDE 8 — CTA (NOVO CONCEITO)
+       Grid: slogan grande à esquerda + QR dominante à direita.
+       Brand slogan oficial: "Suas críticas. Seu paladar. Seu guia."
+       ============================================ */
+    .slide.active.s8 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 9em;
+      gap: 5em;
+      position: relative;
+    }
+    .s8 { background: var(--tomate); }
+
+    .s8-col { display: flex; flex-direction: column; gap: 2em; }
+    .s8-eyebrow {
+      font-weight: 700; font-size: 1.4em; letter-spacing: 0.32em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.85);
+      display: flex; align-items: center;
+    }
+    .s8-eyebrow::before {
+      content: ""; display: inline-block; width: 2.4em; height: 0.16em;
+      background: var(--creme); margin-right: 1em; opacity: 0.85;
+    }
+    .s8-slogan {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 8.2em; line-height: 1.04; letter-spacing: -0.025em;
+      color: var(--creme);
+    }
+    .s8-slogan em {
+      font-style: italic; font-weight: 700; color: #fff;
+    }
+    .s8-url-line {
+      margin-top: 1.4em;
+      font-weight: 800; font-size: 2.4em; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.95);
+    }
+
+    .s8-qr-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 2em;
+    }
+    .qr-frame {
+      background: var(--creme);
+      padding: 1.2em;
+      border-radius: 1.6em;
+      box-shadow: 0 1.6em 3em rgba(0, 0, 0, 0.35), 0 0.4em 0.8em rgba(0, 0, 0, 0.2);
+    }
+    .qr-frame .qr-img {
+      width: 40em; height: 40em;
+      display: block;
+      border-radius: 0.6em;
+    }
+    .s8-scan {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 500;
+      font-size: 3.2em; line-height: 1.15;
+      letter-spacing: -0.012em;
+      color: var(--creme);
+      text-align: center;
+    }
+    .s8-scan::before { content: "↑ "; opacity: 0.75; }
+
+    /* ----- nav ----- */
+    .nav-hint {
+      position: fixed;
+      bottom: 8px; right: 12px;
+      font-weight: 600; font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      pointer-events: none; z-index: 100;
+    }
+    :fullscreen .nav-hint { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- SLIDE 1 — Big Number 10,7% -->
+  <section class="slide s1 active" data-slide="1">
+    <div class="pitch-tag">Pitch 1 · 01</div>
+    <div class="s1-stack">
+      <div class="s1-number">10,7<span class="pct">%</span></div>
+      <div class="s1-sub">das avaliações no Google são falsas.</div>
+    </div>
+    <div class="s1-source">BrightLocal · 2024</div>
+  </section>
+
+  <!-- SLIDE 2 — Persona Júlia -->
+  <section class="slide s2" data-slide="2">
+    <div class="pitch-tag">Pitch 1 · 02</div>
+
+    <div class="s2-col">
+      <div class="eyebrow">conheça a Júlia</div>
+      <div class="s2-name">Júlia,<br/>25 anos.</div>
+      <div class="s2-bio">Arquiteta. Mora na Vila Madalena.<br/>Hoje é aniversário do namorado.</div>
+    </div>
+
+    <div class="s2-col">
+      <div class="s2-quote">
+        “Quatro vírgula sete estrelas. Duas mil avaliações. Parecia certo.”
+        <span class="author">— Júlia, 20h13</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 — Mercado -->
+  <section class="slide s3" data-slide="3">
+    <div class="pitch-tag">Pitch 1 · 03</div>
+    <div class="s3-stack">
+      <div class="s3-eyebrow-c">o tamanho da armadilha</div>
+      <div class="s3-number">156<span class="unit">mil</span></div>
+      <div class="s3-sub">bares e restaurantes só em São Paulo.</div>
+      <div class="s3-add"><strong>R$ 495 bi</strong> · food service no Brasil em 2025</div>
+    </div>
+    <div class="s3-source">ABRASEL-SP · ABRASEL Nacional · 2024–2025</div>
+  </section>
+
+  <!-- SLIDE 4 — Yotakes + Phone mockup -->
+  <section class="slide s4" data-slide="4">
+    <div class="pitch-tag light">Pitch 1 · 04</div>
+
+    <div class="s4-col">
+      <div class="s4-eyebrow-c">existe outro jeito</div>
+      <div class="s4-word">Yotakes</div>
+      <div class="s4-tagline">todos os seus takes <em>num só feed.</em></div>
+    </div>
+
+    <div class="phone">
+      <div class="phone-bar">
+        <div class="mark">Yotakes</div>
+        <div class="date">QUI · 22 MAI</div>
+        <div class="bell"></div>
+      </div>
+
+      <div class="phone-stats">
+        <div class="stat"><strong>23</strong>takes</div>
+        <div class="stat"><strong>142</strong>seguindo</div>
+        <div class="stat"><strong>8</strong>listas</div>
+      </div>
+
+      <div class="phone-section">
+        <div class="h">o que andam dizendo</div>
+        <div class="more">ver tudo →</div>
+      </div>
+
+      <div class="phone-feed">
+        <div class="take with-photo">
+          <div class="take-photo"></div>
+          <div class="take-head">
+            <div class="take-avatar">G</div>
+            <div class="take-meta">
+              <div class="take-handle">@gadallape</div>
+              <div class="take-ctx">há 2 horas · jantar</div>
+            </div>
+          </div>
+          <div class="take-row">
+            <div class="take-rest">Mocotó</div>
+            <div class="take-stars">
+              <span class="glyphs"><span class="on">★★★★½</span></span>
+              <span class="num">4,5</span>
+            </div>
+          </div>
+          <div class="take-quote">caldo de mocofava espetacular, atendimento atencioso, conta justa.</div>
+        </div>
+
+        <div class="take">
+          <div class="take-head">
+            <div class="take-avatar">J</div>
+            <div class="take-meta">
+              <div class="take-handle">@juliarezende</div>
+              <div class="take-ctx">ontem · degustação</div>
+            </div>
+          </div>
+          <div class="take-row">
+            <div class="take-rest">A Casa do Porco</div>
+            <div class="take-stars">
+              <span class="glyphs"><span class="on">★★★★★</span></span>
+              <span class="num">5,0</span>
+            </div>
+          </div>
+          <div class="take-quote">menu no nível dos melhores do mundo. inesquecível.</div>
+        </div>
+
+        <div class="take with-photos">
+          <div class="take-photos">
+            <div class="ph a"></div>
+            <div class="ph b"></div>
+          </div>
+          <div class="take-head">
+            <div class="take-avatar">M</div>
+            <div class="take-meta">
+              <div class="take-handle">@mikapocker</div>
+              <div class="take-ctx">há 1h · lanche da tarde</div>
+            </div>
+          </div>
+          <div class="take-row">
+            <div class="take-rest">Z Deli</div>
+            <div class="take-stars">
+              <span class="glyphs"><span class="on">★★</span><span class="off">☆☆☆</span></span>
+              <span class="num">2,0</span>
+            </div>
+          </div>
+          <div class="take-quote">demorou pra sair. quando veio, veio cru. dois é meu limite.</div>
+        </div>
+      </div>
+
+      <div class="phone-nav">
+        <button class="nav-item active" aria-label="início">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12L12 4l9 8"/>
+            <path d="M5 10v10h14V10"/>
+          </svg>
+        </button>
+        <button class="nav-item" aria-label="buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.5-4.5"/>
+          </svg>
+        </button>
+        <button class="nav-item center" aria-label="publicar take">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </button>
+        <button class="nav-item" aria-label="atividade">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </button>
+        <button class="nav-item" aria-label="perfil">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!--
+    SLIDE 5 — Falas do apresentador (NÃO aparecem no slide):
+      Avalie. — Nota de 0 a 5 com meias, foto e um take em texto curto.
+      Siga.   — Amigos, foodies e gente com paladar parecido. Pessoas reais, não bots.
+      Descubra. — Restaurantes pela voz de quem você confia, não de quem pagou pra aparecer.
+  -->
+  <section class="slide s5" data-slide="5">
+    <div class="pitch-tag">Pitch 1 · 05</div>
+    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+
+    <div class="eyebrow">como funciona</div>
+
+    <div class="s5-grid">
+      <div class="s5-cell">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
+            <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
+          </svg>
+        </div>
+        <div class="num">01</div>
+        <div class="verb">Avalie.</div>
+        <div class="examples">
+          <span class="chip tom">★★★★½ 4,5</span>
+          <span class="chip">📷 foto + take</span>
+        </div>
+      </div>
+
+      <div class="s5-cell">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3.5"/>
+            <circle cx="17" cy="9" r="2.8"/>
+            <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
+            <path d="M16 20c0-2.6 2.2-4 5-4"/>
+          </svg>
+        </div>
+        <div class="num">02</div>
+        <div class="verb">Siga.</div>
+        <div class="examples">
+          <span class="chip">@amigos</span>
+          <span class="chip">@foodies</span>
+          <span class="chip tom">paladar afim</span>
+        </div>
+      </div>
+
+      <div class="s5-cell">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="6.5"/>
+            <path d="M21 21l-5.5-5.5"/>
+            <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
+          </svg>
+        </div>
+        <div class="num">03</div>
+        <div class="verb">Descubra.</div>
+        <div class="examples">
+          <span class="chip tom">por afinidade</span>
+          <span class="chip">listas dos amigos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6 — Tração (single statement) -->
+  <section class="slide s6" data-slide="6">
+    <div class="pitch-tag light">Pitch 1 · 06</div>
+    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+
+    <div class="s6-stack">
+      <div class="s6-live">Ao vivo</div>
+      <div class="s6-headline">Já no <em>ar</em>.</div>
+      <div class="s6-url">yotakes.com</div>
+    </div>
+
+    <div class="s6-stat"><strong>535</strong> restaurantes mapeados em São Paulo</div>
+  </section>
+
+  <!-- SLIDE 7 — Modelo (split editorial + dashboard B2B) -->
+  <section class="slide s7" data-slide="7">
+    <div class="pitch-tag">Pitch 1 · 07</div>
+    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+
+    <div class="s7-col">
+      <div class="s7-eyebrow">como o yotakes ganha</div>
+      <div class="s7-headline">A receita vem do <em>restaurante</em>.</div>
+      <div class="s7-body">Mensalidade do restaurante destrava painel de insights, perfil verificado e resposta direta a quem avaliou.</div>
+      <div class="s7-foot">A Júlia continua grátis. Ela é o oxigênio da rede.</div>
+    </div>
+
+    <!-- Dashboard B2B mockup -->
+    <div class="dash">
+      <div class="dash-bar">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="crumb">Painel<span class="sep">·</span><span class="rest">Mocotó</span></div>
+        <div class="right"><span class="badge">premium</span></div>
+      </div>
+
+      <div class="dash-body">
+        <div>
+          <div class="dash-section-h">esta semana <span class="week">22 — 28 mai</span></div>
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="num">1.247<span class="delta">+18%</span></div>
+              <div class="lbl">visualizações</div>
+            </div>
+            <div class="dash-stat">
+              <div class="num">+24<span class="delta">+9</span></div>
+              <div class="lbl">novos seguidores</div>
+            </div>
+            <div class="dash-stat">
+              <div class="num">4,5 ★</div>
+              <div class="lbl">média da semana</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="dash-section-h">atividade nos últimos 7 dias</div>
+          <div class="dash-chart">
+            <div class="bar muted" style="height:35%"><span class="v">12</span></div>
+            <div class="bar muted" style="height:48%"><span class="v">19</span></div>
+            <div class="bar" style="height:62%"><span class="v">28</span></div>
+            <div class="bar muted" style="height:42%"><span class="v">15</span></div>
+            <div class="bar" style="height:78%"><span class="v">41</span></div>
+            <div class="bar" style="height:92%"><span class="v">58</span></div>
+            <div class="bar" style="height:70%"><span class="v">33</span></div>
+          </div>
+          <div class="dash-days">
+            <span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span><span>dom</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="dash-section-h">avaliações pendentes <span class="week">2 novas</span></div>
+          <div class="dash-reviews">
+            <div class="dash-rev">
+              <div class="av">G</div>
+              <div class="who">@gadallape</div>
+              <div class="quo">"caldo de mocofava espetacular, atendimento atencioso..."</div>
+              <div class="rate">4,5</div>
+              <div class="respond">responder</div>
+            </div>
+            <div class="dash-rev">
+              <div class="av">J</div>
+              <div class="who">@juliarezende</div>
+              <div class="quo">"voltei depois de meses e tava ainda melhor que da última vez."</div>
+              <div class="rate">5,0</div>
+              <div class="respond">responder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8 — CTA (novo conceito: slogan + QR side-by-side) -->
+  <section class="slide s8" data-slide="8">
+    <div class="pitch-tag light">Pitch 1 · 08</div>
+
+    <div class="s8-col">
+      <div class="s8-eyebrow">comece agora</div>
+      <div class="s8-slogan">
+        Suas críticas.<br/>
+        Seu paladar.<br/>
+        <em>Seu guia.</em>
+      </div>
+      <div class="s8-url-line">— yotakes.com</div>
+    </div>
+
+    <div class="s8-qr-wrap">
+      <div class="qr-frame">
+        <img class="qr-img" src="qr-yotakes.png" alt="QR yotakes.com" />
+      </div>
+      <div class="s8-scan">escaneie pra entrar no feed</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav-hint">← → · F (fullscreen)</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function show(i) {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  }
+
+  // Permite navegar via ?slide=N (1-indexed) — usado pra screenshot batch
+  const _params = new URLSearchParams(window.location.search);
+  const _initial = parseInt(_params.get('slide') || '1', 10) - 1;
+  if (_initial > 0 && _initial < slides.length) {
+    current = _initial;
+    show(current);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      current = Math.min(current + 1, slides.length - 1);
+      show(current);
+      e.preventDefault();
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      current = Math.max(current - 1, 0);
+      show(current);
+      e.preventDefault();
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-hint')) return;
+    current = Math.min(current + 1, slides.length - 1);
+    show(current);
+  });
+</script>
+
+</body>
+</html>
