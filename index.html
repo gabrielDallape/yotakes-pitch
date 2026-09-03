@@ -991,15 +991,326 @@
       font-weight: 500; font-size: 4.2em; line-height: 1.2; letter-spacing: -0.012em;
       color: rgba(242, 234, 215, 0.95); max-width: 22ch;
     }
+  
+    /* ============================================
+       REVISÃO SET/2026 — telas do Figma + pedidos do Ronaldo
+       ============================================ */
+
+    /* ---- Moldura de celular com print do Figma ---- */
+    .device {
+      position: relative;
+      /* altura em % do slide (não em em: o font-size do slide não é
+         exatamente 1% da altura, e 88em dava quase 100%);
+         aspect-ratio trava a largura na proporção do export do Figma */
+      height: 86%;
+      aspect-ratio: 804 / 1746;
+      background: var(--creme);
+      border-radius: 4.6em;
+      box-shadow:
+        0 0 0 0.9em #1a1a1a,
+        0 0 0 1.4em rgba(255, 255, 255, 0.18),
+        0 5em 7em rgba(0, 0, 0, 0.35),
+        0 1.5em 2.5em rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      justify-self: center;
+    }
+    .device img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---- Slides 07–09: verbo + tela do app ---- */
+    .slide.active.sv {
+      display: grid;
+      grid-template-columns: 1fr 0.78fr;
+      align-items: center;
+      padding: 0 8em;
+      gap: 5em;
+      position: relative;
+    }
+    .sv { background: var(--creme); }
+    .sv-col { display: flex; flex-direction: column; gap: 2.6em; align-items: flex-start; }
+    .sv-icon {
+      width: 7em; height: 7em; border-radius: 1.7em;
+      background: var(--tomate); color: var(--creme);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0.8em 1.6em rgba(232, 75, 63, 0.3);
+    }
+    .sv-icon svg { width: 4.2em; height: 4.2em; stroke-width: 2.2; }
+    .sv-verb {
+      font-weight: 900; font-size: 12em; line-height: 0.9; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .sv-desc {
+      font-weight: 500; font-size: 3.2em; line-height: 1.28; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.8); max-width: 20ch;
+    }
+    .sv-desc em { font-style: normal; font-weight: 800; color: var(--tomate); }
+    /* fundos escuros: a tela do Figma é creme, então o slide escurece pra ela saltar */
+    .sv.dark { background: var(--garrafa); }
+    .sv.wine { background: var(--bordo); }
+    .sv.dark .sv-verb, .sv.wine .sv-verb { color: var(--creme); }
+    .sv.dark .sv-desc, .sv.wine .sv-desc { color: rgba(242, 234, 215, 0.85); }
+    .sv.dark .sv-desc em, .sv.wine .sv-desc em { color: #fff; }
+
+    /* ---- Letterboxd, no slide do feed ---- */
+    .s4-ref {
+      margin-top: 0.8em;
+      font-weight: 500; font-size: 2.5em; line-height: 1.32; letter-spacing: -0.008em;
+      color: rgba(242, 234, 215, 0.9);
+      max-width: 28ch;
+      padding-left: 1.1em;
+      border-left: 0.16em solid rgba(242, 234, 215, 0.5);
+    }
+    .s4-ref strong { font-weight: 800; color: #fff; }
+    .s4-ref span { display: block; margin-top: 0.5em; font-weight: 800; color: #fff; }
+
+    /* ---- Funil de público ---- */
+    .slide.active.sfun {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7em 8em; gap: 2em; position: relative;
+    }
+    .sfun { background: var(--creme); }
+    .sfun-head {
+      font-weight: 900; font-size: 7em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--garrafa); text-align: center;
+    }
+    .sfun-head em { font-style: normal; color: var(--tomate); }
+    .funil { display: flex; flex-direction: column; gap: 1.2em; width: 100%; margin-top: 1em; }
+    /* trilha à esquerda (barra que estreita) + legenda fixa à direita, pro texto
+       nunca brigar com a largura da barra */
+    .funil-step {
+      display: grid; grid-template-columns: 1fr 36em;
+      align-items: center; gap: 3em; width: 100%;
+    }
+    .funil-bar {
+      height: 11em; border-radius: 1.3em;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto; padding: 0 2em;
+    }
+    .funil-step .v {
+      font-weight: 900; font-size: 4.6em; line-height: 1; letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+    .funil-step .l {
+      font-weight: 600; font-size: 2.6em; line-height: 1.25; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.8);
+    }
+    .funil-step.f1 .funil-bar { width: 100%; background: rgba(31, 77, 64, 0.16); color: var(--garrafa); }
+    .funil-step.f2 .funil-bar { width: 76%;  background: rgba(31, 77, 64, 0.32); color: var(--garrafa); }
+    .funil-step.f3 .funil-bar { width: 54%;  background: var(--garrafa);          color: var(--creme); }
+    .funil-step.f4 .funil-bar { width: 34%;  background: var(--tomate);           color: #fff; }
+    .funil-step.f4 .l { color: var(--tomate); font-weight: 700; }
+
+    /* ---- A Júlia no slide do algoritmo ---- */
+    .s-algo-julia {
+      display: flex; align-items: center; gap: 2.2em;
+      margin-top: 1.6em;
+      background: rgba(242, 234, 215, 0.08);
+      border: 0.14em solid rgba(242, 234, 215, 0.18);
+      border-radius: 2em;
+      padding: 2.2em 2.8em;
+      max-width: 74em;
+      text-align: left;
+    }
+    .s-algo-julia img {
+      width: 13em; height: 13em; border-radius: 50%;
+      object-fit: cover; flex: none;
+    }
+    .s-algo-julia .t {
+      font-weight: 500; font-size: 2.9em; line-height: 1.3; letter-spacing: -0.012em;
+      color: rgba(242, 234, 215, 0.9);
+    }
+    .s-algo-julia .t strong { font-weight: 800; color: var(--tomate); }
+
+    /* ---- Planos do usuário ---- */
+    .slide.active.splan {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7em 7em; gap: 2.4em; position: relative;
+    }
+    .splan { background: var(--creme); }
+    .splan-head {
+      font-weight: 900; font-size: 7em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--garrafa); text-align: center;
+    }
+    .splan-head em { font-style: normal; color: var(--tomate); }
+    .splan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6em; margin-top: 1em; }
+    .plan {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 2em; padding: 3em 2.6em;
+      display: flex; flex-direction: column; gap: 1.2em;
+    }
+    .plan.feat {
+      background: var(--garrafa); border-color: var(--garrafa);
+      box-shadow: 0 2em 4em rgba(31, 77, 64, 0.28);
+    }
+    .plan .tier {
+      font-weight: 900; font-size: 5.4em; line-height: 1; letter-spacing: -0.035em;
+      color: var(--garrafa);
+    }
+    .plan.feat .tier { color: var(--creme); }
+    .plan .price {
+      font-family: 'Unbounded', sans-serif; font-weight: 700;
+      font-size: 3.4em; letter-spacing: -0.03em; color: var(--tomate);
+    }
+    .plan ul { list-style: none; display: flex; flex-direction: column; gap: 0.8em; }
+    .plan li {
+      font-weight: 500; font-size: 2.4em; line-height: 1.3; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.82);
+      padding-left: 1.4em; position: relative;
+    }
+    .plan li::before { content: "→"; position: absolute; left: 0; color: var(--tomate); font-weight: 800; }
+    .plan.feat li { color: rgba(242, 234, 215, 0.88); }
+    /* marcador amarelo pro que ainda falta o time fechar */
+    .todo {
+      display: inline-block;
+      font-weight: 800; font-size: 0.8em; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #8a5a00; background: #ffe9a8;
+      border: 0.1em dashed #c99a20; border-radius: 0.4em; padding: 0.25em 0.6em;
+    }
+
+    /* ---- Restaurante parceiro: dois pilares ---- */
+    .slide.active.sparc {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6em 8em; gap: 2em; position: relative;
+    }
+    .sparc { background: var(--creme); }
+    .sparc-name {
+      font-weight: 900; font-size: 10em; line-height: 0.92; letter-spacing: -0.05em;
+      color: var(--tomate);
+    }
+    .pilares { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.6em; margin-top: 0.6em; }
+    .pilar {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 2em; padding: 2.8em 3em;
+      display: flex; flex-direction: column; gap: 1.2em;
+    }
+    .pilar .p-h {
+      display: flex; align-items: center; gap: 1em;
+      font-weight: 900; font-size: 4.6em; letter-spacing: -0.035em; color: var(--garrafa);
+    }
+    .pilar .p-ico {
+      width: 1.5em; height: 1.5em; border-radius: 0.34em;
+      background: var(--tomate); color: #fff;
+      display: flex; align-items: center; justify-content: center; flex: none;
+    }
+    .pilar .p-ico svg { width: 0.95em; height: 0.95em; stroke-width: 2.2; }
+    .pilar ul { list-style: none; display: flex; flex-direction: column; gap: 0.7em; }
+    .pilar li {
+      font-weight: 500; font-size: 2.5em; line-height: 1.3; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.8);
+      padding-left: 1.4em; position: relative;
+    }
+    .pilar li::before {
+      content: ""; position: absolute; left: 0; top: 0.55em;
+      width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--tomate);
+    }
+
+    /* ---- Roadmap + QR ---- */
+    .slide.active.sroad {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7em 8em; gap: 3em; position: relative;
+    }
+    .sroad { background: var(--garrafa); }
+    .sroad-head {
+      font-weight: 900; font-size: 7em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--creme);
+    }
+    .sroad-head em { font-style: normal; color: var(--tomate); }
+    .sroad-body { display: grid; grid-template-columns: 1fr auto; gap: 6em; align-items: center; }
+    .road { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3em; position: relative; }
+    .road::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 2.1em;
+      height: 0.22em; background: rgba(242, 234, 215, 0.22);
+    }
+    .road-item { display: flex; flex-direction: column; gap: 1.2em; position: relative; }
+    .road-dot {
+      width: 1.5em; height: 1.5em; border-radius: 50%;
+      background: rgba(242, 234, 215, 0.3);
+      margin-top: 1.4em;
+      box-shadow: 0 0 0 0.6em var(--garrafa);
+      position: relative; z-index: 2;
+    }
+    .road-item.done .road-dot { background: var(--tomate); }
+    .road-item.now .road-dot {
+      background: var(--tomate);
+      box-shadow: 0 0 0 0.6em var(--garrafa), 0 0 0 1.1em rgba(232, 75, 63, 0.35);
+    }
+    .road-when {
+      font-weight: 800; font-size: 2.2em; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(242, 234, 215, 0.5);
+    }
+    .road-item.done .road-when, .road-item.now .road-when { color: var(--tomate); }
+    .road-what {
+      font-weight: 800; font-size: 3.6em; line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--creme);
+    }
+    .road-note {
+      font-weight: 500; font-size: 2.3em; line-height: 1.3;
+      color: rgba(242, 234, 215, 0.6);
+    }
+    .sroad-qr { display: flex; flex-direction: column; align-items: center; gap: 1.4em; }
+    .sroad-qr .qr-frame { padding: 1em; border-radius: 1.4em; background: var(--creme); }
+    .sroad-qr .qr-img { width: 30em; height: 30em; display: block; border-radius: 0.5em; }
+    .sroad-qr .cap {
+      font-weight: 700; font-size: 2em; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(242, 234, 215, 0.75); text-align: center;
+    }
+
+    /* ---- Slides auxiliares (backup, junto do Q&A) ---- */
+    .aux-tag {
+      position: absolute; top: 3.4em; right: 5em;
+      font-weight: 800; font-size: 1.8em; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--tomate);
+      border: 0.16em solid var(--tomate);
+      border-radius: 0.5em; padding: 0.5em 1em;
+      z-index: 5;
+    }
+    .slide.active.saux {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 7em 8em; gap: 2.2em; position: relative;
+    }
+    .saux { background: var(--creme); }
+    .aux-head {
+      font-weight: 900; font-size: 6.6em; line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--garrafa);
+    }
+    .aux-head em { font-style: normal; color: var(--tomate); }
+    .aux-sub {
+      font-weight: 500; font-size: 3em; line-height: 1.3; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.75); max-width: 52ch;
+    }
+    .aux-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.2em; margin-top: 1em; }
+    .aux-card {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.6em; padding: 2.4em;
+      display: flex; flex-direction: column; gap: 1em;
+    }
+    .aux-card .k {
+      font-weight: 800; font-size: 1.9em; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--tomate);
+    }
+    .aux-card .t {
+      font-weight: 800; font-size: 3.2em; line-height: 1.1; letter-spacing: -0.025em;
+      color: var(--garrafa);
+    }
+    .aux-card .d {
+      font-weight: 500; font-size: 2.2em; line-height: 1.32; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.8);
+    }
+    .aux-foot {
+      margin-top: 1.2em;
+      font-weight: 500; font-size: 3em; line-height: 1.3;
+      color: var(--garrafa);
+      padding-left: 1em; border-left: 0.18em solid var(--tomate);
+    }
+
   </style>
 </head>
 <body>
 
 <div class="deck">
 
-  <!-- SLIDE 1 — Big Number 1 em 3 -->
-  <section class="slide s1 active" data-slide="1">
-    <div class="pitch-tag">Pitch 1 · 01</div>
+  <!-- ============ 01 — 1 em 3 ============ -->
+  <section class="slide s1 active">
+    <div class="pitch-tag"></div>
     <div class="s1-stack">
       <div class="s1-number">1<span class="pct"> em 3</span></div>
       <div class="s1-sub">e você ainda confia.</div>
@@ -1007,9 +1318,9 @@
     <div class="s1-source">Fakespot · Mozilla · 2023</div>
   </section>
 
-  <!-- SLIDE 2 — Persona Júlia -->
-  <section class="slide s2" data-slide="2">
-    <div class="pitch-tag">Pitch 1 · 02</div>
+  <!-- ============ 02 — Persona Júlia ============ -->
+  <section class="slide s2">
+    <div class="pitch-tag"></div>
 
     <div class="s2-col s2-persona">
       <div class="s2-portrait">
@@ -1020,14 +1331,14 @@
 
     <div class="s2-col">
       <div class="s2-quote">
-        “4,7 estrelas. Duas mil avaliações. Parecia certo.”
+        “4,8 estrelas. Duas mil avaliações. Parecia certo.”
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 3 — Mercado A (156 mil) -->
-  <section class="slide s3" data-slide="3">
-    <div class="pitch-tag">Pitch 1 · 03</div>
+  <!-- ============ 03 — 156 mil ============ -->
+  <section class="slide s3">
+    <div class="pitch-tag"></div>
     <div class="s3-stack">
       <div class="s3-number">156<span class="unit">mil</span></div>
       <div class="s3-sub">bares e restaurantes só em São Paulo.</div>
@@ -1035,9 +1346,9 @@
     <div class="s3-source">ABRASEL-SP · 2024</div>
   </section>
 
-  <!-- SLIDE 4 — Mercado B (R$ 495 bi) -->
-  <section class="slide s3" data-slide="4">
-    <div class="pitch-tag">Pitch 1 · 04</div>
+  <!-- ============ 04 — R$ 495 bi ============ -->
+  <section class="slide s3">
+    <div class="pitch-tag"></div>
     <div class="s3-stack">
       <div class="s3-number"><span class="s3-prefix">R$</span>495<span class="unit">bi</span></div>
       <div class="s3-sub">movimentados pelo food service brasileiro em 2025.</div>
@@ -1045,167 +1356,251 @@
     <div class="s3-source">ABRASEL Nacional · 2025</div>
   </section>
 
-  <!-- SLIDE 5 — Yotakes + Phone mockup (app atual) -->
-  <section class="slide s4" data-slide="5">
-    <div class="pitch-tag light">Pitch 1 · 05</div>
-    <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
+  <!-- ============ 05 — Afunilamento do público (NOVO) ============ -->
+  <section class="slide sfun">
+    <div class="pitch-tag"></div>
+    <div class="sfun-head">Não vamos atrás de <em>todo mundo</em>.</div>
+
+    <div class="funil">
+      <div class="funil-step f1">
+        <div class="funil-bar"><span class="v">R$ 495 bi</span></div>
+        <div class="l">food service no Brasil</div>
+      </div>
+      <div class="funil-step f2">
+        <div class="funil-bar"><span class="v">156 mil</span></div>
+        <div class="l">bares e restaurantes em São Paulo</div>
+      </div>
+      <div class="funil-step f3">
+        <div class="funil-bar"><span class="v">Independentes</span></div>
+        <div class="l">que vivem de cliente recorrente, não de turista</div>
+      </div>
+      <div class="funil-step f4">
+        <div class="funil-bar"><span class="v">A Júlia</span></div>
+        <div class="l">quem escolhe onde comer pela avaliação</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 — Yotakes: um só feed (tela do Figma) ============ -->
+  <section class="slide s4">
+    <div class="pitch-tag light"></div>
 
     <div class="s4-col">
       <div class="s4-word">Yotakes</div>
       <div class="s4-tagline">todos os seus takes<br/><em>num só feed.</em></div>
-    </div>
-
-    <div class="phone">
-      <div class="phone-head">
-        <div><span class="mark">Yotakes</span><span class="since">since '26</span></div>
-        <div class="editorial">São Paulo · 2026 · Nº 01</div>
-      </div>
-
-      <div class="phone-dateline">quem você segue</div>
-      <div class="phone-rows">
-        <div class="trow">
-          <div class="trow-thumb"></div>
-          <div class="trow-body">
-            <div class="trow-top">
-              <div class="trow-rest">Mocotó</div>
-              <div class="trow-rate">
-                <span class="glyphs">★★★★½</span><span class="num">4,5</span>
-              </div>
-            </div>
-            <div class="trow-who">@gabriel<span class="dot">·</span>ontem</div>
-            <div class="trow-quote">Lugar caloroso, daqueles que dá vontade de ficar até fechar.</div>
-          </div>
-        </div>
-
-        <div class="trow">
-          <div class="trow-thumb b"></div>
-          <div class="trow-body">
-            <div class="trow-top">
-              <div class="trow-rest">Tuju</div>
-              <div class="trow-rate">
-                <span class="glyphs">★★★★★</span><span class="num">5,0</span>
-              </div>
-            </div>
-            <div class="trow-who">@julia.arq<span class="dot">·</span>há 3 dias</div>
-            <div class="trow-quote">Atendimento impecável e a comida ainda melhor — voltaria amanhã.</div>
-          </div>
-        </div>
-
-        <div class="trow">
-          <div class="trow-thumb c"></div>
-          <div class="trow-body">
-            <div class="trow-top">
-              <div class="trow-rest">Komah</div>
-              <div class="trow-rate">
-                <span class="glyphs">★★★★</span><span class="num">4,0</span>
-              </div>
-            </div>
-            <div class="trow-who">@mika<span class="dot">·</span>hoje</div>
-            <div class="trow-quote">Detalhe no acabamento de cada prato — vale o passeio.</div>
-          </div>
-        </div>
-
-        <div class="trow">
-          <div class="trow-thumb"></div>
-          <div class="trow-body">
-            <div class="trow-top">
-              <div class="trow-rest">A Casa do Porco</div>
-              <div class="trow-rate">
-                <span class="glyphs">★★★★★</span><span class="num">5,0</span>
-              </div>
-            </div>
-            <div class="trow-who">@ana.gomes<span class="dot">·</span>há 2 dias</div>
-            <div class="trow-quote">A melhor experiência da cidade — ponto final.</div>
-          </div>
-        </div>
+      <div class="s4-ref">
+        O <strong>Letterboxd</strong> provou com cinema: registrar o que você consome vira hábito,
+        e o hábito vira uma rede onde a nota tem dono e rosto.
+        <span>Ninguém fez isso com restaurante.</span>
       </div>
     </div>
-  </section>
 
-  <!-- SLIDE 6 — Como funciona · Avalie -->
-  <section class="slide step" data-slide="6">
-    <div class="pitch-tag">Pitch 1 · 06</div>
-    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
-
-    <div class="step-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
-        <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
-      </svg>
+    <div class="device">
+      <img src="telas/reviews.png" alt="Feed de takes do Yotakes" />
     </div>
-    <div class="step-verb">Avalie</div>
   </section>
 
-  <!-- SLIDE 7 — Como funciona · Siga -->
-  <section class="slide step" data-slide="7">
-    <div class="pitch-tag">Pitch 1 · 07</div>
-    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+  <!-- ============ 07 — Avalie ============ -->
+  <section class="slide sv">
+    <div class="pitch-tag"></div>
 
-    <div class="step-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="8" r="3.5"/>
-        <circle cx="17" cy="9" r="2.8"/>
-        <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
-        <path d="M16 20c0-2.6 2.2-4 5-4"/>
-      </svg>
+    <div class="sv-col">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
+          <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
+        </svg>
+      </div>
+      <div class="sv-verb">Avalie</div>
+      <div class="sv-desc">Nota de <em>0 a 5 estrelas</em>, com meias. Foto, tags e o contexto da visita.</div>
     </div>
-    <div class="step-verb">Siga</div>
-  </section>
 
-  <!-- SLIDE 8 — Como funciona · Descubra -->
-  <section class="slide step" data-slide="8">
-    <div class="pitch-tag">Pitch 1 · 08</div>
-    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
-
-    <div class="step-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="10" cy="10" r="6.5"/>
-        <path d="M21 21l-5.5-5.5"/>
-        <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
-      </svg>
+    <div class="device">
+      <img src="telas/avaliacao.png" alt="Tela de avaliação do Yotakes" />
     </div>
-    <div class="step-verb">Descubra</div>
   </section>
 
-  <!-- SLIDE 9 — Algoritmo -->
-  <section class="slide s-algo" data-slide="9">
-    <div class="pitch-tag light">Pitch 1 · 09</div>
+  <!-- ============ 08 — Siga ============ -->
+  <section class="slide sv dark">
+    <div class="pitch-tag light"></div>
+
+    <div class="sv-col">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="8" r="3.5"/>
+          <circle cx="17" cy="9" r="2.8"/>
+          <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
+          <path d="M16 20c0-2.6 2.2-4 5-4"/>
+        </svg>
+      </div>
+      <div class="sv-verb">Siga</div>
+      <div class="sv-desc">Amigos, foodies e gente com paladar parecido. <em>Pessoas reais</em>, não bots.</div>
+    </div>
+
+    <div class="device">
+      <img src="telas/perfil.png" alt="Perfil de usuário do Yotakes" />
+    </div>
+  </section>
+
+  <!-- ============ 09 — Descubra ============ -->
+  <section class="slide sv wine">
+    <div class="pitch-tag light"></div>
+
+    <div class="sv-col">
+      <div class="sv-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="10" cy="10" r="6.5"/>
+          <path d="M21 21l-5.5-5.5"/>
+          <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
+        </svg>
+      </div>
+      <div class="sv-verb">Descubra</div>
+      <div class="sv-desc">Restaurantes pela voz de <em>quem você confia</em> — não de quem pagou pra aparecer.</div>
+    </div>
+
+    <div class="device">
+      <img src="telas/descoberta.png" alt="Tela inicial do Yotakes com descoberta" />
+    </div>
+  </section>
+
+  <!-- ============ 10 — Não são todas iguais (+ Júlia) ============ -->
+  <section class="slide s-algo">
+    <div class="pitch-tag light"></div>
     <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
     <div class="s-algo-stack">
       <div class="s-algo-claim">Não são todas<br/><em>iguais.</em></div>
       <div class="s-algo-sub">Nosso algoritmo pondera cada avaliação pelo histórico e frequência real de uso.</div>
-    </div>
-  </section>
 
-  <!-- SLIDE 10 — Usuário -->
-  <section class="slide s7" data-slide="10">
-    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
-
-    <div class="s7-block users">
-      <div class="s7-block-name">Usuário</div>
-      <div class="s7-block-items">
-        <div class="s7-block-item">Free — feed, avaliações e descoberta</div>
-        <div class="s7-block-item">Premium — promoções exclusivas e destaque no perfil</div>
+      <div class="s-algo-julia">
+        <img src="julia-v2.png" alt="Júlia" />
+        <div class="t">Se a <strong>Júlia</strong> tivesse visto a nota ponderada, não teria estragado o aniversário do namorado.</div>
       </div>
     </div>
-
   </section>
 
-  <!-- SLIDE 11 — Restaurante Parceiro -->
-  <section class="slide s7" data-slide="11">
-    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+  <!-- ============ 11 — Usuário: Free / SuChef / Chefe ============ -->
+  <section class="slide splan">
+    <div class="pitch-tag"></div>
+    <div class="splan-head">A Júlia entra <em>de graça</em>. E pode ir além.</div>
 
-    <div class="s7-block resto">
-      <div class="s7-block-name">Restaurante<br/>Parceiro</div>
-      <div class="s7-block-items">
-        <div class="s7-block-item">Plano Destaque — analytics, visibilidade e promoções</div>
+    <div class="splan-grid">
+      <div class="plan">
+        <div class="tier">Free</div>
+        <div class="price">R$ 0</div>
+        <ul>
+          <li>Takes e listas ilimitados</li>
+          <li>Feed completo de quem você segue</li>
+          <li>Descoberta por rede de confiança</li>
+        </ul>
+      </div>
+
+      <div class="plan feat">
+        <div class="tier">SuChef</div>
+        <div class="price"><span class="todo">valor a definir</span></div>
+        <ul>
+          <li>Estatísticas do seu paladar</li>
+          <li>Listas exportáveis e colaborativas</li>
+          <li>Experiência sem anúncios</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <div class="tier">Chefe</div>
+        <div class="price"><span class="todo">valor a definir</span></div>
+        <ul>
+          <li>Tudo do SuChef</li>
+          <li>Selos e conquistas exclusivas</li>
+          <li>Retrospectiva anual e acesso antecipado</li>
+        </ul>
       </div>
     </div>
-
   </section>
 
-  <!-- SLIDE 12 — CTA (slogan + QR side-by-side) -->
-  <section class="slide s8" data-slide="12">
-    <div class="pitch-tag light">Pitch 1 · 13</div>
+  <!-- ============ 12 — Restaurante Parceiro ============ -->
+  <section class="slide sparc">
+    <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
+
+    <div class="sparc-name">Restaurante<br/>Parceiro</div>
+
+    <div class="pilares">
+      <div class="pilar">
+        <div class="p-h">
+          <span class="p-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>
+            </svg>
+          </span>
+          Analytics
+        </div>
+        <ul>
+          <li>Perfil de quem realmente frequenta a casa</li>
+          <li>Análise dos dados de avaliação, semana a semana</li>
+        </ul>
+      </div>
+
+      <div class="pilar">
+        <div class="p-h">
+          <span class="p-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </span>
+          Visibilidade
+        </div>
+        <ul>
+          <li>Aparecer mais vezes na descoberta</li>
+          <li>Estar presente na tela inicial de quem está por perto</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13 — Roadmap + QR (NOVO) ============ -->
+  <section class="slide sroad">
+    <div class="pitch-tag light"></div>
+    <div class="sroad-head">De onde viemos, <em>pra onde vamos</em>.</div>
+
+    <div class="sroad-body">
+      <div class="road">
+        <div class="road-item done">
+          <div class="road-dot"></div>
+          <div class="road-when">Feito</div>
+          <div class="road-what">MVP construído</div>
+          <div class="road-note">Web em produção e 535 restaurantes de São Paulo mapeados.</div>
+        </div>
+        <div class="road-item now">
+          <div class="road-dot"></div>
+          <div class="road-when">Agora</div>
+          <div class="road-what">Beta fechado</div>
+          <div class="road-note">Convites direcionados a chefs, foodies e criadores de conteúdo.</div>
+        </div>
+        <div class="road-item">
+          <div class="road-dot"></div>
+          <div class="road-when">Próximo</div>
+          <div class="road-what">Lançamento público</div>
+          <div class="road-note">Abertura geral e aplicativo nativo nas lojas.</div>
+        </div>
+        <div class="road-item">
+          <div class="road-dot"></div>
+          <div class="road-when">Futuro</div>
+          <div class="road-what">Escala e monetização</div>
+          <div class="road-note">Planos de assinatura e painel do restaurante parceiro.</div>
+        </div>
+      </div>
+
+      <div class="sroad-qr">
+        <div class="qr-frame">
+          <img class="qr-img" src="qr-yotakes.png" alt="QR yotakes.com" />
+        </div>
+        <div class="cap">entre agora</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14 — CTA ============ -->
+  <section class="slide s8">
+    <div class="pitch-tag light"></div>
 
     <div class="s8-col">
       <div class="s8-slogan">
@@ -1224,9 +1619,74 @@
     </div>
   </section>
 
+  <!-- ============ separador preto: fim do pitch ============ -->
+  <section class="slide s-black"></section>
 
-  <!-- SLIDE 14 — PRETO (separador fim do pitch) -->
-  <section class="slide s-black" data-slide="14"></section>
+  <!-- ============ AUXILIAR — Como o algoritmo pondera ============ -->
+  <section class="slide saux">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">Como a nota é <em>ponderada</em>.</div>
+    <div class="aux-sub">A nota que aparece não é média simples. Cada avaliação entra com um peso, calculado por quatro fatores.</div>
+
+    <div class="aux-grid">
+      <div class="aux-card">
+        <div class="k">01</div>
+        <div class="t">Recência</div>
+        <div class="d">Um take de ontem descreve a cozinha de hoje. O de três anos atrás, não. O peso decai com o tempo.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">02</div>
+        <div class="t">Tempo de casa</div>
+        <div class="d">Quem avalia há meses tem histórico. Conta criada ontem entra com peso mínimo.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">03</div>
+        <div class="t">Consistência</div>
+        <div class="d">Avaliar sempre, em lugares variados e com texto próprio pesa mais que um 5 estrelas isolado.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">04</div>
+        <div class="t">Rede</div>
+        <div class="d">Quem você segue pesa mais na sua nota. A média da Júlia não é a média de todo mundo.</div>
+      </div>
+    </div>
+
+    <div class="aux-foot">Manipular a nota exigiria contas antigas, ativas e dentro da rede de quem lê. É caro e não escala.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — Tipos de promoção ============ -->
+  <section class="slide saux">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">Os tipos de <em>promoção</em>.</div>
+    <div class="aux-sub">Toda promoção parte do restaurante parceiro e aparece rotulada como tal. Nenhuma delas encosta em nota ou avaliação.</div>
+
+    <div class="aux-grid">
+      <div class="aux-card">
+        <div class="k">Descoberta</div>
+        <div class="t">Destaque patrocinado</div>
+        <div class="d">O parceiro paga pra aparecer na tela inicial e nas buscas do bairro. Sempre marcado como patrocinado.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Editorial</div>
+        <div class="t">Ação sazonal</div>
+        <div class="d">Dois por um, Restaurant Week, menu de data comemorativa — entram como lista interativa na newsletter.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Assinatura</div>
+        <div class="t">Cupom de assinante</div>
+        <div class="d">Desconto ou cortesia exclusiva de quem paga plano. Vira motivo pra assinar e pra visitar a casa.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Presencial</div>
+        <div class="t">Evento e selo</div>
+        <div class="d">Ativação no parceiro com menu exclusivo e selo comemorativo pra quem avaliou no dia.</div>
+      </div>
+    </div>
+
+    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Tipos derivados do BMC e do plano de marketing — regras e valores a fechar com o time.</div>
+  </section>
 
   <!-- Q&A 1 -->
   <section class="slide s-qa" data-slide="15">
@@ -1331,6 +1791,13 @@
 <script>
   const slides = document.querySelectorAll('.slide');
   let current = 0;
+
+  // Numeração gerada pela ordem no DOM — inserir slide não exige renumerar.
+  let _n = 0;
+  slides.forEach((s) => {
+    const tag = s.querySelector('.pitch-tag');
+    if (tag) tag.textContent = 'Pitch 1 · ' + String(++_n).padStart(2, '0');
+  });
 
   function show(i) {
     slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
