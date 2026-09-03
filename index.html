@@ -1063,28 +1063,28 @@
     }
     .sfun { background: var(--creme); }
     .sfun-head {
-      font-weight: 900; font-size: 7em; line-height: 1; letter-spacing: -0.04em;
+      font-weight: 900; font-size: 9.4em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa); text-align: center;
     }
     .sfun-head em { font-style: normal; color: var(--tomate); }
-    .funil { display: flex; flex-direction: column; gap: 1.2em; width: 100%; margin-top: 1em; }
+    .funil { display: flex; flex-direction: column; gap: 1em; width: 92%; margin: 0.6em auto 0; }
     /* trilha à esquerda (barra que estreita) + legenda fixa à direita, pro texto
        nunca brigar com a largura da barra */
     .funil-step {
-      display: grid; grid-template-columns: 1fr 36em;
-      align-items: center; gap: 3em; width: 100%;
+      display: grid; grid-template-columns: 1fr 32em;
+      align-items: center; gap: 2.6em; width: 100%;
     }
     .funil-bar {
-      height: 11em; border-radius: 1.3em;
+      height: 9.4em; border-radius: 1.2em;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto; padding: 0 2em;
     }
     .funil-step .v {
-      font-weight: 900; font-size: 4.6em; line-height: 1; letter-spacing: -0.03em;
+      font-weight: 900; font-size: 4em; line-height: 1; letter-spacing: -0.03em;
       white-space: nowrap;
     }
     .funil-step .l {
-      font-weight: 600; font-size: 2.6em; line-height: 1.25; letter-spacing: -0.01em;
+      font-weight: 600; font-size: 2.3em; line-height: 1.25; letter-spacing: -0.01em;
       color: rgba(31, 77, 64, 0.8);
     }
     .funil-step.f1 .funil-bar { width: 100%; background: rgba(31, 77, 64, 0.16); color: var(--garrafa); }
@@ -1153,6 +1153,7 @@
       background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
       border-radius: 2em; padding: 2.8em 3em;
       display: flex; flex-direction: column; gap: 1.2em;
+      align-items: center;
     }
     .pilar .p-h {
       display: flex; align-items: center; gap: 1em;
@@ -1173,45 +1174,6 @@
     .pilar li::before {
       content: ""; position: absolute; left: 0; top: 0.55em;
       width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--tomate);
-    }
-
-    /* ---- Pausa para o chá (golfinho + Júlia) ---- */
-    .slide.active.stea {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 2em; padding: 5em 6em; position: relative;
-    }
-    .stea { background: var(--garrafa); }
-    .tea-scene {
-      display: flex; align-items: flex-end; justify-content: center;
-      gap: 4em; width: 100%;
-    }
-    .tea-julia img { height: 40em; width: auto; display: block; }
-    .tea-center { display: flex; flex-direction: column; align-items: center; padding-bottom: 3em; }
-    .tea-cups { display: flex; align-items: flex-end; gap: 1.4em; }
-    /* linha de mesa: dá chão pras xícaras em vez de deixá-las flutuando */
-    .tea-surface {
-      width: 32em; height: 1.4em; border-radius: 1em;
-      background: rgba(242, 234, 215, 0.32); margin-top: 0.4em;
-    }
-    .tea-cup { width: 13em; height: auto; overflow: visible; }
-    .tea-cup .cup { fill: var(--creme); }
-    .tea-cup .handle { fill: none; stroke: var(--creme); stroke-width: 9; }
-    .tea-cup .saucer { fill: rgba(242, 234, 215, 0.7); }
-    .tea-cup .steam {
-      fill: none; stroke: rgba(242, 234, 215, 0.45);
-      stroke-width: 5; stroke-linecap: round;
-    }
-    .tea-dolphin { padding-bottom: 4em; }
-    .tea-dolphin svg { width: 50em; height: auto; display: block; }
-    .tea-dolphin .skin  { fill: #7fb0c4; }
-    .tea-dolphin .belly { fill: #d6e8ef; }
-    .tea-dolphin .fin   { fill: #6a9cb0; }
-    .tea-dolphin .eye   { fill: #16252c; }
-    .tea-dolphin .smile { fill: none; stroke: #16252c; stroke-width: 5; stroke-linecap: round; }
-    .tea-caption {
-      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(242, 234, 215, 0.5);
     }
 
     /* ---- Roadmap + QR ---- */
@@ -1373,7 +1335,7 @@
   <!-- ============ 05 — Nosso foco ============ -->
   <section class="slide sfun">
     <div class="pitch-tag"></div>
-    <div class="sfun-head">Nosso <em>foco</em>.</div>
+    <div class="sfun-head">Nosso <em>foco</em></div>
 
     <div class="funil">
       <div class="funil-step f1">
@@ -1497,7 +1459,7 @@
     <div class="splan-grid solo">
       <div class="plan solo">
         <div class="tier">Free</div>
-        <div class="price">R$ 0</div>
+        <div class="price">R$ 0,00<span class="per"> /mês</span></div>
         <ul>
           <li>Takes e listas ilimitados</li>
           <li>Feed completo de quem você segue</li>
@@ -1510,7 +1472,7 @@
   <!-- ============ 12 — Plano Sous Chef ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
-    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
+    <div class="splan-head">Plano <em>Sous Chef</em></div>
 
     <div class="splan-grid solo">
       <div class="plan solo feat">
@@ -1528,7 +1490,7 @@
   <!-- ============ 13 — Plano Chefe ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
-    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
+    <div class="splan-head">Plano <em>Chefe</em></div>
 
     <div class="splan-grid solo">
       <div class="plan solo">
@@ -1584,80 +1546,10 @@
     </div>
   </section>
 
-  <!-- ============ 15 — Chá com o golfinho ============ -->
-  <section class="slide stea">
-    <div class="pitch-tag light"></div>
-
-    <div class="tea-scene">
-      <div class="tea-julia">
-        <img src="julia-v2.png" alt="Júlia" />
-      </div>
-
-      <div class="tea-center">
-        <div class="tea-cups">
-          <svg class="tea-cup" viewBox="0 0 120 132" aria-hidden="true">
-            <path class="steam" d="M46 30 C38 20 54 16 46 4" />
-            <path class="steam" d="M70 30 C62 20 78 16 70 4" />
-            <path class="cup" d="M18 44 H92 V70 C92 88 78 100 58 100 C38 100 24 88 24 70 Z" />
-            <path class="handle" d="M92 52 C114 52 114 84 92 84" />
-            <ellipse class="saucer" cx="58" cy="112" rx="54" ry="9" />
-          </svg>
-          <svg class="tea-cup" viewBox="0 0 120 132" aria-hidden="true">
-            <path class="steam" d="M46 30 C38 20 54 16 46 4" />
-            <path class="steam" d="M70 30 C62 20 78 16 70 4" />
-            <path class="cup" d="M18 44 H92 V70 C92 88 78 100 58 100 C38 100 24 88 24 70 Z" />
-            <path class="handle" d="M92 52 C114 52 114 84 92 84" />
-            <ellipse class="saucer" cx="58" cy="112" rx="54" ry="9" />
-          </svg>
-        </div>
-        <div class="tea-surface"></div>
-      </div>
-
-      <div class="tea-dolphin">
-        <svg viewBox="0 0 520 300" aria-label="Golfinho">
-          <!-- cauda horizontal (fluke), em V -->
-          <path class="skin" d="M400 168 C424 150 456 140 486 144
-                                C468 158 448 168 428 174
-                                C448 182 470 196 484 216
-                                C452 214 422 198 400 180 Z"/>
-          <!-- corpo -->
-          <path class="skin" d="M98 150
-                                C122 116 170 94 224 94
-                                C282 94 336 118 374 152
-                                C388 164 398 170 410 174
-                                C398 186 392 196 390 208
-                                C362 194 328 186 290 186
-                                C232 186 156 190 116 178
-                                C102 174 94 162 98 150 Z"/>
-          <!-- rostro (bico) -->
-          <path class="skin" d="M102 146 C78 150 50 158 26 170
-                                C52 178 80 181 106 177
-                                C99 167 98 156 102 146 Z"/>
-          <!-- barriga -->
-          <path class="belly" d="M114 176 C162 188 232 192 294 188
-                                 C338 185 370 190 394 202
-                                 C368 190 336 185 292 187
-                                 C230 190 158 188 116 178 Z"/>
-          <!-- dorsal falcada -->
-          <path class="skin" d="M238 96 C252 66 278 48 306 42
-                                C292 64 284 84 282 104 Z"/>
-          <!-- peitoral -->
-          <path class="fin" d="M188 180 C176 202 178 226 192 242
-                               C212 226 226 204 232 184 Z"/>
-          <!-- linha da boca -->
-          <path class="smile" d="M32 170 C58 178 84 181 108 178"/>
-          <circle class="eye" cx="130" cy="140" r="8"/>
-        </svg>
-      </div>
-    </div>
-
-    <div class="tea-caption">pausa para o chá</div>
-  </section>
-
   <!-- ============ 16 — Roadmap + QR ============ -->
   <section class="slide sroad">
     <div class="pitch-tag light"></div>
-    <div class="sroad-head">De onde viemos, <em>pra onde vamos</em>.</div>
+    <div class="sroad-head">De onde viemos, <em>pra onde vamos</em></div>
 
     <div class="sroad-body">
       <div class="road">
