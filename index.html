@@ -1000,7 +1000,7 @@
     .device {
       position: relative;
       /* altura em % do slide (não em em: o font-size do slide não é
-         exatamente 1% da altura, e 88em dava quase 100%);
+         exatamente 1% da altura, e em em a moldura estourava a tela);
          aspect-ratio trava a largura na proporção do export do Figma */
       height: 86%;
       aspect-ratio: 804 / 1746;
@@ -1021,26 +1021,32 @@
       display: grid;
       grid-template-columns: 1fr 0.78fr;
       align-items: center;
-      padding: 0 8em;
-      gap: 5em;
+      padding: 0 6em;
+      gap: 4em;
       position: relative;
     }
     .sv { background: var(--creme); }
-    .sv-col { display: flex; flex-direction: column; gap: 2.6em; align-items: flex-start; }
+    .sv-col {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      gap: 2.6em;
+    }
+    /* ícone na mesma linha do verbo */
+    .sv-title { display: flex; align-items: center; gap: 2.2em; }
     .sv-icon {
-      width: 7em; height: 7em; border-radius: 1.7em;
+      width: 8.4em; height: 8.4em; border-radius: 2em;
       background: var(--tomate); color: var(--creme);
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: center; flex: none;
       box-shadow: 0 0.8em 1.6em rgba(232, 75, 63, 0.3);
     }
-    .sv-icon svg { width: 4.2em; height: 4.2em; stroke-width: 2.2; }
+    .sv-icon svg { width: 5em; height: 5em; stroke-width: 2.2; }
     .sv-verb {
       font-weight: 900; font-size: 12em; line-height: 0.9; letter-spacing: -0.05em;
       color: var(--garrafa);
     }
     .sv-desc {
       font-weight: 500; font-size: 3.2em; line-height: 1.28; letter-spacing: -0.012em;
-      color: rgba(31, 77, 64, 0.8); max-width: 20ch;
+      color: rgba(31, 77, 64, 0.8); max-width: 24ch;
     }
     .sv-desc em { font-style: normal; font-weight: 800; color: var(--tomate); }
     /* fundos escuros: a tela do Figma é creme, então o slide escurece pra ela saltar */
@@ -1050,22 +1056,10 @@
     .sv.dark .sv-desc, .sv.wine .sv-desc { color: rgba(242, 234, 215, 0.85); }
     .sv.dark .sv-desc em, .sv.wine .sv-desc em { color: #fff; }
 
-    /* ---- Letterboxd, no slide do feed ---- */
-    .s4-ref {
-      margin-top: 0.8em;
-      font-weight: 500; font-size: 2.5em; line-height: 1.32; letter-spacing: -0.008em;
-      color: rgba(242, 234, 215, 0.9);
-      max-width: 28ch;
-      padding-left: 1.1em;
-      border-left: 0.16em solid rgba(242, 234, 215, 0.5);
-    }
-    .s4-ref strong { font-weight: 800; color: #fff; }
-    .s4-ref span { display: block; margin-top: 0.5em; font-weight: 800; color: #fff; }
-
-    /* ---- Funil de público ---- */
+    /* ---- Nosso foco (funil de público) ---- */
     .slide.active.sfun {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 7em 8em; gap: 2em; position: relative;
+      padding: 6em 8em 9em; gap: 2em; position: relative;
     }
     .sfun { background: var(--creme); }
     .sfun-head {
@@ -1099,81 +1093,59 @@
     .funil-step.f4 .funil-bar { width: 34%;  background: var(--tomate);           color: #fff; }
     .funil-step.f4 .l { color: var(--tomate); font-weight: 700; }
 
-    /* ---- A Júlia no slide do algoritmo ---- */
-    .s-algo-julia {
-      display: flex; align-items: center; gap: 2.2em;
-      margin-top: 1.6em;
-      background: rgba(242, 234, 215, 0.08);
-      border: 0.14em solid rgba(242, 234, 215, 0.18);
-      border-radius: 2em;
-      padding: 2.2em 2.8em;
-      max-width: 74em;
-      text-align: left;
-    }
-    .s-algo-julia img {
-      width: 13em; height: 13em; border-radius: 50%;
-      object-fit: cover; flex: none;
-    }
-    .s-algo-julia .t {
-      font-weight: 500; font-size: 2.9em; line-height: 1.3; letter-spacing: -0.012em;
-      color: rgba(242, 234, 215, 0.9);
-    }
-    .s-algo-julia .t strong { font-weight: 800; color: var(--tomate); }
-
-    /* ---- Planos do usuário ---- */
+    /* ---- Planos: um por slide ---- */
     .slide.active.splan {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 7em 7em; gap: 2.4em; position: relative;
+      align-items: center;
+      padding: 7em; gap: 3.4em; position: relative;
     }
     .splan { background: var(--creme); }
     .splan-head {
-      font-weight: 900; font-size: 7em; line-height: 1; letter-spacing: -0.04em;
-      color: var(--garrafa); text-align: center;
+      font-weight: 900; font-size: 7em; line-height: 1.02; letter-spacing: -0.04em;
+      color: var(--garrafa); text-align: center; max-width: 26ch;
     }
     .splan-head em { font-style: normal; color: var(--tomate); }
-    .splan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6em; margin-top: 1em; }
+    .splan-grid.solo { display: flex; justify-content: center; width: 100%; }
     .plan {
       background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
-      border-radius: 2em; padding: 3em 2.6em;
-      display: flex; flex-direction: column; gap: 1.2em;
+      border-radius: 2.4em;
+      display: flex; flex-direction: column; gap: 1.4em;
     }
+    .plan.solo { width: 84em; padding: 4.4em 5em; align-items: flex-start; }
     .plan.feat {
       background: var(--garrafa); border-color: var(--garrafa);
       box-shadow: 0 2em 4em rgba(31, 77, 64, 0.28);
     }
     .plan .tier {
-      font-weight: 900; font-size: 5.4em; line-height: 1; letter-spacing: -0.035em;
+      font-weight: 900; font-size: 8.6em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa);
     }
     .plan.feat .tier { color: var(--creme); }
     .plan .price {
       font-family: 'Unbounded', sans-serif; font-weight: 700;
-      font-size: 3.4em; letter-spacing: -0.03em; color: var(--tomate);
+      font-size: 4.6em; letter-spacing: -0.03em; color: var(--tomate);
     }
-    .plan ul { list-style: none; display: flex; flex-direction: column; gap: 0.8em; }
+    .plan .price .per {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.42em; letter-spacing: 0; opacity: 0.8;
+    }
+    .plan ul { list-style: none; display: flex; flex-direction: column; gap: 0.9em; margin-top: 0.4em; }
     .plan li {
-      font-weight: 500; font-size: 2.4em; line-height: 1.3; letter-spacing: -0.01em;
+      font-weight: 500; font-size: 3em; line-height: 1.3; letter-spacing: -0.01em;
       color: rgba(31, 77, 64, 0.82);
       padding-left: 1.4em; position: relative;
     }
     .plan li::before { content: "→"; position: absolute; left: 0; color: var(--tomate); font-weight: 800; }
-    .plan.feat li { color: rgba(242, 234, 215, 0.88); }
-    /* marcador amarelo pro que ainda falta o time fechar */
-    .todo {
-      display: inline-block;
-      font-weight: 800; font-size: 0.8em; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #8a5a00; background: #ffe9a8;
-      border: 0.1em dashed #c99a20; border-radius: 0.4em; padding: 0.25em 0.6em;
-    }
+    .plan.feat li { color: rgba(242, 234, 215, 0.9); }
 
     /* ---- Restaurante parceiro: dois pilares ---- */
     .slide.active.sparc {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 6em 8em; gap: 2em; position: relative;
+      padding: 6em 8em; gap: 2.4em; position: relative;
     }
     .sparc { background: var(--creme); }
     .sparc-name {
-      font-weight: 900; font-size: 10em; line-height: 0.92; letter-spacing: -0.05em;
+      font-weight: 900; font-size: 12.5em; line-height: 0.9; letter-spacing: -0.05em;
       color: var(--tomate);
     }
     .pilares { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.6em; margin-top: 0.6em; }
@@ -1194,7 +1166,7 @@
     .pilar .p-ico svg { width: 0.95em; height: 0.95em; stroke-width: 2.2; }
     .pilar ul { list-style: none; display: flex; flex-direction: column; gap: 0.7em; }
     .pilar li {
-      font-weight: 500; font-size: 2.5em; line-height: 1.3; letter-spacing: -0.01em;
+      font-weight: 500; font-size: 2.8em; line-height: 1.3; letter-spacing: -0.01em;
       color: rgba(31, 77, 64, 0.8);
       padding-left: 1.4em; position: relative;
     }
@@ -1203,10 +1175,49 @@
       width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--tomate);
     }
 
+    /* ---- Pausa para o chá (golfinho + Júlia) ---- */
+    .slide.active.stea {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2em; padding: 5em 6em; position: relative;
+    }
+    .stea { background: var(--garrafa); }
+    .tea-scene {
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 4em; width: 100%;
+    }
+    .tea-julia img { height: 40em; width: auto; display: block; }
+    .tea-center { display: flex; flex-direction: column; align-items: center; padding-bottom: 3em; }
+    .tea-cups { display: flex; align-items: flex-end; gap: 1.4em; }
+    /* linha de mesa: dá chão pras xícaras em vez de deixá-las flutuando */
+    .tea-surface {
+      width: 32em; height: 1.4em; border-radius: 1em;
+      background: rgba(242, 234, 215, 0.32); margin-top: 0.4em;
+    }
+    .tea-cup { width: 13em; height: auto; overflow: visible; }
+    .tea-cup .cup { fill: var(--creme); }
+    .tea-cup .handle { fill: none; stroke: var(--creme); stroke-width: 9; }
+    .tea-cup .saucer { fill: rgba(242, 234, 215, 0.7); }
+    .tea-cup .steam {
+      fill: none; stroke: rgba(242, 234, 215, 0.45);
+      stroke-width: 5; stroke-linecap: round;
+    }
+    .tea-dolphin { padding-bottom: 4em; }
+    .tea-dolphin svg { width: 50em; height: auto; display: block; }
+    .tea-dolphin .skin  { fill: #7fb0c4; }
+    .tea-dolphin .belly { fill: #d6e8ef; }
+    .tea-dolphin .fin   { fill: #6a9cb0; }
+    .tea-dolphin .eye   { fill: #16252c; }
+    .tea-dolphin .smile { fill: none; stroke: #16252c; stroke-width: 5; stroke-linecap: round; }
+    .tea-caption {
+      font-weight: 700; font-size: 2.2em; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(242, 234, 215, 0.5);
+    }
+
     /* ---- Roadmap + QR ---- */
     .slide.active.sroad {
       display: flex; flex-direction: column; justify-content: center;
-      padding: 7em 8em; gap: 3em; position: relative;
+      padding: 7em 8em; gap: 3.4em; position: relative;
     }
     .sroad { background: var(--garrafa); }
     .sroad-head {
@@ -1220,7 +1231,7 @@
       content: ""; position: absolute; left: 0; right: 0; top: 2.1em;
       height: 0.22em; background: rgba(242, 234, 215, 0.22);
     }
-    .road-item { display: flex; flex-direction: column; gap: 1.2em; position: relative; }
+    .road-item { display: flex; flex-direction: column; gap: 1.4em; position: relative; }
     .road-dot {
       width: 1.5em; height: 1.5em; border-radius: 50%;
       background: rgba(242, 234, 215, 0.3);
@@ -1239,12 +1250,8 @@
     }
     .road-item.done .road-when, .road-item.now .road-when { color: var(--tomate); }
     .road-what {
-      font-weight: 800; font-size: 3.6em; line-height: 1.15; letter-spacing: -0.02em;
+      font-weight: 800; font-size: 3.8em; line-height: 1.12; letter-spacing: -0.02em;
       color: var(--creme);
-    }
-    .road-note {
-      font-weight: 500; font-size: 2.3em; line-height: 1.3;
-      color: rgba(242, 234, 215, 0.6);
     }
     .sroad-qr { display: flex; flex-direction: column; align-items: center; gap: 1.4em; }
     .sroad-qr .qr-frame { padding: 1em; border-radius: 1.4em; background: var(--creme); }
@@ -1301,6 +1308,13 @@
       color: var(--garrafa);
       padding-left: 1em; border-left: 0.18em solid var(--tomate);
     }
+    /* marcador amarelo pro que ainda falta o time fechar */
+    .todo {
+      display: inline-block;
+      font-weight: 800; font-size: 0.8em; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #8a5a00; background: #ffe9a8;
+      border: 0.1em dashed #c99a20; border-radius: 0.4em; padding: 0.25em 0.6em;
+    }
 
   </style>
 </head>
@@ -1356,10 +1370,10 @@
     <div class="s3-source">ABRASEL Nacional · 2025</div>
   </section>
 
-  <!-- ============ 05 — Afunilamento do público (NOVO) ============ -->
+  <!-- ============ 05 — Nosso foco ============ -->
   <section class="slide sfun">
     <div class="pitch-tag"></div>
-    <div class="sfun-head">Não vamos atrás de <em>todo mundo</em>.</div>
+    <div class="sfun-head">Nosso <em>foco</em>.</div>
 
     <div class="funil">
       <div class="funil-step f1">
@@ -1379,20 +1393,17 @@
         <div class="l">quem escolhe onde comer pela avaliação</div>
       </div>
     </div>
+
+    <div class="s3-source">ABRASEL-SP · 2024 · ABRASEL Nacional · 2025</div>
   </section>
 
-  <!-- ============ 06 — Yotakes: um só feed (tela do Figma) ============ -->
+  <!-- ============ 06 — Yotakes: um só feed ============ -->
   <section class="slide s4">
     <div class="pitch-tag light"></div>
 
     <div class="s4-col">
       <div class="s4-word">Yotakes</div>
       <div class="s4-tagline">todos os seus takes<br/><em>num só feed.</em></div>
-      <div class="s4-ref">
-        O <strong>Letterboxd</strong> provou com cinema: registrar o que você consome vira hábito,
-        e o hábito vira uma rede onde a nota tem dono e rosto.
-        <span>Ninguém fez isso com restaurante.</span>
-      </div>
     </div>
 
     <div class="device">
@@ -1405,13 +1416,15 @@
     <div class="pitch-tag"></div>
 
     <div class="sv-col">
-      <div class="sv-icon">
-        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
-          <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
-        </svg>
+      <div class="sv-title">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8">
+            <path d="M12 3l2.7 5.7 6.3.9-4.6 4.4 1.1 6.3L12 17.3l-5.5 3 1.1-6.3L3 9.6l6.3-.9L12 3z"/>
+          </svg>
+        </span>
+        <span class="sv-verb">Avalie</span>
       </div>
-      <div class="sv-verb">Avalie</div>
-      <div class="sv-desc">Nota de <em>0 a 5 estrelas</em>, com meias. Foto, tags e o contexto da visita.</div>
+      <div class="sv-desc">Nota de <em>0 a 5 estrelas</em>. Foto, tags e o contexto da visita.</div>
     </div>
 
     <div class="device">
@@ -1424,15 +1437,17 @@
     <div class="pitch-tag light"></div>
 
     <div class="sv-col">
-      <div class="sv-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="8" r="3.5"/>
-          <circle cx="17" cy="9" r="2.8"/>
-          <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
-          <path d="M16 20c0-2.6 2.2-4 5-4"/>
-        </svg>
+      <div class="sv-title">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3.5"/>
+            <circle cx="17" cy="9" r="2.8"/>
+            <path d="M2 20c0-3.5 3-5.5 7-5.5s7 2 7 5.5"/>
+            <path d="M16 20c0-2.6 2.2-4 5-4"/>
+          </svg>
+        </span>
+        <span class="sv-verb">Siga</span>
       </div>
-      <div class="sv-verb">Siga</div>
       <div class="sv-desc">Amigos, foodies e gente com paladar parecido. <em>Pessoas reais</em>, não bots.</div>
     </div>
 
@@ -1446,15 +1461,17 @@
     <div class="pitch-tag light"></div>
 
     <div class="sv-col">
-      <div class="sv-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="10" cy="10" r="6.5"/>
-          <path d="M21 21l-5.5-5.5"/>
-          <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
-        </svg>
+      <div class="sv-title">
+        <span class="sv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="6.5"/>
+            <path d="M21 21l-5.5-5.5"/>
+            <path d="M18 4l.8 1.7L20.5 6.5l-1.7.8L18 9l-.8-1.7L15.5 6.5l1.7-.8L18 4z"/>
+          </svg>
+        </span>
+        <span class="sv-verb">Descubra</span>
       </div>
-      <div class="sv-verb">Descubra</div>
-      <div class="sv-desc">Restaurantes pela voz de <em>quem você confia</em> — não de quem pagou pra aparecer.</div>
+      <div class="sv-desc">Restaurantes pela voz de <em>quem você confia</em>, não de quem pagou pra aparecer.</div>
     </div>
 
     <div class="device">
@@ -1462,28 +1479,23 @@
     </div>
   </section>
 
-  <!-- ============ 10 — Não são todas iguais (+ Júlia) ============ -->
+  <!-- ============ 10 — Não são todas iguais ============ -->
   <section class="slide s-algo">
     <div class="pitch-tag light"></div>
     <img class="yo-logo" src="yo-bubble.png" alt="Yo" />
     <div class="s-algo-stack">
-      <div class="s-algo-claim">Não são todas<br/><em>iguais.</em></div>
+      <div class="s-algo-claim">Não são todas<br/><em>iguais</em></div>
       <div class="s-algo-sub">Nosso algoritmo pondera cada avaliação pelo histórico e frequência real de uso.</div>
-
-      <div class="s-algo-julia">
-        <img src="julia-v2.png" alt="Júlia" />
-        <div class="t">Se a <strong>Júlia</strong> tivesse visto a nota ponderada, não teria estragado o aniversário do namorado.</div>
-      </div>
     </div>
   </section>
 
-  <!-- ============ 11 — Usuário: Free / SuChef / Chefe ============ -->
+  <!-- ============ 11 — Plano Free ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
-    <div class="splan-head">A Júlia entra <em>de graça</em>. E pode ir além.</div>
+    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
 
-    <div class="splan-grid">
-      <div class="plan">
+    <div class="splan-grid solo">
+      <div class="plan solo">
         <div class="tier">Free</div>
         <div class="price">R$ 0</div>
         <ul>
@@ -1492,30 +1504,46 @@
           <li>Descoberta por rede de confiança</li>
         </ul>
       </div>
+    </div>
+  </section>
 
-      <div class="plan feat">
-        <div class="tier">SuChef</div>
-        <div class="price"><span class="todo">valor a definir</span></div>
+  <!-- ============ 12 — Plano Sous Chef ============ -->
+  <section class="slide splan">
+    <div class="pitch-tag"></div>
+    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
+
+    <div class="splan-grid solo">
+      <div class="plan solo feat">
+        <div class="tier">Sous Chef</div>
+        <div class="price">R$ 9,90<span class="per"> /mês</span></div>
         <ul>
-          <li>Estatísticas do seu paladar</li>
+          <li>Cupons e descontos</li>
           <li>Listas exportáveis e colaborativas</li>
           <li>Experiência sem anúncios</li>
-        </ul>
-      </div>
-
-      <div class="plan">
-        <div class="tier">Chefe</div>
-        <div class="price"><span class="todo">valor a definir</span></div>
-        <ul>
-          <li>Tudo do SuChef</li>
-          <li>Selos e conquistas exclusivas</li>
-          <li>Retrospectiva anual e acesso antecipado</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ 12 — Restaurante Parceiro ============ -->
+  <!-- ============ 13 — Plano Chefe ============ -->
+  <section class="slide splan">
+    <div class="pitch-tag"></div>
+    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
+
+    <div class="splan-grid solo">
+      <div class="plan solo">
+        <div class="tier">Chefe</div>
+        <div class="price">R$ 23,90<span class="per"> /mês</span></div>
+        <ul>
+          <li>Tudo do Sous Chef</li>
+          <li>Selos e conquistas exclusivas</li>
+          <li>Personalização de perfil</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14 — Restaurante Parceiro ============ -->
   <section class="slide sparc">
     <div class="pitch-tag"></div>
     <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
@@ -1533,8 +1561,8 @@
           Analytics
         </div>
         <ul>
-          <li>Perfil de quem realmente frequenta a casa</li>
-          <li>Análise dos dados de avaliação, semana a semana</li>
+          <li>Perfis de clientes</li>
+          <li>Análise dos dados de avaliações</li>
         </ul>
       </div>
 
@@ -1549,14 +1577,84 @@
           Visibilidade
         </div>
         <ul>
-          <li>Aparecer mais vezes na descoberta</li>
-          <li>Estar presente na tela inicial de quem está por perto</li>
+          <li>Aparece mais vezes</li>
+          <li>Presente na tela inicial</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ 13 — Roadmap + QR (NOVO) ============ -->
+  <!-- ============ 15 — Chá com o golfinho ============ -->
+  <section class="slide stea">
+    <div class="pitch-tag light"></div>
+
+    <div class="tea-scene">
+      <div class="tea-julia">
+        <img src="julia-v2.png" alt="Júlia" />
+      </div>
+
+      <div class="tea-center">
+        <div class="tea-cups">
+          <svg class="tea-cup" viewBox="0 0 120 132" aria-hidden="true">
+            <path class="steam" d="M46 30 C38 20 54 16 46 4" />
+            <path class="steam" d="M70 30 C62 20 78 16 70 4" />
+            <path class="cup" d="M18 44 H92 V70 C92 88 78 100 58 100 C38 100 24 88 24 70 Z" />
+            <path class="handle" d="M92 52 C114 52 114 84 92 84" />
+            <ellipse class="saucer" cx="58" cy="112" rx="54" ry="9" />
+          </svg>
+          <svg class="tea-cup" viewBox="0 0 120 132" aria-hidden="true">
+            <path class="steam" d="M46 30 C38 20 54 16 46 4" />
+            <path class="steam" d="M70 30 C62 20 78 16 70 4" />
+            <path class="cup" d="M18 44 H92 V70 C92 88 78 100 58 100 C38 100 24 88 24 70 Z" />
+            <path class="handle" d="M92 52 C114 52 114 84 92 84" />
+            <ellipse class="saucer" cx="58" cy="112" rx="54" ry="9" />
+          </svg>
+        </div>
+        <div class="tea-surface"></div>
+      </div>
+
+      <div class="tea-dolphin">
+        <svg viewBox="0 0 520 300" aria-label="Golfinho">
+          <!-- cauda horizontal (fluke), em V -->
+          <path class="skin" d="M400 168 C424 150 456 140 486 144
+                                C468 158 448 168 428 174
+                                C448 182 470 196 484 216
+                                C452 214 422 198 400 180 Z"/>
+          <!-- corpo -->
+          <path class="skin" d="M98 150
+                                C122 116 170 94 224 94
+                                C282 94 336 118 374 152
+                                C388 164 398 170 410 174
+                                C398 186 392 196 390 208
+                                C362 194 328 186 290 186
+                                C232 186 156 190 116 178
+                                C102 174 94 162 98 150 Z"/>
+          <!-- rostro (bico) -->
+          <path class="skin" d="M102 146 C78 150 50 158 26 170
+                                C52 178 80 181 106 177
+                                C99 167 98 156 102 146 Z"/>
+          <!-- barriga -->
+          <path class="belly" d="M114 176 C162 188 232 192 294 188
+                                 C338 185 370 190 394 202
+                                 C368 190 336 185 292 187
+                                 C230 190 158 188 116 178 Z"/>
+          <!-- dorsal falcada -->
+          <path class="skin" d="M238 96 C252 66 278 48 306 42
+                                C292 64 284 84 282 104 Z"/>
+          <!-- peitoral -->
+          <path class="fin" d="M188 180 C176 202 178 226 192 242
+                               C212 226 226 204 232 184 Z"/>
+          <!-- linha da boca -->
+          <path class="smile" d="M32 170 C58 178 84 181 108 178"/>
+          <circle class="eye" cx="130" cy="140" r="8"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="tea-caption">pausa para o chá</div>
+  </section>
+
+  <!-- ============ 16 — Roadmap + QR ============ -->
   <section class="slide sroad">
     <div class="pitch-tag light"></div>
     <div class="sroad-head">De onde viemos, <em>pra onde vamos</em>.</div>
@@ -1567,25 +1665,21 @@
           <div class="road-dot"></div>
           <div class="road-when">Feito</div>
           <div class="road-what">MVP construído</div>
-          <div class="road-note">Web em produção e 535 restaurantes de São Paulo mapeados.</div>
         </div>
         <div class="road-item now">
           <div class="road-dot"></div>
           <div class="road-when">Agora</div>
           <div class="road-what">Beta fechado</div>
-          <div class="road-note">Convites direcionados a chefs, foodies e criadores de conteúdo.</div>
         </div>
         <div class="road-item">
           <div class="road-dot"></div>
           <div class="road-when">Próximo</div>
           <div class="road-what">Lançamento público</div>
-          <div class="road-note">Abertura geral e aplicativo nativo nas lojas.</div>
         </div>
         <div class="road-item">
           <div class="road-dot"></div>
           <div class="road-when">Futuro</div>
           <div class="road-what">Escala e monetização</div>
-          <div class="road-note">Planos de assinatura e painel do restaurante parceiro.</div>
         </div>
       </div>
 
@@ -1598,7 +1692,7 @@
     </div>
   </section>
 
-  <!-- ============ 14 — CTA ============ -->
+  <!-- ============ 17 — CTA ============ -->
   <section class="slide s8">
     <div class="pitch-tag light"></div>
 

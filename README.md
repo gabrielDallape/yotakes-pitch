@@ -8,8 +8,8 @@ ranking genérico.
 
 ## Como funciona
 
-`index.html` é um arquivo único auto-contido: 30 seções em 16:9, navegáveis pelo teclado —
-14 slides de pitch, um separador preto que marca o fim da apresentação, e o material de
+`index.html` é um arquivo único auto-contido: 33 seções em 16:9, navegáveis pelo teclado —
+17 slides de pitch, um separador preto que marca o fim da apresentação, e o material de
 apoio (2 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
 `<section class="slide sN">` ocupa a viewport e só a que tem `.active` aparece.
 
