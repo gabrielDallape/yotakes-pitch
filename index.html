@@ -1058,12 +1058,14 @@
 
     /* ---- Nosso foco (funil de público) ---- */
     .slide.active.sfun {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 6em 8em 9em; gap: 2em; position: relative;
+      /* flex-start em vez de center: o título fica no alto e o funil
+         desce a partir dele */
+      display: flex; flex-direction: column; justify-content: flex-start;
+      padding: 7em 8em 9em; gap: 2.4em; position: relative;
     }
     .sfun { background: var(--creme); }
     .sfun-head {
-      font-weight: 900; font-size: 9.4em; line-height: 1; letter-spacing: -0.04em;
+      font-weight: 900; font-size: 11.5em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa); text-align: center;
     }
     .sfun-head em { font-style: normal; color: var(--tomate); }
@@ -1454,7 +1456,7 @@
   <!-- ============ 11 — Plano Free ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
-    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além.</div>
+    <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além</div>
 
     <div class="splan-grid solo">
       <div class="plan solo">
@@ -1479,7 +1481,7 @@
         <div class="tier">Sous Chef</div>
         <div class="price">R$ 9,90<span class="per"> /mês</span></div>
         <ul>
-          <li>Cupons e descontos</li>
+          <li>Personalização de perfil</li>
           <li>Listas exportáveis e colaborativas</li>
           <li>Experiência sem anúncios</li>
         </ul>
@@ -1499,7 +1501,7 @@
         <ul>
           <li>Tudo do Sous Chef</li>
           <li>Selos e conquistas exclusivas</li>
-          <li>Personalização de perfil</li>
+          <li>Cupons e descontos</li>
         </ul>
       </div>
     </div>
@@ -1524,7 +1526,7 @@
         </div>
         <ul>
           <li>Perfis de clientes</li>
-          <li>Análise dos dados de avaliações</li>
+          <li>Análise das avaliações</li>
         </ul>
       </div>
 
