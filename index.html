@@ -721,6 +721,19 @@
       text-transform: uppercase; color: rgba(242, 234, 215, 0.95);
     }
 
+    .s8-julia {
+      position: absolute; left: 9em; bottom: 2.5em;
+      width: 20em; height: 20em;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--creme);
+      box-shadow: 0 0 0 0.7em var(--creme), 0 1.6em 3em rgba(0, 0, 0, 0.28);
+    }
+    .s8-julia img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: center 30%;
+    }
+
     .s8-qr-wrap {
       display: flex; flex-direction: column; align-items: center; gap: 2em;
     }
@@ -996,6 +1009,27 @@
        REVISÃO SET/2026 — telas do Figma + pedidos do Ronaldo
        ============================================ */
 
+    /* ---- Selo Letterboxd: o dado da referência, no pé do slide ---- */
+    .s4-lb {
+      position: absolute; left: 9em; bottom: 4.5em;
+      display: flex; align-items: center; gap: 1.5em;
+    }
+    .s4-lb-chip {
+      background: var(--creme); border-radius: 6em;
+      padding: 1.1em 1.5em; display: flex; flex: none;
+    }
+    .s4-lb-mark { width: 12em; height: auto; display: block; }
+    .s4-lb-txt { display: flex; flex-direction: column; gap: 0.5em; }
+    .s4-lb-data {
+      font-weight: 600; font-size: 2.9em; line-height: 1; letter-spacing: -0.012em;
+      color: rgba(242, 234, 215, 0.9);
+    }
+    .s4-lb-data strong { font-weight: 900; color: #fff; }
+    .s4-lb-source {
+      font-weight: 600; font-size: 2em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(242, 234, 215, 0.6);
+    }
+
     /* ---- Moldura de celular com print do Figma ---- */
     .device {
       position: relative;
@@ -1091,9 +1125,9 @@
     }
     .funil-step.f1 .funil-bar { width: 100%; background: rgba(31, 77, 64, 0.16); color: var(--garrafa); }
     .funil-step.f2 .funil-bar { width: 76%;  background: rgba(31, 77, 64, 0.32); color: var(--garrafa); }
-    .funil-step.f3 .funil-bar { width: 54%;  background: var(--garrafa);          color: var(--creme); }
-    .funil-step.f4 .funil-bar { width: 34%;  background: var(--tomate);           color: #fff; }
-    .funil-step.f4 .l { color: var(--tomate); font-weight: 700; }
+    .funil-step.f3 .funil-bar { width: 54%;  background: rgba(31, 77, 64, 0.48); color: var(--garrafa); }
+    .funil-step.f4 .funil-bar { width: 34%;  background: var(--garrafa);          color: var(--creme); }
+    .funil-step.f4 .l { color: var(--garrafa); font-weight: 700; }
 
     /* ---- Planos: um por slide ---- */
     .slide.active.splan {
@@ -1345,12 +1379,12 @@
         <div class="l">food service no Brasil</div>
       </div>
       <div class="funil-step f2">
-        <div class="funil-bar"><span class="v">156 mil</span></div>
-        <div class="l">bares e restaurantes em São Paulo</div>
+        <div class="funil-bar"><span class="v">R$ 34,2 bi</span></div>
+        <div class="l">no município de São Paulo</div>
       </div>
       <div class="funil-step f3">
-        <div class="funil-bar"><span class="v">Independentes</span></div>
-        <div class="l">que vivem de cliente recorrente, não de turista</div>
+        <div class="funil-bar"><span class="v">80%</span></div>
+        <div class="l">cerca de R$ 27 bi em restaurantes presenciais</div>
       </div>
       <div class="funil-step f4">
         <div class="funil-bar"><span class="v">A Júlia</span></div>
@@ -1372,6 +1406,20 @@
 
     <div class="device">
       <img src="telas/reviews.png" alt="Feed de takes do Yotakes" />
+    </div>
+
+    <div class="s4-lb">
+      <div class="s4-lb-chip">
+        <svg class="s4-lb-mark" viewBox="0 0 96 40" role="img" aria-label="Letterboxd">
+          <circle cx="20" cy="20" r="20" fill="#ff8000" />
+          <circle cx="48" cy="20" r="20" fill="#00e054" />
+          <circle cx="76" cy="20" r="20" fill="#40bcf4" />
+        </svg>
+      </div>
+      <div class="s4-lb-txt">
+        <div class="s4-lb-data"><strong>30 milhões</strong> de usuários no Letterboxd</div>
+        <div class="s4-lb-source">ROLLINGSTONE · 2026</div>
+      </div>
     </div>
   </section>
 
@@ -1604,6 +1652,10 @@
         <img class="qr-img" src="qr-yotakes.png" alt="QR yotakes.com" />
       </div>
       <div class="s8-scan">escaneie pra entrar no feed</div>
+    </div>
+
+    <div class="s8-julia">
+      <img src="julia-v3.png" alt="Júlia, a persona do Yotakes" />
     </div>
   </section>
 
