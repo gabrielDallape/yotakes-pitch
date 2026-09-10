@@ -1321,7 +1321,7 @@
        escuro. O laranja é o tomate da marca puxado pra cima — #e84b3f
        sobre quase-preto perde vibração.
        ============================================ */
-    .sanl {
+    .sanl, .sai {
       --an-bg: #080a0b;
       --an-panel: #101314;
       --an-panel-2: #171b1d;
@@ -1419,8 +1419,8 @@
     /* ---- Corpo: gráfico + dois painéis + coluna da IA ---- */
     .anl-body {
       flex: 1; min-height: 0;
-      display: grid; grid-template-columns: 1.6fr 1fr;
-      gap: 1.5em; padding: 1.5em;
+      display: grid; grid-template-columns: 1.72fr 1fr;
+      gap: 1.6em; padding: 1.6em;
     }
     .anl-main { display: flex; flex-direction: column; gap: 1.5em; min-height: 0; }
     .anl-card {
@@ -1429,21 +1429,27 @@
       display: flex; flex-direction: column; min-height: 0;
     }
     .anl-card h4 {
-      font-weight: 700; font-size: 1.6em; letter-spacing: -0.012em; color: var(--an-ink);
+      font-weight: 700; font-size: 1.9em; letter-spacing: -0.012em; color: var(--an-ink);
     }
-    .anl-note { font-weight: 500; font-size: 1.35em; line-height: 1.35; color: var(--an-faint); margin-top: 0.25em; }
+    .anl-note { font-weight: 500; font-size: 1.55em; line-height: 1.35; color: var(--an-faint); margin-top: 0.25em; }
 
     /* gráfico */
-    .anl-chart { flex: 0.82; }
+    .anl-chart { flex: 1; }
     .anl-chart-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 2em; }
     .anl-legend { display: flex; gap: 1.3em; flex: none; padding-top: 0.25em; }
     .anl-legend span {
       display: flex; align-items: center; gap: 0.5em;
-      font-weight: 600; font-size: 1.3em; color: var(--an-mute); white-space: nowrap;
+      font-weight: 600; font-size: 1.5em; color: var(--an-mute); white-space: nowrap;
     }
     .anl-legend i { width: 1.5em; height: 0.24em; border-radius: 0.2em; background: var(--an-accent); flex: none; }
     .anl-legend .b i { background: var(--an-faint); }
-    .anl-plot { flex: 1; min-height: 0; margin-top: 1em; }
+    .anl-plot { flex: 1; min-height: 0; margin-top: 1.2em; display: flex; gap: 0.9em; }
+    .anl-y { position: relative; width: 3.2em; flex: none; }
+    .anl-y span {
+      position: absolute; right: 0; transform: translateY(-50%);
+      font-weight: 600; font-size: 1.35em; color: var(--an-faint);
+    }
+    .anl-svgwrap { flex: 1; min-width: 0; }
     .anl-plot svg { width: 100%; height: 100%; display: block; }
     .anl-xaxis {
       display: flex; justify-content: space-between; margin-top: 0.6em;
@@ -1466,21 +1472,19 @@
     .anl-tag.down .t-bar b { background: var(--an-accent); }
     .anl-tag.down .t-c { color: var(--an-accent); }
 
-    .anl-hoods { display: flex; flex-direction: column; gap: 1.05em; margin-top: 0.9em; }
-    .anl-hood { display: flex; align-items: center; gap: 0.9em; }
+    .anl-hoods { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; gap: 1em; padding: 1.2em 0; }
+    .anl-hood {
+      display: flex; align-items: baseline; gap: 1em;
+      padding-bottom: 0.7em; border-bottom: 0.08em solid var(--an-line);
+    }
+    .anl-hood:last-child { border-bottom: 0; }
     .anl-hood .h-n {
-      flex: 1; font-weight: 600; font-size: 1.4em; letter-spacing: -0.008em; color: var(--an-ink);
+      flex: 1; font-weight: 600; font-size: 1.75em; letter-spacing: -0.008em; color: var(--an-ink);
     }
     .anl-hood .h-p {
       font-family: 'Unbounded', sans-serif; font-weight: 600;
-      font-size: 1.45em; letter-spacing: -0.03em; color: var(--an-mute); flex: none;
+      font-size: 1.8em; letter-spacing: -0.03em; color: var(--an-mute); flex: none;
     }
-    .anl-hood .h-dots { display: flex; gap: 0.26em; flex: none; }
-    .anl-hood .h-dots i {
-      width: 0.48em; height: 0.48em; border-radius: 50%;
-      background: rgba(242, 234, 215, 0.12);
-    }
-    .anl-hood .h-dots i.on { background: var(--an-accent); }
 
     /* ---- Coluna da IA: o único bloco com cor na borda ---- */
     .anl-ai {
@@ -1536,6 +1540,97 @@
       font-weight: 800; font-size: 1.5em; letter-spacing: -0.012em;
     }
     .anl-cta svg { width: 1.1em; height: 1.1em; stroke-width: 2.8; }
+
+    /* ---- Slide 16: a IA em tamanho de leitura, um assunto por slide ---- */
+    .slide.active.sai {
+      display: flex; flex-direction: column; align-items: stretch;
+      padding: 4.6em 5.6em 5em;
+      gap: 2.8em; position: relative;
+    }
+    .ai2-body {
+      flex: 1; min-height: 0;
+      display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 2em;
+    }
+
+    /* insumo: o texto dos takes */
+    .ai2-src {
+      background: var(--an-panel); border: 0.1em solid var(--an-line);
+      border-radius: 1.6em; padding: 2.4em 2.6em;
+      display: flex; flex-direction: column; min-height: 0;
+    }
+    .ai2-src h4 {
+      font-weight: 700; font-size: 2.6em; letter-spacing: -0.02em; color: var(--an-ink);
+    }
+    .ai2-src .anl-note { font-size: 1.8em; }
+    .ai2-tags { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 2.6em; margin-top: 1.6em; }
+    .ai2-tag { display: grid; grid-template-columns: 1fr auto; gap: 0.7em 1em; align-items: center; }
+    .ai2-tag .t-n {
+      font-weight: 600; font-size: 2.3em; letter-spacing: -0.012em; color: var(--an-ink);
+    }
+    .ai2-tag .t-c {
+      font-family: 'Unbounded', sans-serif; font-weight: 600;
+      font-size: 1.9em; letter-spacing: -0.03em; color: var(--an-mute);
+    }
+    .ai2-tag .t-bar {
+      grid-column: 1 / -1; height: 0.6em; border-radius: 0.3em;
+      background: rgba(242, 234, 215, 0.08); overflow: hidden;
+    }
+    .ai2-tag .t-bar b { display: block; height: 100%; border-radius: 0.3em; background: var(--an-up); }
+    .ai2-tag.down .t-bar b { background: var(--an-accent); }
+    .ai2-tag.down .t-c { color: var(--an-accent); }
+
+    /* saída: a leitura da IA */
+    .ai2-out {
+      background:
+        radial-gradient(110% 55% at 100% 0%, rgba(255, 90, 54, 0.16) 0%, rgba(255, 90, 54, 0) 60%),
+        var(--an-panel);
+      border: 0.12em solid rgba(255, 90, 54, 0.42);
+      border-radius: 1.6em; padding: 2.4em 2.6em;
+      display: flex; flex-direction: column; gap: 1.8em; min-height: 0;
+    }
+    .ai2-h { display: flex; align-items: center; gap: 0.9em; }
+    .ai2-h .a-ico {
+      width: 2.5em; height: 2.5em; border-radius: 0.62em; flex: none;
+      background: var(--an-accent); color: #0b0b0b;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ai2-h .a-ico svg { width: 1.45em; height: 1.45em; stroke-width: 2.4; }
+    .ai2-h h4 {
+      font-weight: 800; font-size: 2.5em; letter-spacing: -0.025em; color: var(--an-ink);
+    }
+    .ai2-h .a-live {
+      margin-left: auto; flex: none; display: flex; align-items: center; gap: 0.5em;
+      font-weight: 700; font-size: 1.5em; color: var(--an-accent);
+    }
+    .ai2-h .a-live i {
+      width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--an-accent);
+      box-shadow: 0 0 0 0.3em rgba(255, 90, 54, 0.2);
+    }
+    .ai2-ins {
+      flex: 1; min-height: 0;
+      display: flex; flex-direction: column; justify-content: space-evenly; gap: 1.6em;
+    }
+    .ai2-in { display: grid; grid-template-columns: auto 1fr; gap: 1.2em; align-items: start; }
+    .ai2-in .i-m {
+      width: 2.4em; height: 2.4em; border-radius: 0.6em; flex: none; margin-top: 0.1em;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255, 90, 54, 0.14); color: var(--an-accent);
+    }
+    .ai2-in.good .i-m { background: rgba(79, 191, 155, 0.14); color: var(--an-up); }
+    .ai2-in .i-m svg { width: 1.4em; height: 1.4em; stroke-width: 2.4; }
+    .ai2-in p {
+      font-weight: 500; font-size: 2.25em; line-height: 1.38; letter-spacing: -0.014em;
+      color: rgba(242, 234, 215, 0.88);
+    }
+    .ai2-in p b { font-weight: 800; color: var(--an-ink); }
+    .ai2-in p em { font-style: normal; font-weight: 700; color: var(--an-accent); }
+    .ai2-cta {
+      display: flex; align-items: center; justify-content: center; gap: 0.7em;
+      background: var(--an-accent); color: #0b0b0b;
+      border-radius: 1em; padding: 1.15em 1.4em;
+      font-weight: 800; font-size: 2.1em; letter-spacing: -0.02em;
+    }
+    .ai2-cta svg { width: 1.05em; height: 1.05em; stroke-width: 2.8; }
   </style>
 </head>
 <body>
@@ -1818,15 +1913,15 @@
     </div>
   </section>
 
-  <!-- ============ 15 — Analytics do parceiro + IA ============ -->
+  <!-- ============ 15 — Analytics do parceiro ============ -->
   <section class="slide sanl">
     <div class="pitch-tag light"></div>
 
     <div class="anl-head">
       <div class="anl-title">Analytics</div>
       <div class="anl-lead">
-        Cada take entra em números que o dono entende. E <b>uma IA lê os números por
-        ele</b>: o que caiu, por que caiu, e o que fazer nesta semana.
+        O dono abre e vê o que a nota esconde: quem avaliou, quem voltou,
+        e como ele está contra o próprio bairro.
       </div>
     </div>
 
@@ -1879,20 +1974,24 @@
       </div>
 
       <div class="anl-body">
-        <div class="anl-main">
-
-          <div class="anl-card anl-chart">
-            <div class="anl-chart-top">
-              <div>
-                <h4>Sua nota, semana a semana</h4>
-                <div class="anl-note">ponderada pelo peso de quem avaliou, não pela média simples</div>
-              </div>
-              <div class="anl-legend">
-                <span><i></i>Quintal</span>
-                <span class="b"><i></i>média do bairro</span>
-              </div>
+        <div class="anl-card anl-chart">
+          <div class="anl-chart-top">
+            <div>
+              <h4>Sua nota contra a média do bairro</h4>
+              <div class="anl-note">ponderada pelo peso de quem avaliou, não pela média simples</div>
             </div>
-            <div class="anl-plot">
+            <div class="anl-legend">
+              <span><i></i>Quintal</span>
+              <span class="b"><i></i>Vila Madalena</span>
+            </div>
+          </div>
+          <div class="anl-plot">
+            <div class="anl-y">
+              <span style="top:12.7%">4,6</span>
+              <span style="top:42.5%">4,4</span>
+              <span style="top:72.4%">4,2</span>
+            </div>
+            <div class="anl-svgwrap">
               <svg viewBox="0 0 600 190" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="anlFill" x1="0" y1="0" x2="0" y2="1">
@@ -1901,125 +2000,135 @@
                   </linearGradient>
                 </defs>
                 <g stroke="rgba(242,234,215,0.08)" stroke-width="1" vector-effect="non-scaling-stroke">
-                  <path d="M0 39.5H600"/><path d="M0 107H600"/><path d="M0 174.5H600"/>
+                  <path d="M0 24.2H600"/><path d="M0 80.8H600"/><path d="M0 137.5H600"/>
                 </g>
-                <path d="M0 127.9 54.5 118.5 109.1 137.4 163.6 103.5 218.2 99.7 272.7 114.8 327.3 84.6 381.8 77.1 436.4 90.3 490.9 62.1 545.5 52.6 600 39.5V190H0Z" fill="url(#anlFill)"/>
-                <path d="M0 114.8 54.5 118.5 109.1 111.1 163.6 116.7 218.2 120.4 272.7 113 327.3 118.5 381.8 114.8 436.4 122.3 490.9 116.7 545.5 118.5 600 114.8"
+                <path d="M0 151.7 54.5 137.5 109.1 165.8 163.6 114.8 218.2 109.2 272.7 131.8 327.3 86.5 381.8 75.2 436.4 95 490.9 52.5 545.5 38.3 600 18.5V190H0Z" fill="url(#anlFill)"/>
+                <path d="M0 131.8 54.5 137.5 109.1 126.2 163.6 134.6 218.2 140.3 272.7 129 327.3 137.5 381.8 131.8 436.4 143.2 490.9 134.6 545.5 137.5 600 131.8"
                       fill="none" stroke="rgba(242,234,215,0.30)" stroke-width="2" stroke-dasharray="6 6"
                       vector-effect="non-scaling-stroke" stroke-linecap="round"/>
-                <path d="M0 127.9 54.5 118.5 109.1 137.4 163.6 103.5 218.2 99.7 272.7 114.8 327.3 84.6 381.8 77.1 436.4 90.3 490.9 62.1 545.5 52.6 600 39.5"
+                <path d="M0 151.7 54.5 137.5 109.1 165.8 163.6 114.8 218.2 109.2 272.7 131.8 327.3 86.5 381.8 75.2 436.4 95 490.9 52.5 545.5 38.3 600 18.5"
                       fill="none" stroke="#ff5a36" stroke-width="3.2"
                       vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <div class="anl-xaxis"><span>jun</span><span>jul</span><span>ago</span><span>set</span></div>
           </div>
+          <div class="anl-xaxis"><span>jun</span><span>jul</span><span>ago</span><span>set</span></div>
+        </div>
 
-          <div class="anl-duo">
-            <div class="anl-card">
-              <h4>O que os takes citam</h4>
-              <div class="anl-note">lido do texto dos 128 takes</div>
-              <div class="anl-tags">
-                <div class="anl-tag">
-                  <div class="t-n">atendimento</div><div class="t-c">38</div>
-                  <div class="t-bar"><b style="width:100%"></b></div>
-                </div>
-                <div class="anl-tag">
-                  <div class="t-n">poke de salmão</div><div class="t-c">31</div>
-                  <div class="t-bar"><b style="width:82%"></b></div>
-                </div>
-                <div class="anl-tag down">
-                  <div class="t-n">tempo de espera</div><div class="t-c">19</div>
-                  <div class="t-bar"><b style="width:50%"></b></div>
-                </div>
-                <div class="anl-tag down">
-                  <div class="t-n">preço</div><div class="t-c">11</div>
-                  <div class="t-bar"><b style="width:29%"></b></div>
-                </div>
-              </div>
+        <div class="anl-card">
+          <h4>De onde vem seu público</h4>
+          <div class="anl-note">bairro de quem avaliou</div>
+          <div class="anl-hoods">
+            <div class="anl-hood">
+              <div class="h-n">Vila Madalena</div>
+              <div class="h-p">34%</div>
             </div>
-
-            <div class="anl-card">
-              <h4>De onde vem seu público</h4>
-              <div class="anl-note">bairro de quem avaliou</div>
-              <div class="anl-hoods">
-                <div class="anl-hood">
-                  <div class="h-n">Vila Madalena</div>
-                  <div class="h-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-                  <div class="h-p">34%</div>
-                </div>
-                <div class="anl-hood">
-                  <div class="h-n">Pinheiros</div>
-                  <div class="h-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-                  <div class="h-p">22%</div>
-                </div>
-                <div class="anl-hood">
-                  <div class="h-n">Perdizes</div>
-                  <div class="h-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
-                  <div class="h-p">14%</div>
-                </div>
-                <div class="anl-hood">
-                  <div class="h-n">resto de São Paulo</div>
-                  <div class="h-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-                  <div class="h-p">30%</div>
-                </div>
-              </div>
+            <div class="anl-hood">
+              <div class="h-n">Pinheiros</div>
+              <div class="h-p">22%</div>
+            </div>
+            <div class="anl-hood">
+              <div class="h-n">Perdizes</div>
+              <div class="h-p">14%</div>
+            </div>
+            <div class="anl-hood">
+              <div class="h-n">Sumaré</div>
+              <div class="h-p">9%</div>
+            </div>
+            <div class="anl-hood">
+              <div class="h-n">resto de São Paulo</div>
+              <div class="h-p">21%</div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <aside class="anl-ai">
-          <div class="anl-ai-h">
-            <span class="a-ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/>
-              </svg>
+  <!-- ============ 16 — Yotakes Intelligence (a IA do parceiro) ============ -->
+  <section class="slide sai">
+    <div class="pitch-tag light"></div>
+
+    <div class="anl-head">
+      <div class="anl-title">Intelligence</div>
+      <div class="anl-lead">
+        A IA lê os 128 takes do período, cruza com o bairro e entrega
+        <b>três coisas pra fazer nesta semana</b>.
+      </div>
+    </div>
+
+    <div class="ai2-body">
+
+      <div class="ai2-src">
+        <h4>O que os takes citam</h4>
+        <div class="anl-note">lido do texto, não de formulário</div>
+        <div class="ai2-tags">
+          <div class="ai2-tag">
+            <div class="t-n">atendimento</div><div class="t-c">38</div>
+            <div class="t-bar"><b style="width:100%"></b></div>
+          </div>
+          <div class="ai2-tag">
+            <div class="t-n">poke de salmão</div><div class="t-c">31</div>
+            <div class="t-bar"><b style="width:82%"></b></div>
+          </div>
+          <div class="ai2-tag">
+            <div class="t-n">ambiente</div><div class="t-c">22</div>
+            <div class="t-bar"><b style="width:58%"></b></div>
+          </div>
+          <div class="ai2-tag down">
+            <div class="t-n">tempo de espera</div><div class="t-c">19</div>
+            <div class="t-bar"><b style="width:50%"></b></div>
+          </div>
+          <div class="ai2-tag down">
+            <div class="t-n">preço</div><div class="t-c">11</div>
+            <div class="t-bar"><b style="width:29%"></b></div>
+          </div>
+          <div class="ai2-tag down">
+            <div class="t-n">música alta</div><div class="t-c">7</div>
+            <div class="t-bar"><b style="width:18%"></b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai2-out">
+        <div class="ai2-h">
+          <span class="a-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/>
+            </svg>
+          </span>
+          <h4>Yotakes Intelligence</h4>
+          <span class="a-live"><i></i>ao vivo</span>
+        </div>
+
+        <div class="ai2-ins">
+          <div class="ai2-in">
+            <span class="i-m">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
             </span>
-            <h4>Yotakes Intelligence</h4>
-            <span class="a-live"><i></i>ao vivo</span>
+            <p><b>Sexta, no almoço.</b> Quatro dos seis takes abaixo de 4 estrelas citam
+              <em>espera acima de 25 min</em>. É o único horário da semana em queda.</p>
           </div>
+          <div class="ai2-in good">
+            <span class="i-m">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8M15 7h6v6"/></svg>
+            </span>
+            <p><b>O poke de salmão</b> é o prato que mais puxa sua nota pra cima
+              — e não está destacado no seu perfil.</p>
+          </div>
+          <div class="ai2-in">
+            <span class="i-m">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3.2"/><path d="M17 11.2a3.2 3.2 0 0 0 0-6.2M20 19v-1.5a3.5 3.5 0 0 0-2.2-3.2"/></svg>
+            </span>
+            <p><b>Onze pessoas</b> da rede salvaram o Quintal e ainda não visitaram.
+              Um cupom presencial converte esse grupo.</p>
+          </div>
+        </div>
 
-          <div class="anl-ai-lead">
-            A IA lê os 128 takes do período e compara com o histórico do seu bairro.
-            Quatro coisas pedem sua atenção agora.
-          </div>
-
-          <div class="anl-ins">
-            <div class="anl-in">
-              <span class="i-m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-              </span>
-              <p><b>Sexta, no almoço.</b> Quatro dos seis takes abaixo de 4 estrelas citam
-                <em>espera acima de 25 min</em>. É o único horário da semana em queda.</p>
-            </div>
-            <div class="anl-in good">
-              <span class="i-m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8M15 7h6v6"/></svg>
-              </span>
-              <p><b>O poke de salmão</b> aparece em 31 takes e é o prato que mais puxa sua
-                nota pra cima. Ele não está destacado no seu perfil.</p>
-            </div>
-            <div class="anl-in">
-              <span class="i-m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3.2"/><path d="M17 11.2a3.2 3.2 0 0 0 0-6.2M20 19v-1.5a3.5 3.5 0 0 0-2.2-3.2"/></svg>
-              </span>
-              <p><b>Onze pessoas</b> que seguem seus avaliadores salvaram o Quintal e ainda
-                não visitaram. Um cupom presencial converte esse grupo.</p>
-            </div>
-            <div class="anl-in good">
-              <span class="i-m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>
-              </span>
-              <p><b>Projeção.</b> Mantendo este ritmo, você passa a média da Vila Madalena
-                em <em>3 semanas</em>.</p>
-            </div>
-          </div>
-
-          <div class="anl-cta">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6L12 4Z"/></svg>
-            Gerar plano da semana
-          </div>
-        </aside>
+        <div class="ai2-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6L12 4Z"/></svg>
+          Gerar plano da semana
+        </div>
       </div>
     </div>
   </section>
