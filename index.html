@@ -722,7 +722,7 @@
     }
 
     .s8-julia {
-      position: absolute; left: 9em; bottom: 2.5em;
+      position: absolute; left: 17em; bottom: 2.5em;
       width: 20em; height: 20em;
       border-radius: 50%;
       overflow: hidden;
@@ -1009,27 +1009,6 @@
        REVISÃO SET/2026 — telas do Figma + pedidos do Ronaldo
        ============================================ */
 
-    /* ---- Selo Letterboxd: o dado da referência, no pé do slide ---- */
-    .s4-lb {
-      position: absolute; left: 9em; bottom: 4.5em;
-      display: flex; align-items: center; gap: 1.5em;
-    }
-    .s4-lb-chip {
-      background: var(--creme); border-radius: 6em;
-      padding: 1.1em 1.5em; display: flex; flex: none;
-    }
-    .s4-lb-mark { width: 12em; height: auto; display: block; }
-    .s4-lb-txt { display: flex; flex-direction: column; gap: 0.5em; }
-    .s4-lb-data {
-      font-weight: 600; font-size: 2.9em; line-height: 1; letter-spacing: -0.012em;
-      color: rgba(242, 234, 215, 0.9);
-    }
-    .s4-lb-data strong { font-weight: 900; color: #fff; }
-    .s4-lb-source {
-      font-weight: 600; font-size: 2em; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(242, 234, 215, 0.6);
-    }
-
     /* ---- Moldura de celular com print do Figma ---- */
     .device {
       position: relative;
@@ -1230,6 +1209,7 @@
       height: 0.22em; background: rgba(242, 234, 215, 0.22);
     }
     .road-item { display: flex; flex-direction: column; gap: 1.4em; position: relative; }
+    .road-item .road-what + .road-date { margin-top: -0.9em; }
     .road-dot {
       width: 1.5em; height: 1.5em; border-radius: 50%;
       background: rgba(242, 234, 215, 0.3);
@@ -1250,6 +1230,10 @@
     .road-what {
       font-weight: 800; font-size: 3.8em; line-height: 1.12; letter-spacing: -0.02em;
       color: var(--creme);
+    }
+    .road-date {
+      font-weight: 600; font-size: 2.2em; letter-spacing: -0.005em;
+      color: rgba(242, 234, 215, 0.42);
     }
     .sroad-qr { display: flex; flex-direction: column; align-items: center; gap: 1.4em; }
     .sroad-qr .qr-frame { padding: 1em; border-radius: 1.4em; background: var(--creme); }
@@ -1316,139 +1300,79 @@
 
 
     /* ============================================
-       SLIDES 15 e 16 — Analytics e Intelligence do parceiro
-       Seguem o padrão dos slides de produto (.sv): verbo grande, uma
-       frase, e a tela ao lado. A tela é a UI do Yotakes — creme com
-       header bordô, igual às telas do Figma nos slides do celular.
+       Letterboxd — o precedente do modelo (depois do Descubra)
        ============================================ */
-    .sv-verb.long { font-size: 9.4em; }
-
-    /* ---- Moldura de janela: o equivalente desktop do .device ---- */
-    .screen {
+    .slide.active.slb {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; gap: 2.4em;
       position: relative;
-      width: 100%;
-      background: var(--creme);
-      border-radius: 1.8em;
-      box-shadow:
-        0 0 0 0.7em #1a1a1a,
-        0 0 0 1.1em rgba(255, 255, 255, 0.18),
-        0 4em 6em rgba(0, 0, 0, 0.28),
-        0 1.2em 2em rgba(0, 0, 0, 0.16);
-      overflow: hidden;
-      display: flex; flex-direction: column;
     }
-    .scr-bar {
-      background: var(--bordo); color: var(--creme);
-      padding: 1.1em 1.6em;
-      display: flex; align-items: center; gap: 1em;
+    .slb { background: var(--creme); }
+    .slb-mark {
+      background: #fff; border-radius: 6em;
+      border: 0.12em solid rgba(31, 77, 64, 0.10);
+      padding: 1.1em 1.5em; display: flex;
     }
-    .scr-bar .yo {
-      font-weight: 900; font-size: 1.7em; letter-spacing: 0.02em; color: var(--creme);
-    }
-    .scr-bar .mod {
-      font-weight: 600; font-size: 1.5em; letter-spacing: -0.005em;
-      color: rgba(242, 234, 215, 0.62);
-      padding-left: 1em; border-left: 0.1em solid rgba(242, 234, 215, 0.22);
-    }
-    .scr-bar .per {
-      margin-left: auto; font-weight: 600; font-size: 1.35em;
-      color: rgba(242, 234, 215, 0.72);
-    }
-    .scr-body { padding: 1.6em; display: flex; flex-direction: column; gap: 1.4em; }
-
-    /* ---- Indicadores ---- */
-    .scr-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1em; }
-    .scr-kpi {
-      background: #fff; border-radius: 1em;
-      border: 0.1em solid rgba(31, 77, 64, 0.10);
-      padding: 1.2em 1.1em;
-    }
-    .scr-kpi .l {
-      font-weight: 600; font-size: 1.25em; line-height: 1.2;
-      color: rgba(31, 77, 64, 0.55); white-space: nowrap;
-    }
-    .scr-kpi .v {
-      font-family: 'Unbounded', sans-serif; font-weight: 700;
-      font-size: 2.9em; line-height: 1.1; letter-spacing: -0.04em;
-      color: var(--garrafa); margin-top: 0.3em;
-    }
-    .scr-kpi.hot .v { color: var(--tomate); }
-    .scr-kpi .v small {
-      font-family: 'Inter', sans-serif; font-weight: 700;
-      font-size: 0.38em; letter-spacing: 0; color: rgba(31, 77, 64, 0.4);
-      margin-left: 0.25em;
-    }
-
-    /* ---- Gráfico ---- */
-    .scr-card {
-      background: #fff; border-radius: 1em;
-      border: 0.1em solid rgba(31, 77, 64, 0.10);
-      padding: 1.4em 1.6em;
-      display: flex; flex-direction: column;
-    }
-    .scr-card h5 {
-      font-weight: 700; font-size: 1.5em; letter-spacing: -0.012em; color: var(--garrafa);
-    }
-    .scr-legend { display: flex; gap: 1.2em; margin-left: auto; }
-    .scr-legend span {
-      display: flex; align-items: center; gap: 0.45em;
-      font-weight: 600; font-size: 1.2em; color: rgba(31, 77, 64, 0.55);
-    }
-    .scr-legend i { width: 1.4em; height: 0.22em; border-radius: 0.2em; background: var(--tomate); }
-    .scr-legend .b i { background: rgba(31, 77, 64, 0.3); }
-    .scr-plot { height: 17em; margin-top: 1.3em; display: flex; gap: 0.8em; }
-    .scr-y { position: relative; width: 2.6em; flex: none; }
-    .scr-y span {
-      position: absolute; right: 0; transform: translateY(-50%);
-      font-weight: 600; font-size: 1.15em; color: rgba(31, 77, 64, 0.4);
-    }
-    .scr-svg { flex: 1; min-width: 0; }
-    .scr-svg svg { width: 100%; height: 100%; display: block; }
-
-    /* ---- Painel da IA (slide 16) ---- */
-    .scr-ai { display: flex; flex-direction: column; gap: 1.3em; }
-    .scr-ai-h { display: flex; align-items: center; gap: 0.7em; }
-    .scr-ai-h .ico {
-      width: 2.1em; height: 2.1em; border-radius: 0.55em; flex: none;
-      background: var(--tomate); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .scr-ai-h .ico svg { width: 1.25em; height: 1.25em; stroke-width: 2.3; }
-    .scr-ai-h h5 {
-      font-weight: 800; font-size: 1.9em; letter-spacing: -0.02em; color: var(--garrafa);
-    }
-    .scr-ai-h .live {
-      margin-left: auto; display: flex; align-items: center; gap: 0.4em;
-      font-weight: 700; font-size: 1.15em; color: var(--tomate);
-    }
-    .scr-ai-h .live i {
-      width: 0.5em; height: 0.5em; border-radius: 50%; background: var(--tomate);
-      box-shadow: 0 0 0 0.24em rgba(232, 75, 63, 0.18);
-    }
-    .scr-ins { display: flex; flex-direction: column; gap: 1em; }
-    .scr-in {
-      background: #fff; border-radius: 0.9em;
-      border: 0.1em solid rgba(31, 77, 64, 0.10);
-      border-left: 0.32em solid var(--tomate);
-      padding: 1.15em 1.3em;
-      display: flex; align-items: center; gap: 0.9em;
-    }
-    .scr-in.good { border-left-color: var(--garrafa); }
-    .scr-in .m { width: 1.6em; height: 1.6em; flex: none; color: var(--tomate); }
-    .scr-in.good .m { color: var(--garrafa); }
-    .scr-in .m svg { width: 100%; height: 100%; stroke-width: 2.2; }
-    .scr-in p {
-      font-weight: 600; font-size: 1.6em; line-height: 1.25; letter-spacing: -0.012em;
+    .slb-mark svg { width: 9em; height: auto; display: block; }
+    .slb-head {
+      font-weight: 900; font-size: 8.6em; line-height: 0.98; letter-spacing: -0.042em;
       color: var(--garrafa);
     }
-    .scr-in p b { font-weight: 800; color: var(--tomate); }
-    .scr-cta {
-      display: flex; align-items: center; justify-content: center; gap: 0.55em;
-      background: var(--tomate); color: #fff;
-      border-radius: 0.9em; padding: 1.05em;
-      font-weight: 800; font-size: 1.7em; letter-spacing: -0.015em;
+    .slb-head em { font-style: normal; color: var(--tomate); }
+    .slb-nums {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 6em; margin-top: 1em;
     }
-    .scr-cta svg { width: 1.05em; height: 1.05em; stroke-width: 2.6; }
+    .slb-num { display: flex; flex-direction: column; align-items: center; gap: 0.5em; }
+    .slb-num .v {
+      font-family: 'Unbounded', sans-serif; font-weight: 800;
+      font-size: 11em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--garrafa);
+    }
+    .slb-num .v .unit { font-size: 0.42em; font-weight: 700; margin-left: 0.1em; }
+    .slb-num.hot .v { color: var(--tomate); }
+    .slb-num .l {
+      font-weight: 500; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.78); max-width: 20ch;
+    }
+    .slb-num .l b { font-weight: 800; color: var(--garrafa); }
+
+    /* ============================================
+       Analytics do parceiro — o que o dashboard lê
+       ============================================ */
+    .slide.active.sdash {
+      display: flex; flex-direction: column; justify-content: center; align-items: stretch;
+      padding: 6em 8em; gap: 2.2em; position: relative;
+    }
+    .sdash { background: var(--creme); }
+    .sdash-name {
+      font-weight: 900; font-size: 11.5em; line-height: 0.9; letter-spacing: -0.05em;
+      color: var(--garrafa);
+    }
+    .sdash-lead {
+      font-weight: 500; font-size: 3em; line-height: 1.25; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.75); max-width: 34ch;
+    }
+    .sdash-lead em { font-style: normal; font-weight: 800; color: var(--tomate); }
+    .sdash-grid {
+      margin-top: 1.2em;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.1em 4em;
+    }
+    .sdash-item {
+      display: flex; align-items: baseline; gap: 1em;
+      font-weight: 600; font-size: 2.65em; line-height: 1.25; letter-spacing: -0.014em;
+      color: var(--garrafa);
+      padding-bottom: 0.55em; border-bottom: 0.06em solid rgba(31, 77, 64, 0.14);
+    }
+    /* últimos de cada coluna sem régua, pra não sobrar linha solta */
+    .sdash-item:nth-child(6), .sdash-item:nth-child(7) { border-bottom: 0; }
+    .sdash-item::before {
+      content: ""; flex: none;
+      width: 0.42em; height: 0.42em; border-radius: 50%;
+      background: var(--tomate); transform: translateY(-0.2em);
+    }
   </style>
 </head>
 <body>
@@ -1543,19 +1467,6 @@
       <img src="telas/reviews.png" alt="Feed de takes do Yotakes" />
     </div>
 
-    <div class="s4-lb">
-      <div class="s4-lb-chip">
-        <svg class="s4-lb-mark" viewBox="0 0 96 40" role="img" aria-label="Letterboxd">
-          <circle cx="20" cy="20" r="20" fill="#ff8000" />
-          <circle cx="48" cy="20" r="20" fill="#00e054" />
-          <circle cx="76" cy="20" r="20" fill="#40bcf4" />
-        </svg>
-      </div>
-      <div class="s4-lb-txt">
-        <div class="s4-lb-data"><strong>30 milhões</strong> de usuários no Letterboxd</div>
-        <div class="s4-lb-source">ROLLINGSTONE · 2026</div>
-      </div>
-    </div>
   </section>
 
   <!-- ============ 07 — Avalie ============ -->
@@ -1624,6 +1535,34 @@
     <div class="device">
       <img src="telas/descoberta.png" alt="Tela inicial do Yotakes com descoberta" />
     </div>
+  </section>
+
+  <!-- ============ 10 — Letterboxd: o precedente do modelo ============ -->
+  <section class="slide slb">
+    <div class="pitch-tag"></div>
+
+    <div class="slb-mark">
+      <svg viewBox="0 0 96 40" role="img" aria-label="Letterboxd">
+        <circle cx="20" cy="20" r="20" fill="#ff8000" />
+        <circle cx="48" cy="20" r="20" fill="#00e054" />
+        <circle cx="76" cy="20" r="20" fill="#40bcf4" />
+      </svg>
+    </div>
+
+    <div class="slb-head">Já funcionou <em>com cinema</em></div>
+
+    <div class="slb-nums">
+      <div class="slb-num">
+        <div class="v">30<span class="unit">mi</span></div>
+        <div class="l">usuários registrando o que assistem</div>
+      </div>
+      <div class="slb-num hot">
+        <div class="v">5<span class="unit">%</span></div>
+        <div class="l">deles <b>pagam</b> por recurso extra</div>
+      </div>
+    </div>
+
+    <div class="s-dado-source">ROLLINGSTONE · 2026 · PADDLE · 2026</div>
   </section>
 
   <!-- ============ 10 — Não são todas iguais ============ -->
@@ -1731,149 +1670,23 @@
     </div>
   </section>
 
-  <!-- ============ 15 — Analytics do parceiro ============ -->
-  <section class="slide sv">
+  <!-- ============ 16 — Analytics: o que o parceiro enxerga ============ -->
+  <section class="slide sdash">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
 
-    <div class="sv-col">
-      <div class="sv-title">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
-            <path d="M4 20V11M10 20V4M16 20v-6M22 20H2"/>
-          </svg>
-        </span>
-        <span class="sv-verb">Analytics</span>
-      </div>
-      <div class="sv-desc">Quem avaliou, quem <em>voltou</em>, e como você vai <em>contra o bairro</em>.</div>
-    </div>
+    <div class="sdash-name">Analytics</div>
+    <div class="sdash-lead">O que o parceiro enxerga no painel — e o que
+      <em>uma IA</em> lê por ele.</div>
 
-    <div class="screen">
-      <div class="scr-bar">
-        <span class="yo">YOTAKES</span>
-        <span class="mod">Analytics</span>
-        <span class="per">Quintal · últimos 90 dias</span>
-      </div>
-      <div class="scr-body">
-        <div class="scr-kpis">
-          <div class="scr-kpi hot">
-            <div class="l">nota ponderada</div>
-            <div class="v">4,6<small>/5</small></div>
-          </div>
-          <div class="scr-kpi">
-            <div class="l">takes recebidos</div>
-            <div class="v">128</div>
-          </div>
-          <div class="scr-kpi">
-            <div class="l">recorrência</div>
-            <div class="v">41<small>%</small></div>
-          </div>
-          <div class="scr-kpi">
-            <div class="l">alcance na rede</div>
-            <div class="v">12,4<small>mil</small></div>
-          </div>
-        </div>
-
-        <div class="scr-card">
-          <div style="display:flex;align-items:baseline">
-            <h5>Sua nota contra o bairro</h5>
-            <div class="scr-legend">
-              <span><i></i>Quintal</span>
-              <span class="b"><i></i>Vila Madalena</span>
-            </div>
-          </div>
-          <div class="scr-plot">
-            <div class="scr-y">
-              <span style="top:12.7%">4,6</span>
-              <span style="top:42.5%">4,4</span>
-              <span style="top:72.4%">4,2</span>
-            </div>
-            <div class="scr-svg">
-              <svg viewBox="0 0 600 190" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="scrFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#e84b3f" stop-opacity="0.22"/>
-                    <stop offset="100%" stop-color="#e84b3f" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <g stroke="rgba(31,77,64,0.10)" stroke-width="1" vector-effect="non-scaling-stroke">
-                  <path d="M0 24.2H600"/><path d="M0 80.8H600"/><path d="M0 137.5H600"/>
-                </g>
-                <path d="M0 151.7 54.5 137.5 109.1 165.8 163.6 114.8 218.2 109.2 272.7 131.8 327.3 86.5 381.8 75.2 436.4 95 490.9 52.5 545.5 38.3 600 18.5V190H0Z" fill="url(#scrFill)"/>
-                <path d="M0 131.8 54.5 137.5 109.1 126.2 163.6 134.6 218.2 140.3 272.7 129 327.3 137.5 381.8 131.8 436.4 143.2 490.9 134.6 545.5 137.5 600 131.8"
-                      fill="none" stroke="rgba(31,77,64,0.32)" stroke-width="2" stroke-dasharray="6 6"
-                      vector-effect="non-scaling-stroke" stroke-linecap="round"/>
-                <path d="M0 151.7 54.5 137.5 109.1 165.8 163.6 114.8 218.2 109.2 272.7 131.8 327.3 86.5 381.8 75.2 436.4 95 490.9 52.5 545.5 38.3 600 18.5"
-                      fill="none" stroke="#e84b3f" stroke-width="3.2"
-                      vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 16 — Intelligence: a IA do parceiro ============ -->
-  <section class="slide sv wine">
-    <div class="pitch-tag light"></div>
-
-    <div class="sv-col">
-      <div class="sv-title">
-        <span class="sv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-            <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M18.6 15.6l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2Z"/>
-          </svg>
-        </span>
-        <span class="sv-verb long">Intelligence</span>
-      </div>
-      <div class="sv-desc">Uma <em>IA</em> lê os seus takes<br/>e diz <em>o que fazer</em> na semana.</div>
-    </div>
-
-    <div class="screen">
-      <div class="scr-bar">
-        <span class="yo">YOTAKES</span>
-        <span class="mod">Intelligence</span>
-        <span class="per">Quintal · esta semana</span>
-      </div>
-      <div class="scr-body">
-        <div class="scr-ai">
-          <div class="scr-ai-h">
-            <span class="ico">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/>
-              </svg>
-            </span>
-            <h5>Três coisas pra fazer</h5>
-            <span class="live"><i></i>ao vivo</span>
-          </div>
-
-          <div class="scr-ins">
-            <div class="scr-in">
-              <span class="m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-              </span>
-              <p>Sexta no almoço: <b>espera acima de 25 min</b>.</p>
-            </div>
-            <div class="scr-in good">
-              <span class="m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8M15 7h6v6"/></svg>
-              </span>
-              <p>O poke de salmão puxa sua nota. <b>Destaque ele</b>.</p>
-            </div>
-            <div class="scr-in">
-              <span class="m">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19"/><circle cx="10" cy="8" r="3.2"/><path d="M17 11.2a3.2 3.2 0 0 0 0-6.2M20 19v-1.5a3.5 3.5 0 0 0-2.2-3.2"/></svg>
-              </span>
-              <p><b>Onze pessoas</b> salvaram e não visitaram.</p>
-            </div>
-          </div>
-
-          <div class="scr-cta">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l1.6 4.4L18 10l-4.4 1.6L12 16l-1.6-4.4L6 10l4.4-1.6L12 4Z"/></svg>
-            Gerar plano da semana
-          </div>
-        </div>
-      </div>
+    <div class="sdash-grid">
+      <div class="sdash-item">Nota média atual</div>
+      <div class="sdash-item">Comparação com os concorrentes</div>
+      <div class="sdash-item">Total de avaliações recebidas</div>
+      <div class="sdash-item">Ranking na região e na categoria</div>
+      <div class="sdash-item">Evolução da nota ao longo do tempo</div>
+      <div class="sdash-item">Principais reclamações dos clientes</div>
+      <div class="sdash-item">Avaliações positivas, neutras e negativas</div>
     </div>
   </section>
 
@@ -1888,21 +1701,25 @@
           <div class="road-dot"></div>
           <div class="road-when">Feito</div>
           <div class="road-what">MVP construído</div>
+          <div class="road-date">Janeiro 2026</div>
         </div>
         <div class="road-item now">
           <div class="road-dot"></div>
           <div class="road-when">Agora</div>
           <div class="road-what">Beta fechado</div>
+          <div class="road-date">Novembro 2026</div>
         </div>
         <div class="road-item">
           <div class="road-dot"></div>
           <div class="road-when">Próximo</div>
           <div class="road-what">Lançamento público</div>
+          <div class="road-date">Fevereiro 2027</div>
         </div>
         <div class="road-item">
           <div class="road-dot"></div>
           <div class="road-when">Futuro</div>
           <div class="road-what">Escala e monetização</div>
+          <div class="road-date">Março 2027</div>
         </div>
       </div>
 
