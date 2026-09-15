@@ -34,7 +34,17 @@ no meio não obriga a renumerar os outros na mão.
 - `julia-v2.png` — retrato anterior da persona, sem uso hoje.
 - `qr-yotakes.png` — QR do roadmap e do último slide, apontando para a produção.
 - `telas/` — prints das telas do app no Figma (feed, avaliação, perfil, descoberta),
-  usados dentro da moldura de celular nos slides de produto.
+  usados dentro da moldura de celular nos slides de produto. Duas delas foram editadas
+  depois do export: `perfil.png` (o nome do perfil virou "Júlia", a persona do deck) e
+  `avaliacao.png` (o restaurante virou Merenda da Cidade e as duas fotos foram
+  preenchidas). Os textos foram reescritos em **Parkinsans** — a mesma fonte do design,
+  a mesma que o app carrega em `web/src/app/layout.tsx` — nos pesos e tamanhos medidos
+  do próprio PNG. O export original e intocado continua em
+  `yotakes/docs/figma/telas/` no repositório do produto.
+
+  Foto do Merenda da Cidade: **Rogério Gomes / Divulgação**, publicada pela Exame. É
+  material de divulgação usado aqui em contexto acadêmico — se o deck virar peça
+  comercial, trocar por foto própria ou licenciada.
 
 Fontes (Inter + Unbounded) vêm do Google Fonts. Paleta: tomate `#e84b3f`,
 garrafa `#1f4d40`, bordô `#5f1b1f`, creme `#f2ead7`.
