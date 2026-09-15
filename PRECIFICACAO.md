@@ -64,6 +64,10 @@ O Sous Chef, pela mesma conta, rende **R$ 7,91 líquidos**.
 
 ### Custo de infraestrutura — 10 mil usuários ativos/mês
 
+> No slide os itens aparecem por categoria (banco de dados e autenticação, hospedagem e
+> entrega de conteúdo, etc.) — o deck não cita fornecedor. Os nomes abaixo ficam aqui
+> porque sem eles não dá para auditar o preço.
+
 | Item | US$/mês | R$/mês |
 |---|---|---|
 | Supabase Pro (banco, auth, storage; 100 mil MAU inclusos) | 25,00 | 129 |

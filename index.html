@@ -1244,14 +1244,6 @@
     }
 
     /* ---- Slides auxiliares (backup, junto do Q&A) ---- */
-    .aux-tag {
-      position: absolute; top: 3.4em; right: 5em;
-      font-weight: 800; font-size: 1.8em; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--tomate);
-      border: 0.16em solid var(--tomate);
-      border-radius: 0.5em; padding: 0.5em 1em;
-      z-index: 5;
-    }
     .slide.active.saux {
       display: flex; flex-direction: column; justify-content: center;
       padding: 7em 8em; gap: 2.2em; position: relative;
@@ -1290,6 +1282,135 @@
       color: var(--garrafa);
       padding-left: 1em; border-left: 0.18em solid var(--tomate);
     }
+    /* ---- painel do parceiro: mostrar o dado, não descrever o dado ---- */
+    .painel {
+      width: 100%; margin-top: 0.6em;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2em;
+    }
+    .painel-mod {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.4em; padding: 2.4em 2.4em;
+      display: flex; flex-direction: column; gap: 1.5em;
+    }
+    .painel-mod .h {
+      font-weight: 800; font-size: 1.8em; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tomate);
+    }
+    .linhas { display: flex; flex-direction: column; gap: 1.15em; }
+    .linha {
+      display: grid; grid-template-columns: 6.4em 1fr 2.7em;
+      align-items: center; gap: 0.7em;
+      font-weight: 600; font-size: 2.1em; letter-spacing: -0.014em;
+      color: var(--garrafa);
+    }
+    .linha .bar-track {
+      display: block; height: 0.85em;
+      background: rgba(31, 77, 64, 0.1); border-radius: 0.3em;
+    }
+    .linha .bar { display: block; height: 100%; background: var(--garrafa); border-radius: 0.3em; }
+    .linha .n { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .linha.alerta .bar { background: var(--tomate); }
+    .linha.alerta .n { color: var(--tomate); }
+
+    /* comparação casa × região */
+    .versus { display: flex; flex-direction: column; gap: 1.15em; }
+    .versus .cab {
+      display: grid; grid-template-columns: 1fr 4.4em 4.4em; gap: 0.8em;
+      font-weight: 700; font-size: 1.6em; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.45); text-align: right;
+    }
+    .versus .cab span:first-child { text-align: left; }
+    .versus .v {
+      display: grid; grid-template-columns: 1fr 4.4em 4.4em; gap: 0.8em;
+      align-items: baseline;
+      font-weight: 600; font-size: 2.1em; letter-spacing: -0.014em;
+      color: var(--garrafa); text-align: right;
+    }
+    .versus .v span:first-child { text-align: left; }
+    .versus .v .casa { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .versus .v.pior .casa { color: var(--tomate); }
+    .versus .v .reg { font-variant-numeric: tabular-nums; color: rgba(31, 77, 64, 0.5); }
+
+    /* faixa de números soltos embaixo do painel */
+    .painel-faixa {
+      width: 100%; margin-top: 0.4em;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2em;
+      background: var(--garrafa); border-radius: 1.4em; padding: 1.8em 2.4em;
+    }
+    .painel-faixa .item { display: flex; flex-direction: column; gap: 0.15em; }
+    .painel-faixa .v {
+      font-weight: 900; font-size: 4.4em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--creme);
+    }
+    .painel-faixa .v em { font-style: normal; color: var(--tomate); }
+    .painel-faixa .l {
+      font-weight: 500; font-size: 1.9em; line-height: 1.2;
+      color: rgba(242, 234, 215, 0.7);
+    }
+
+    /* ---- pipeline da IA: um take atravessando as quatro etapas ---- */
+    .fluxo {
+      width: 100%; margin-top: 0.8em;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4em;
+      align-items: stretch;
+    }
+    .etapa { position: relative; display: flex; flex-direction: column; gap: 1em; }
+    .etapa:not(:last-child)::after {
+      content: "";
+      position: absolute; right: -0.7em; top: 58%;
+      width: 0; height: 0;
+      border-left: 1.5em solid var(--tomate);
+      border-top: 1em solid transparent;
+      border-bottom: 1em solid transparent;
+      transform: translate(50%, -50%);
+    }
+    .etapa .k {
+      font-weight: 800; font-size: 1.8em; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.45);
+    }
+    .etapa .caixa {
+      flex: 1;
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.4em; padding: 2.3em 2.2em;
+      display: flex; flex-direction: column; gap: 1.2em;
+    }
+    .etapa.fim .caixa { background: var(--garrafa); border-color: var(--garrafa); }
+    .take-cru {
+      font-weight: 500; font-size: 2.5em; line-height: 1.3; letter-spacing: -0.014em;
+      color: var(--garrafa); font-style: italic;
+    }
+    .take-meta {
+      font-weight: 700; font-size: 1.7em; letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.45);
+    }
+    .asp {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: baseline; gap: 1em;
+      font-weight: 700; font-size: 2.3em; letter-spacing: -0.014em;
+      color: var(--garrafa);
+      padding-bottom: 0.55em;
+      border-bottom: 0.06em solid rgba(31, 77, 64, 0.12);
+    }
+    .asp:last-child { border-bottom: 0; padding-bottom: 0; }
+    .asp .s { font-weight: 800; font-size: 1.1em; }
+    .asp .s.neg { color: var(--tomate); }
+    .asp .s.pos { color: var(--garrafa); }
+    .asp .s.neu { color: rgba(31, 77, 64, 0.35); }
+    .asp .q { font-weight: 800; font-variant-numeric: tabular-nums; color: rgba(31, 77, 64, 0.5); }
+    .asp.forte .q { color: var(--tomate); }
+    .saida {
+      font-weight: 600; font-size: 2.4em; line-height: 1.32; letter-spacing: -0.014em;
+      color: var(--creme);
+    }
+    .saida b { font-weight: 800; color: var(--tomate); }
+
+    /* legenda discreta pra dado de exemplo */
+    .aux-nota {
+      margin-top: 0.9em;
+      font-weight: 600; font-size: 1.8em; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.4);
+    }
+
     /* ---- régua de preço: onde os dois planos caem no mercado ---- */
     .aux-regua {
       width: 100%; margin-top: 0.6em;
@@ -1349,6 +1470,25 @@
       font-weight: 800;
     }
     .conta-l.total .v { color: var(--tomate); }
+
+    .escada { display: flex; flex-direction: column; gap: 1.4em; }
+    .degrau {
+      background: var(--garrafa); border-radius: 1.4em;
+      padding: 1.8em 2.2em;
+      display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1.4em;
+    }
+    .degrau:nth-child(2) { background: rgba(31, 77, 64, 0.1); }
+    .degrau .n {
+      font-weight: 900; font-size: 7.6em; line-height: 0.85; letter-spacing: -0.05em;
+      color: var(--creme);
+    }
+    .degrau:nth-child(2) .n { color: var(--garrafa); }
+    .degrau .l {
+      font-weight: 500; font-size: 2.1em; line-height: 1.25;
+      color: rgba(242, 234, 215, 0.8);
+    }
+    .degrau:nth-child(2) .l { color: rgba(31, 77, 64, 0.72); }
+    .degrau .l b { font-weight: 800; color: var(--tomate); }
 
     .conta-res {
       background: var(--garrafa); border-radius: 1.6em;
@@ -1886,8 +2026,6 @@
 
   <!-- ============ AUXILIAR — Como o algoritmo pondera ============ -->
   <section class="slide saux">
-    <div class="aux-tag">Auxiliar</div>
-
     <div class="aux-head">Como a nota é <em>ponderada</em>.</div>
     <div class="aux-sub">A nota que aparece não é média simples. Cada avaliação entra com um peso, calculado por quatro fatores.</div>
 
@@ -1919,8 +2057,6 @@
 
   <!-- ============ AUXILIAR — Tipos de promoção ============ -->
   <section class="slide saux">
-    <div class="aux-tag">Auxiliar</div>
-
     <div class="aux-head">Os tipos de <em>promoção</em>.</div>
     <div class="aux-sub">Toda promoção parte do restaurante parceiro e aparece rotulada como tal. Nenhuma delas encosta em nota ou avaliação.</div>
 
@@ -1950,78 +2086,101 @@
     <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Tipos derivados do BMC e do plano de marketing — regras e valores a fechar com o time.</div>
   </section>
 
-  <!-- ============ AUXILIAR — O que o Analytics entrega ============ -->
-  <section class="slide saux">
-    <div class="aux-tag">Auxiliar</div>
-
+  <!-- ============ APOIO — O painel do parceiro, com dado na tela ============ -->
+  <section class="slide saux dense">
     <div class="aux-head">O que o parceiro <em>enxerga</em>.</div>
-    <div class="aux-sub">O restaurante não recebe um gráfico de nota. Recebe o perfil de quem come ali, o de quem come na rua dele, e o que essa gente reclama.</div>
 
-    <div class="aux-grid">
-      <div class="aux-card">
-        <div class="k">Quem entra</div>
-        <div class="t">Perfil de quem come ali</div>
-        <div class="d">Faixa etária, com que frequência come fora, de que bairro vem e que tipo de casa costuma avaliar bem. Sai do histórico de takes de quem já avaliou a casa.</div>
+    <div class="painel">
+      <div class="painel-mod">
+        <div class="h">Quem come aqui</div>
+        <div class="linhas">
+          <div class="linha"><span>25 a 34</span><span class="bar-track"><span class="bar" style="width: 47%"></span></span><span class="n">47%</span></div>
+          <div class="linha"><span>35 a 44</span><span class="bar-track"><span class="bar" style="width: 28%"></span></span><span class="n">28%</span></div>
+          <div class="linha"><span>18 a 24</span><span class="bar-track"><span class="bar" style="width: 15%"></span></span><span class="n">15%</span></div>
+          <div class="linha"><span>45 ou mais</span><span class="bar-track"><span class="bar" style="width: 10%"></span></span><span class="n">10%</span></div>
+        </div>
       </div>
-      <div class="aux-card">
-        <div class="k">Quem passa</div>
-        <div class="t">Consumidor da região</div>
-        <div class="d">O mesmo perfil, mas do bairro inteiro — inclusive de quem nunca entrou. Onde essa gente está indo em vez de vir, e o que ela valoriza.</div>
+
+      <div class="painel-mod">
+        <div class="h">De onde vem</div>
+        <div class="linhas">
+          <div class="linha"><span>Pinheiros</span><span class="bar-track"><span class="bar" style="width: 38%"></span></span><span class="n">38%</span></div>
+          <div class="linha"><span>V. Madalena</span><span class="bar-track"><span class="bar" style="width: 24%"></span></span><span class="n">24%</span></div>
+          <div class="linha"><span>Perdizes</span><span class="bar-track"><span class="bar" style="width: 16%"></span></span><span class="n">16%</span></div>
+          <div class="linha"><span>Outros</span><span class="bar-track"><span class="bar" style="width: 22%"></span></span><span class="n">22%</span></div>
+        </div>
       </div>
-      <div class="aux-card">
-        <div class="k">Atrito</div>
-        <div class="t">Reclamações da rua</div>
-        <div class="d">As queixas recorrentes da casa e as do bairro, lado a lado: demora, preço, barulho, atendimento. Mostra se o problema é seu ou da região.</div>
-      </div>
-      <div class="aux-card">
-        <div class="k">Leitura</div>
-        <div class="t">O que fazer com isso</div>
-        <div class="d">Uma leitura por semana em texto: o que mudou desde a última, qual aspecto mais derruba a nota e o que atacar primeiro.</div>
+
+      <div class="painel-mod">
+        <div class="h">O que reclamam</div>
+        <div class="versus">
+          <div class="cab"><span></span><span>Casa</span><span>Rua</span></div>
+          <div class="v pior"><span>Espera</span><span class="casa">18</span><span class="reg">9</span></div>
+          <div class="v"><span>Preço</span><span class="casa">7</span><span class="reg">12</span></div>
+          <div class="v"><span>Barulho</span><span class="casa">4</span><span class="reg">3</span></div>
+          <div class="v"><span>Atendimento</span><span class="casa">2</span><span class="reg">8</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Perfil da região depende de massa de takes no bairro — só fica útil com densidade. Começa pelos bairros onde já temos base.</div>
+    <div class="painel-faixa">
+      <div class="item"><div class="v">4,2</div><div class="l">nota da casa</div></div>
+      <div class="item"><div class="v">3,9</div><div class="l">média do bairro</div></div>
+      <div class="item"><div class="v">3<em>x</em></div><div class="l">come fora por semana, a mediana de quem avalia aqui</div></div>
+      <div class="item"><div class="v">41<em>%</em></div><div class="l">voltou pelo menos duas vezes</div></div>
+    </div>
+
+    <div class="aux-nota">Dados ilustrativos · o perfil da região exige massa de takes no bairro</div>
   </section>
 
-  <!-- ============ AUXILIAR — Como a IA funciona ============ -->
+  <!-- ============ APOIO — O pipeline da IA com um take atravessando ============ -->
   <section class="slide saux dense">
-    <div class="aux-tag">Auxiliar</div>
-
     <div class="aux-head">Como a <em>IA</em> lê os takes.</div>
-    <div class="aux-sub">É o pipeline que o mercado de review analytics já usa — só que rodando sobre takes de gente identificada, não sobre review anônimo.</div>
 
-    <div class="aux-grid">
-      <div class="aux-card">
-        <div class="k">01</div>
-        <div class="t">Quebra por aspecto</div>
-        <div class="d">Cada take é fatiado em comida, serviço, ambiente, preço e espera, com sentimento por aspecto. É o mesmo ABSA que o Yelp usa desde 2024 para pontuar categoria de 1 a 100.</div>
+    <div class="fluxo">
+      <div class="etapa">
+        <div class="k">O take</div>
+        <div class="caixa">
+          <div class="take-cru">“Demorou 40 minutos pro prato sair. Mas o risoto valeu a espera.”</div>
+          <div class="take-meta">★ 4,0 · conta com 2 anos</div>
+        </div>
       </div>
-      <div class="aux-card">
-        <div class="k">02</div>
-        <div class="t">Agrupamento de temas</div>
-        <div class="d">Os aspectos viram temas recorrentes por período e por bairro. Uma reclamação é ruído; a mesma reclamação em quinze takes do mês é padrão.</div>
+
+      <div class="etapa">
+        <div class="k">Quebra por aspecto</div>
+        <div class="caixa">
+          <div class="asp"><span>Espera</span><span class="s neg">▼</span></div>
+          <div class="asp"><span>Comida</span><span class="s pos">▲</span></div>
+          <div class="asp"><span>Preço</span><span class="s neu">—</span></div>
+          <div class="asp"><span>Serviço</span><span class="s neu">—</span></div>
+        </div>
       </div>
-      <div class="aux-card">
-        <div class="k">03</div>
-        <div class="t">Síntese em texto</div>
-        <div class="d">O modelo lê os temas já agregados — nunca os takes crus — e escreve a leitura da semana. Modelo pequeno, em lote, com prompt cacheado.</div>
+
+      <div class="etapa">
+        <div class="k">Vira padrão</div>
+        <div class="caixa">
+          <div class="asp forte"><span>Espera</span><span class="q">23</span></div>
+          <div class="asp"><span>Comida</span><span class="q">31</span></div>
+          <div class="asp"><span>Preço</span><span class="q">7</span></div>
+          <div class="take-meta">takes deste mês</div>
+        </div>
       </div>
-      <div class="aux-card">
-        <div class="k">04</div>
-        <div class="t">Contraste com a região</div>
-        <div class="d">O pipeline roda igual para o bairro inteiro. O parceiro não vê só o próprio número: vê o próprio número contra a média da rua.</div>
+
+      <div class="etapa fim">
+        <div class="k">A leitura</div>
+        <div class="caixa">
+          <div class="saida">A espera é <b>o único aspecto pior que o da rua</b>. Some nos sábados à noite. A cozinha não é o problema.</div>
+        </div>
       </div>
     </div>
 
-    <div class="aux-foot">Birdeye e ReviewTrackers cobram de US$ 89 a US$ 349 por mês por unidade para entregar isso. Nossa conta de API dá cerca de <b>R$ 1,40 por parceiro por mês</b> — o custo está no dado, não no modelo.</div>
+    <div class="aux-foot">O modelo nunca lê o take cru — lê o agregado. Mesmo pipeline do Yelp, a <b>R$ 1,40 por parceiro/mês</b> contra US$ 89 a 349 do mercado.</div>
   </section>
 
   <!-- ============ AUXILIAR — Por que R$ 23,90 ============ -->
-  <section class="slide saux">
-    <div class="aux-tag">Auxiliar</div>
-
+  <section class="slide saux dense">
     <div class="aux-head">Por que <em>R$ 23,90</em>.</div>
-    <div class="aux-sub">O preço não saiu do custo — a infra custa cerca de três centavos por usuário. Saiu de duas âncoras: o que o nicho já paga lá fora e o que o brasileiro já assina sem pensar.</div>
+    <div class="aux-sub">Duas âncoras: o que o nicho já paga lá fora, e o que o brasileiro já assina sem pensar.</div>
 
     <div class="aux-regua">
       <div class="regua-row">
@@ -2061,34 +2220,43 @@
       </div>
     </div>
 
-    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;A régua justifica a faixa, não o centavo. O valor final precisa de teste de preço com a base real — Van Westendorp ou A/B na tela de assinatura.</div>
+    <div class="aux-nota">A régua justifica a faixa, não o centavo · falta teste de preço com a base real</div>
   </section>
 
-  <!-- ============ AUXILIAR — Quantos Chefes sustentam o app ============ -->
+  <!-- ============ APOIO — A conta mensal e quantos assinantes ela custa ============ -->
   <section class="slide saux dense">
-    <div class="aux-tag">Auxiliar</div>
-
     <div class="aux-head">Quantos <em>Chefes</em> sustentam o app.</div>
-    <div class="aux-sub">A conta de infraestrutura para dez mil usuários ativos por mês, e quantos assinantes ela custa.</div>
 
     <div class="aux-conta">
       <div class="conta-linhas">
-        <div class="conta-l"><span>Supabase Pro<span class="nota">banco, auth e storage · 100 mil MAU inclusos</span></span><span class="v">R$ 129</span></div>
-        <div class="conta-l"><span>Vercel Pro<span class="nota">hospedagem e CDN · 1 TB de tráfego</span></span><span class="v">R$ 103</span></div>
-        <div class="conta-l"><span>E-mail transacional<span class="nota">magic link e notificação</span></span><span class="v">R$ 103</span></div>
-        <div class="conta-l"><span>Fotos dos takes<span class="nota">7 GB novos/mês · dentro do incluso no ano 1</span></span><span class="v">R$ 0</span></div>
-        <div class="conta-l"><span>Domínio<span class="nota">rateio mensal</span></span><span class="v">R$ 6</span></div>
-        <div class="conta-l total"><span>Infra de 10 mil usuários</span><span class="v">R$ 341 /mês</span></div>
+        <div class="conta-l"><span>Banco de dados e autenticação<span class="nota">100 mil contas ativas inclusas</span></span><span class="v">R$ 129</span></div>
+        <div class="conta-l"><span>Hospedagem e entrega de conteúdo<span class="nota">1 TB de tráfego</span></span><span class="v">R$ 103</span></div>
+        <div class="conta-l"><span>E-mail transacional<span class="nota">acesso e notificação</span></span><span class="v">R$ 103</span></div>
+        <div class="conta-l"><span>Armazenamento de mídia<span class="nota">7 GB de fotos por mês</span></span><span class="v">R$ 0</span></div>
+        <div class="conta-l"><span>Domínio e certificado</span><span class="v">R$ 6</span></div>
+        <div class="conta-l total"><span>Custo mensal · 10 mil usuários</span><span class="v">R$ 341</span></div>
       </div>
 
-      <div class="conta-res">
-        <div class="k">Ponto de equilíbrio</div>
-        <div class="n">18</div>
-        <div class="d">assinantes Chefe pagam a conta inteira. São <b>0,18%</b> da base — o Letterboxd converte 5%. Cada Chefe sustenta <b>560</b> usuários gratuitos.</div>
+      <div class="escada">
+        <div class="degrau">
+          <div class="n">18</div>
+          <div class="l">Chefes pagam a conta de<br/><b>10 mil</b> usuários</div>
+        </div>
+        <div class="degrau">
+          <div class="n">53</div>
+          <div class="l">Chefes pagam a conta de<br/><b>100 mil</b> usuários</div>
+        </div>
       </div>
     </div>
 
-    <div class="aux-foot">Um Chefe rende R$ 19,10 líquidos — R$ 23,90 menos 15% de loja e 6% de imposto. Em 100 mil usuários a infra vai a R$ 1.004 e bastam 53 Chefes. <b>A conta é só de infraestrutura</b>: time e marketing são o que a assinatura ainda não paga — e é para isso que existe o lado parceiro.</div>
+    <div class="painel-faixa">
+      <div class="item"><div class="v">R$ 19,10</div><div class="l">líquidos por Chefe, já fora loja e imposto</div></div>
+      <div class="item"><div class="v">0,18<em>%</em></div><div class="l">da base assinando cobre a infra</div></div>
+      <div class="item"><div class="v">5<em>%</em></div><div class="l">é o que o Letterboxd converte</div></div>
+      <div class="item"><div class="v">R$ 0,03</div><div class="l">é o custo de infra por usuário</div></div>
+    </div>
+
+    <div class="aux-nota">Só infraestrutura · time e marketing são o que o lado parceiro paga</div>
   </section>
 
   <!-- Q&A 1 -->
