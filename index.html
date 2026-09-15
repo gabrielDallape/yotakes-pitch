@@ -1538,9 +1538,14 @@
     .slb-mark {
       background: #fff; border-radius: 6em;
       border: 0.12em solid rgba(31, 77, 64, 0.10);
-      padding: 1.6em 2.2em; display: flex;
+      padding: 1.5em 2.6em; display: flex;
+      align-items: center; gap: 1.4em;
     }
-    .slb-mark svg { width: 22em; height: auto; display: block; }
+    .slb-mark svg { width: 14em; height: auto; display: block; flex: none; }
+    .slb-word {
+      font-weight: 800; font-size: 6.4em; line-height: 1; letter-spacing: -0.035em;
+      color: #14181c;
+    }
     .slb-head {
       font-weight: 900; font-size: 8.6em; line-height: 0.98; letter-spacing: -0.042em;
       color: var(--garrafa);
@@ -1800,6 +1805,7 @@
         <circle cx="48" cy="20" r="20" fill="#00e054" />
         <circle cx="76" cy="20" r="20" fill="#40bcf4" />
       </svg>
+      <div class="slb-word">Letterboxd</div>
     </div>
 
     <div class="slb-head">Já funcionou <em>com cinema</em></div>
