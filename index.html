@@ -723,11 +723,11 @@
 
     .s8-julia {
       position: absolute; left: 17em; bottom: 2.5em;
-      width: 20em; height: 20em;
+      width: 14em; height: 14em;
       border-radius: 50%;
       overflow: hidden;
       background: var(--creme);
-      box-shadow: 0 0 0 0.7em var(--creme), 0 1.6em 3em rgba(0, 0, 0, 0.28);
+      box-shadow: 0 0 0 0.5em var(--creme), 0 1.2em 2.4em rgba(0, 0, 0, 0.28);
     }
     .s8-julia img {
       width: 100%; height: 100%; display: block;
@@ -1290,6 +1290,92 @@
       color: var(--garrafa);
       padding-left: 1em; border-left: 0.18em solid var(--tomate);
     }
+    /* ---- régua de preço: onde os dois planos caem no mercado ---- */
+    .aux-regua {
+      width: 100%; margin-top: 0.6em;
+      display: flex; flex-direction: column; gap: 0.75em;
+    }
+    .regua-row {
+      display: grid; grid-template-columns: 24em 1fr 12em;
+      align-items: center; gap: 1.6em;
+    }
+    .regua-nome {
+      font-weight: 600; font-size: 2.3em; line-height: 1.15; letter-spacing: -0.014em;
+      color: rgba(31, 77, 64, 0.72); text-align: right;
+    }
+    .regua-nome .src {
+      display: block; font-weight: 500; font-size: 0.62em;
+      color: rgba(31, 77, 64, 0.45);
+    }
+    .regua-track { height: 2.2em; display: flex; align-items: center; }
+    .regua-bar {
+      height: 100%; border-radius: 0.3em;
+      background: rgba(31, 77, 64, 0.18);
+    }
+    .regua-val {
+      font-weight: 800; font-size: 2.3em; letter-spacing: -0.02em;
+      color: rgba(31, 77, 64, 0.72);
+    }
+    .regua-row.yo .regua-nome { color: var(--garrafa); font-weight: 800; }
+    .regua-row.yo .regua-bar { background: var(--tomate); }
+    .regua-row.yo .regua-val { color: var(--tomate); }
+    .regua-row.ancora .regua-bar {
+      background: rgba(31, 77, 64, 0.18);
+      border: 0.14em dashed var(--garrafa);
+    }
+
+    /* ---- a conta: quantos assinantes pagam a infra ---- */
+    .aux-conta {
+      width: 100%; margin-top: 0.4em;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4em; align-items: center;
+    }
+    .conta-linhas { display: flex; flex-direction: column; }
+    .conta-l {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: baseline; gap: 1.4em;
+      padding: 0.5em 0;
+      border-bottom: 0.055em solid rgba(31, 77, 64, 0.16);
+      font-weight: 600; font-size: 2.2em; letter-spacing: -0.014em;
+      color: var(--garrafa);
+    }
+    .conta-l .v { font-weight: 800; font-variant-numeric: tabular-nums; }
+    .conta-l .nota {
+      display: block; font-weight: 500; font-size: 0.62em;
+      color: rgba(31, 77, 64, 0.5);
+    }
+    .conta-l.total {
+      border-bottom: 0; border-top: 0.14em solid var(--garrafa);
+      margin-top: 0.3em; padding-top: 0.75em;
+      font-weight: 800;
+    }
+    .conta-l.total .v { color: var(--tomate); }
+
+    .conta-res {
+      background: var(--garrafa); border-radius: 1.6em;
+      padding: 2.2em 2.4em;
+      display: flex; flex-direction: column; gap: 0.5em;
+    }
+    .conta-res .k {
+      font-weight: 800; font-size: 1.9em; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(242, 234, 215, 0.6);
+    }
+    .conta-res .n {
+      font-weight: 900; font-size: 9.5em; line-height: 0.88; letter-spacing: -0.05em;
+      color: var(--creme);
+    }
+    .conta-res .d {
+      margin-top: 0.3em;
+      font-weight: 500; font-size: 2.2em; line-height: 1.3;
+      color: rgba(242, 234, 215, 0.82);
+    }
+    .conta-res .d b { font-weight: 800; color: var(--tomate); }
+
+    /* variante apertada: slide com tabela, título longo e rodapé grande */
+    .slide.active.saux.dense { padding: 4.4em 8em; gap: 1.4em; }
+    .saux.dense .aux-head { font-size: 5.4em; }
+    .saux.dense .aux-sub { font-size: 2.6em; max-width: 56ch; }
+    .saux.dense .aux-foot { font-size: 2.3em; margin-top: 0.9em; }
+
     /* marcador amarelo pro que ainda falta o time fechar */
     .todo {
       display: inline-block;
@@ -1312,9 +1398,9 @@
     .slb-mark {
       background: #fff; border-radius: 6em;
       border: 0.12em solid rgba(31, 77, 64, 0.10);
-      padding: 1.1em 1.5em; display: flex;
+      padding: 1.6em 2.2em; display: flex;
     }
-    .slb-mark svg { width: 9em; height: auto; display: block; }
+    .slb-mark svg { width: 22em; height: auto; display: block; }
     .slb-head {
       font-weight: 900; font-size: 8.6em; line-height: 0.98; letter-spacing: -0.042em;
       color: var(--garrafa);
@@ -1347,32 +1433,59 @@
     }
     .sdash { background: var(--creme); }
     .sdash-name {
-      font-weight: 900; font-size: 11.5em; line-height: 0.9; letter-spacing: -0.05em;
+      font-weight: 900; font-size: 9em; line-height: 0.9; letter-spacing: -0.05em;
       color: var(--garrafa);
     }
+    .sdash-name em { font-style: normal; color: var(--tomate); }
     .sdash-lead {
-      font-weight: 500; font-size: 3em; line-height: 1.25; letter-spacing: -0.012em;
-      color: rgba(31, 77, 64, 0.75); max-width: 34ch;
+      font-weight: 500; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.012em;
+      color: rgba(31, 77, 64, 0.72); max-width: 40ch;
     }
-    .sdash-lead em { font-style: normal; font-weight: 800; color: var(--tomate); }
-    .sdash-grid {
-      margin-top: 1.2em;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.1em 4em;
+
+    /* duas camadas lado a lado: o número cru e a leitura que a IA faz dele */
+    .sdash-cols {
+      margin-top: 1.2em; flex: none;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2.4em;
+      align-items: stretch;
     }
-    .sdash-item {
-      display: flex; align-items: baseline; gap: 1em;
-      font-weight: 600; font-size: 3.1em; line-height: 1.25; letter-spacing: -0.016em;
-      color: var(--garrafa);
-      padding-bottom: 0.55em; border-bottom: 0.06em solid rgba(31, 77, 64, 0.14);
+    .sdash-card {
+      display: flex; flex-direction: column; gap: 1.4em;
+      padding: 2.6em 2.8em 2.8em;
+      border-radius: 1.4em;
     }
-    /* últimos de cada coluna sem régua, pra não sobrar linha solta */
-    .sdash-item:nth-child(6), .sdash-item:nth-child(7) { border-bottom: 0; }
-    .sdash-item::before {
+    .sdash-card.painel {
+      background: rgba(31, 77, 64, 0.06);
+      border: 0.08em solid rgba(31, 77, 64, 0.12);
+    }
+    .sdash-card.ia { background: var(--garrafa); }
+
+    .sdash-kicker {
+      display: flex; align-items: center; gap: 0.9em;
+      font-weight: 800; font-size: 1.9em; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(31, 77, 64, 0.55);
+    }
+    .sdash-card.ia .sdash-kicker { color: rgba(242, 234, 215, 0.62); }
+    .sdash-kicker::before {
       content: ""; flex: none;
-      width: 0.42em; height: 0.42em; border-radius: 50%;
-      background: var(--tomate); transform: translateY(-0.2em);
+      width: 0.7em; height: 0.7em; border-radius: 50%;
+      background: var(--garrafa);
     }
+    .sdash-card.ia .sdash-kicker::before { background: var(--tomate); }
+
+    .sdash-list { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .sdash-item {
+      font-weight: 600; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.016em;
+      color: var(--garrafa);
+      padding: 0.62em 0;
+      border-top: 0.055em solid rgba(31, 77, 64, 0.14);
+    }
+    .sdash-item:first-child { border-top: 0; padding-top: 0; }
+    .sdash-item:last-child { padding-bottom: 0; }
+    .sdash-card.ia .sdash-item {
+      color: var(--creme);
+      border-top-color: rgba(242, 234, 215, 0.18);
+    }
+    .sdash-card.ia .sdash-item b { font-weight: 800; color: var(--tomate); }
   </style>
 </head>
 <body>
@@ -1395,7 +1508,7 @@
 
     <div class="s2-col s2-persona">
       <div class="s2-portrait">
-        <img src="julia-v2.png" alt="Júlia" />
+        <img src="julia-v4.png" alt="Júlia" />
       </div>
       <div class="s2-name">Júlia,<br/>25 anos.</div>
     </div>
@@ -1675,18 +1788,29 @@
     <div class="pitch-tag"></div>
     <img class="yo-logo" src="yo-bubble-red.png" alt="Yo" />
 
-    <div class="sdash-name">Radar</div>
-    <div class="sdash-lead">O que o parceiro enxerga no painel e o que
-      <em>uma IA</em> lê por ele.</div>
+    <div class="sdash-name">Yotakes <em>Analytics</em></div>
+    <div class="sdash-lead">O parceiro abre o painel e vê números. A camada de IA
+      lê esses números por ele.</div>
 
-    <div class="sdash-grid">
-      <div class="sdash-item">Nota média</div>
-      <div class="sdash-item">Comparação com concorrentes</div>
-      <div class="sdash-item">Total de avaliações</div>
-      <div class="sdash-item">Ranking na região</div>
-      <div class="sdash-item">Evolução da nota</div>
-      <div class="sdash-item">Principais reclamações</div>
-      <div class="sdash-item">Positivas, neutras e negativas</div>
+    <div class="sdash-cols">
+      <div class="sdash-card painel">
+        <div class="sdash-kicker">O painel mostra</div>
+        <div class="sdash-list">
+          <div class="sdash-item">Nota média</div>
+          <div class="sdash-item">Total de avaliações</div>
+          <div class="sdash-item">Evolução da nota</div>
+          <div class="sdash-item">Ranking na região</div>
+        </div>
+      </div>
+
+      <div class="sdash-card ia">
+        <div class="sdash-kicker">A IA lê por ele</div>
+        <div class="sdash-list">
+          <div class="sdash-item">Comparação com <b>concorrentes</b></div>
+          <div class="sdash-item">Principais <b>reclamações</b></div>
+          <div class="sdash-item">Positivas, neutras e negativas</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1824,6 +1948,147 @@
     </div>
 
     <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Tipos derivados do BMC e do plano de marketing — regras e valores a fechar com o time.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — O que o Analytics entrega ============ -->
+  <section class="slide saux">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">O que o parceiro <em>enxerga</em>.</div>
+    <div class="aux-sub">O restaurante não recebe um gráfico de nota. Recebe o perfil de quem come ali, o de quem come na rua dele, e o que essa gente reclama.</div>
+
+    <div class="aux-grid">
+      <div class="aux-card">
+        <div class="k">Quem entra</div>
+        <div class="t">Perfil de quem come ali</div>
+        <div class="d">Faixa etária, com que frequência come fora, de que bairro vem e que tipo de casa costuma avaliar bem. Sai do histórico de takes de quem já avaliou a casa.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Quem passa</div>
+        <div class="t">Consumidor da região</div>
+        <div class="d">O mesmo perfil, mas do bairro inteiro — inclusive de quem nunca entrou. Onde essa gente está indo em vez de vir, e o que ela valoriza.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Atrito</div>
+        <div class="t">Reclamações da rua</div>
+        <div class="d">As queixas recorrentes da casa e as do bairro, lado a lado: demora, preço, barulho, atendimento. Mostra se o problema é seu ou da região.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">Leitura</div>
+        <div class="t">O que fazer com isso</div>
+        <div class="d">Uma leitura por semana em texto: o que mudou desde a última, qual aspecto mais derruba a nota e o que atacar primeiro.</div>
+      </div>
+    </div>
+
+    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Perfil da região depende de massa de takes no bairro — só fica útil com densidade. Começa pelos bairros onde já temos base.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — Como a IA funciona ============ -->
+  <section class="slide saux dense">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">Como a <em>IA</em> lê os takes.</div>
+    <div class="aux-sub">É o pipeline que o mercado de review analytics já usa — só que rodando sobre takes de gente identificada, não sobre review anônimo.</div>
+
+    <div class="aux-grid">
+      <div class="aux-card">
+        <div class="k">01</div>
+        <div class="t">Quebra por aspecto</div>
+        <div class="d">Cada take é fatiado em comida, serviço, ambiente, preço e espera, com sentimento por aspecto. É o mesmo ABSA que o Yelp usa desde 2024 para pontuar categoria de 1 a 100.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">02</div>
+        <div class="t">Agrupamento de temas</div>
+        <div class="d">Os aspectos viram temas recorrentes por período e por bairro. Uma reclamação é ruído; a mesma reclamação em quinze takes do mês é padrão.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">03</div>
+        <div class="t">Síntese em texto</div>
+        <div class="d">O modelo lê os temas já agregados — nunca os takes crus — e escreve a leitura da semana. Modelo pequeno, em lote, com prompt cacheado.</div>
+      </div>
+      <div class="aux-card">
+        <div class="k">04</div>
+        <div class="t">Contraste com a região</div>
+        <div class="d">O pipeline roda igual para o bairro inteiro. O parceiro não vê só o próprio número: vê o próprio número contra a média da rua.</div>
+      </div>
+    </div>
+
+    <div class="aux-foot">Birdeye e ReviewTrackers cobram de US$ 89 a US$ 349 por mês por unidade para entregar isso. Nossa conta de API dá cerca de <b>R$ 1,40 por parceiro por mês</b> — o custo está no dado, não no modelo.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — Por que R$ 23,90 ============ -->
+  <section class="slide saux">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">Por que <em>R$ 23,90</em>.</div>
+    <div class="aux-sub">O preço não saiu do custo — a infra custa cerca de três centavos por usuário. Saiu de duas âncoras: o que o nicho já paga lá fora e o que o brasileiro já assina sem pensar.</div>
+
+    <div class="aux-regua">
+      <div class="regua-row">
+        <div class="regua-nome">Letterboxd Pro<span class="src">US$ 19/ano · câmbio 5,15</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 18.2%"></div></div>
+        <div class="regua-val">R$ 8,15</div>
+      </div>
+      <div class="regua-row yo">
+        <div class="regua-nome">Sous Chef<span class="src">Yotakes</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 22.0%"></div></div>
+        <div class="regua-val">R$ 9,90</div>
+      </div>
+      <div class="regua-row">
+        <div class="regua-nome">Duolingo Super<span class="src">individual, mensal</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 33.4%"></div></div>
+        <div class="regua-val">R$ 14,99</div>
+      </div>
+      <div class="regua-row">
+        <div class="regua-nome">Letterboxd Patron<span class="src">US$ 49/ano · câmbio 5,15</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 46.8%"></div></div>
+        <div class="regua-val">R$ 21,03</div>
+      </div>
+      <div class="regua-row ancora">
+        <div class="regua-nome">Spotify Individual<span class="src">a âncora do hábito brasileiro</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 53.2%"></div></div>
+        <div class="regua-val">R$ 23,90</div>
+      </div>
+      <div class="regua-row yo">
+        <div class="regua-nome">Chefe<span class="src">Yotakes</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 53.2%"></div></div>
+        <div class="regua-val">R$ 23,90</div>
+      </div>
+      <div class="regua-row">
+        <div class="regua-nome">Netflix Padrão<span class="src">sem anúncios</span></div>
+        <div class="regua-track"><div class="regua-bar" style="width: 100.0%"></div></div>
+        <div class="regua-val">R$ 44,90</div>
+      </div>
+    </div>
+
+    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;A régua justifica a faixa, não o centavo. O valor final precisa de teste de preço com a base real — Van Westendorp ou A/B na tela de assinatura.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — Quantos Chefes sustentam o app ============ -->
+  <section class="slide saux dense">
+    <div class="aux-tag">Auxiliar</div>
+
+    <div class="aux-head">Quantos <em>Chefes</em> sustentam o app.</div>
+    <div class="aux-sub">A conta de infraestrutura para dez mil usuários ativos por mês, e quantos assinantes ela custa.</div>
+
+    <div class="aux-conta">
+      <div class="conta-linhas">
+        <div class="conta-l"><span>Supabase Pro<span class="nota">banco, auth e storage · 100 mil MAU inclusos</span></span><span class="v">R$ 129</span></div>
+        <div class="conta-l"><span>Vercel Pro<span class="nota">hospedagem e CDN · 1 TB de tráfego</span></span><span class="v">R$ 103</span></div>
+        <div class="conta-l"><span>E-mail transacional<span class="nota">magic link e notificação</span></span><span class="v">R$ 103</span></div>
+        <div class="conta-l"><span>Fotos dos takes<span class="nota">7 GB novos/mês · dentro do incluso no ano 1</span></span><span class="v">R$ 0</span></div>
+        <div class="conta-l"><span>Domínio<span class="nota">rateio mensal</span></span><span class="v">R$ 6</span></div>
+        <div class="conta-l total"><span>Infra de 10 mil usuários</span><span class="v">R$ 341 /mês</span></div>
+      </div>
+
+      <div class="conta-res">
+        <div class="k">Ponto de equilíbrio</div>
+        <div class="n">18</div>
+        <div class="d">assinantes Chefe pagam a conta inteira. São <b>0,18%</b> da base — o Letterboxd converte 5%. Cada Chefe sustenta <b>560</b> usuários gratuitos.</div>
+      </div>
+    </div>
+
+    <div class="aux-foot">Um Chefe rende R$ 19,10 líquidos — R$ 23,90 menos 15% de loja e 6% de imposto. Em 100 mil usuários a infra vai a R$ 1.004 e bastam 53 Chefes. <b>A conta é só de infraestrutura</b>: time e marketing são o que a assinatura ainda não paga — e é para isso que existe o lado parceiro.</div>
   </section>
 
   <!-- Q&A 1 -->

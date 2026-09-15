@@ -8,10 +8,13 @@ ranking genérico.
 
 ## Como funciona
 
-`index.html` é um arquivo único auto-contido: 32 seções em 16:9, navegáveis pelo teclado —
-16 slides de pitch, um separador preto que marca o fim da apresentação, e o material de
-apoio (2 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
+`index.html` é um arquivo único auto-contido: 38 seções em 16:9, navegáveis pelo teclado —
+18 slides de pitch, um separador preto que marca o fim da apresentação, e o material de
+apoio (6 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
 `<section class="slide sN">` ocupa a viewport e só a que tem `.active` aparece.
+
+Os números dos slides auxiliares de preço e de sustentação têm memória de cálculo em
+[`PRECIFICACAO.md`](PRECIFICACAO.md) — premissas, contas e fontes, para defender na banca.
 
 A numeração das tags (`Pitch 1 · NN`) é gerada em JS pela ordem no DOM — inserir um slide
 no meio não obriga a renumerar os outros na mão.
@@ -26,7 +29,9 @@ no meio não obriga a renumerar os outros na mão.
 
 - `yo-bubble.png` — mascote Yo em creme, para fundos tomate/garrafa.
 - `yo-bubble-red.png` — variante vermelha, para fundos claros.
-- `julia-v2.png` — foto de abertura.
+- `julia-v4.png` — retrato da Júlia (decepcionada) no slide da persona.
+- `julia-v3.png` — Júlia sorrindo, no medalhão do slide de CTA.
+- `julia-v2.png` — retrato anterior da persona, sem uso hoje.
 - `qr-yotakes.png` — QR do roadmap e do último slide, apontando para a produção.
 - `telas/` — prints das telas do app no Figma (feed, avaliação, perfil, descoberta),
   usados dentro da moldura de celular nos slides de produto.
@@ -36,6 +41,7 @@ garrafa `#1f4d40`, bordô `#5f1b1f`, creme `#f2ead7`.
 
 ## Origem
 
-A fonte canônica vive em `yotakes-pitch/index.html` na branch `monorepo` do repositório
-principal do produto (privado). Este repositório é a cópia publicada — para editar, mexa
-lá e sincronize.
+O deck nasceu em `yotakes-pitch/index.html` na branch `monorepo` do repositório principal
+do produto (privado), mas aquela cópia parou em 03/08/2026, com 26 slides. **Quem manda
+hoje é este repositório** — é aqui que o deck evoluiu e é daqui que o GitHub Pages
+publica. A cópia na `monorepo` está desatualizada e não deve ser usada como base.
