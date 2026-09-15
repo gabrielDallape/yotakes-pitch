@@ -1538,13 +1538,14 @@
     .slb-mark {
       background: #fff; border-radius: 6em;
       border: 0.12em solid rgba(31, 77, 64, 0.10);
-      padding: 1.5em 2.6em; display: flex;
-      align-items: center; gap: 1.4em;
+      padding: 2.6em 3.6em 2.8em; display: flex;
+      flex-direction: column; align-items: center; gap: 1.5em;
     }
-    .slb-mark svg { width: 14em; height: auto; display: block; flex: none; }
+    /* proporções medidas da marca oficial: raio 26, centros a 44,5 de distância */
+    .slb-mark svg { width: 20.6em; height: auto; display: block; }
     .slb-word {
-      font-weight: 800; font-size: 6.4em; line-height: 1; letter-spacing: -0.035em;
-      color: #14181c;
+      font-weight: 800; font-size: 5.8em; line-height: 1; letter-spacing: -0.013em;
+      color: #556677;
     }
     .slb-head {
       font-weight: 900; font-size: 8.6em; line-height: 0.98; letter-spacing: -0.042em;
@@ -1800,10 +1801,17 @@
     <div class="pitch-tag"></div>
 
     <div class="slb-mark">
-      <svg viewBox="0 0 96 40" role="img" aria-label="Letterboxd">
-        <circle cx="20" cy="20" r="20" fill="#ff8000" />
-        <circle cx="48" cy="20" r="20" fill="#00e054" />
-        <circle cx="76" cy="20" r="20" fill="#40bcf4" />
+      <svg viewBox="0 0 141 52" role="img" aria-label="Letterboxd">
+        <defs>
+          <clipPath id="lb-esq"><circle cx="26" cy="26" r="26" /></clipPath>
+          <clipPath id="lb-dir"><circle cx="115" cy="26" r="26" /></clipPath>
+        </defs>
+        <circle cx="26" cy="26" r="26" fill="#ff8000" />
+        <circle cx="70.5" cy="26" r="26" fill="#00e054" />
+        <circle cx="115" cy="26" r="26" fill="#40bcf4" />
+        <!-- as lentes onde os círculos se cruzam, na cor do wordmark -->
+        <circle cx="70.5" cy="26" r="26" fill="#556677" clip-path="url(#lb-esq)" />
+        <circle cx="70.5" cy="26" r="26" fill="#556677" clip-path="url(#lb-dir)" />
       </svg>
       <div class="slb-word">Letterboxd</div>
     </div>
