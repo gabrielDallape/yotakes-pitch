@@ -1,7 +1,7 @@
 # Memória de cálculo — preço dos planos e sustentação do app
 
 Base dos quatro slides auxiliares novos (*O que o parceiro enxerga*, *Como a IA lê os
-takes*, *Por que R$ 23,90* e *Quantos Chefes sustentam o app*). Serve para responder na
+takes*, *Por que R$ 23,90* e *Quantos Chefs sustentam o app*). Serve para responder na
 banca de onde veio cada número.
 
 Levantado em **15/09/2026**. Câmbio usado: **US$ 1 = R$ 5,15** (USD/BRL em 14/09/2026).
@@ -22,7 +22,7 @@ nenhum aqui.
 | Letterboxd **Patron** | US$ 49/ano | **R$ 21,03/mês** |
 
 O Letterboxd é o comparável direto: comunidade editorial de nicho, mesma mecânica de
-registrar-e-avaliar. Sous Chef (R$ 9,90) fica logo acima do Pro; Chefe (R$ 23,90) logo
+registrar-e-avaliar. Sous Chef (R$ 9,90) fica logo acima do Pro; Chef (R$ 23,90) logo
 acima do Patron.
 
 ### Âncora 2 — o que o brasileiro já assina sem pensar
@@ -48,7 +48,7 @@ e o slide diz isso.
 
 ---
 
-## 2. Quantos assinantes Chefe sustentam o app
+## 2. Quantos assinantes Chef sustentam o app
 
 ### Receita líquida por assinante
 
@@ -57,7 +57,7 @@ R$ 23,90 bruto
  − 15%  loja de aplicativo (App Store / Google Play, Small Business Program,
         válido enquanto a receita anual ficar abaixo de US$ 1 mi)
  − 6%   imposto (Simples Nacional, faixa inicial)
-= R$ 19,10 líquidos por Chefe/mês
+= R$ 19,10 líquidos por Chef/mês
 ```
 
 O Sous Chef, pela mesma conta, rende **R$ 7,91 líquidos**.
@@ -78,9 +78,9 @@ O Sous Chef, pela mesma conta, rende **R$ 7,91 líquidos**.
 | **Total** | **66,25** | **341** |
 
 → **R$ 0,034 por usuário/mês.**
-→ **18 assinantes Chefe** cobrem a conta inteira (341 ÷ 19,10).
+→ **18 assinantes Chef** cobrem a conta inteira (341 ÷ 19,10).
 → São **0,18% da base**. O Letterboxd converte 5% — margem de ~28×.
-→ Cada Chefe sustenta **560 usuários gratuitos**.
+→ Cada Chef sustenta **560 usuários gratuitos**.
 
 ### O mesmo em 100 mil usuários
 
@@ -94,7 +94,7 @@ O Sous Chef, pela mesma conta, rende **R$ 7,91 líquidos**.
 | **Total** | **194,97** → **R$ 1.004** |
 
 → **R$ 0,010 por usuário/mês** — a curva melhora com escala.
-→ **53 Chefes** cobrem a conta de 100 mil usuários.
+→ **53 Chefs** cobrem a conta de 100 mil usuários.
 
 ### Premissas de consumo (é aqui que a banca pode cutucar)
 
@@ -110,7 +110,7 @@ bastante para não ser o que define o preço.**
 ### O limite honesto desta conta
 
 Ela cobre **só infraestrutura**. Não cobre salário, marketing, suporte nem aquisição.
-1.000 Chefes rendem R$ 19,1 mil líquidos/mês — 19× a infra de 100 mil usuários, e é essa
+1.000 Chefs rendem R$ 19,1 mil líquidos/mês — 19× a infra de 100 mil usuários, e é essa
 sobra que teria de virar time. É por isso que o lado parceiro (B2B) existe: a assinatura
 do consumidor sustenta a operação técnica, não a empresa.
 

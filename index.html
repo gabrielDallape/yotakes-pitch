@@ -894,6 +894,11 @@
 
     /* Slide preto separador */
     .s-black { background: #000; }
+    .slide.active.s-black { display: flex; align-items: center; justify-content: center; }
+    .s-black img {
+      height: 100%; width: auto; max-width: 100%;
+      object-fit: contain; display: block;
+    }
 
     /* Q&A */
     .slide.active.s-qa {
@@ -1876,15 +1881,15 @@
     </div>
   </section>
 
-  <!-- ============ 13 — Plano Chefe ============ -->
+  <!-- ============ 13 — Plano Chef ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
     <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
-    <div class="splan-head">Plano <em>Chefe</em></div>
+    <div class="splan-head">Plano <em>Chef</em></div>
 
     <div class="splan-grid solo">
       <div class="plan solo">
-        <div class="tier">Chefe</div>
+        <div class="tier">Chef</div>
         <div class="price">R$ 23,90<span class="per"> /mês</span></div>
         <ul>
           <li>Tudo do Sous Chef</li>
@@ -2035,7 +2040,9 @@
   </section>
 
   <!-- ============ separador preto: fim do pitch ============ -->
-  <section class="slide s-black"></section>
+  <section class="slide s-black">
+    <img src="julia-casal.jpg?v=20260917" alt="" />
+  </section>
 
   <!-- ============ AUXILIAR — Como o algoritmo pondera ============ -->
   <section class="slide saux">
@@ -2222,7 +2229,7 @@
         <div class="regua-val">R$ 23,90</div>
       </div>
       <div class="regua-row yo">
-        <div class="regua-nome">Chefe<span class="src">Yotakes</span></div>
+        <div class="regua-nome">Chef<span class="src">Yotakes</span></div>
         <div class="regua-track"><div class="regua-bar" style="width: 53.2%"></div></div>
         <div class="regua-val">R$ 23,90</div>
       </div>
@@ -2238,7 +2245,7 @@
 
   <!-- ============ APOIO — A conta mensal e quantos assinantes ela custa ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Quantos <em>Chefes</em> sustentam o app</div>
+    <div class="aux-head">Quantos <em>Chefs</em> sustentam o app</div>
 
     <div class="aux-conta">
       <div class="conta-linhas">
@@ -2253,17 +2260,17 @@
       <div class="escada">
         <div class="degrau">
           <div class="n">18</div>
-          <div class="l">Chefes pagam a conta de<br/><b>10 mil</b> usuários</div>
+          <div class="l">Chefs pagam a conta de<br/><b>10 mil</b> usuários</div>
         </div>
         <div class="degrau">
           <div class="n">53</div>
-          <div class="l">Chefes pagam a conta de<br/><b>100 mil</b> usuários</div>
+          <div class="l">Chefs pagam a conta de<br/><b>100 mil</b> usuários</div>
         </div>
       </div>
     </div>
 
     <div class="painel-faixa">
-      <div class="item"><div class="v">R$ 19,10</div><div class="l">líquidos por Chefe, já fora loja e imposto</div></div>
+      <div class="item"><div class="v">R$ 19,10</div><div class="l">líquidos por Chef, já fora loja e imposto</div></div>
       <div class="item"><div class="v">0,18<em>%</em></div><div class="l">da base assinando cobre a infra</div></div>
       <div class="item"><div class="v">5<em>%</em></div><div class="l">é o que o Letterboxd converte</div></div>
       <div class="item"><div class="v">R$ 0,03</div><div class="l">é o custo de infra por usuário</div></div>
