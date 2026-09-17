@@ -76,6 +76,8 @@
     }
     /* Slide 8 (CTA) — logo maior */
     .s8 .yo-logo { height: 14em; top: 3em; right: 4em; }
+    /* slides com a moldura do celular à direita — logo menor, longe do aparelho */
+    .s4 .yo-logo, .sv .yo-logo { height: 8.6em; top: 2.4em; right: 3em; }
 
     .eyebrow {
       font-weight: 700;
@@ -1209,7 +1211,7 @@
       height: 0.22em; background: rgba(242, 234, 215, 0.22);
     }
     .road-item { display: flex; flex-direction: column; gap: 1.4em; position: relative; }
-    .road-item .road-what + .road-date { margin-top: -0.9em; }
+    .road-item .road-what + .road-date { margin-top: 0.1em; }
     .road-dot {
       width: 1.5em; height: 1.5em; border-radius: 50%;
       background: rgba(242, 234, 215, 0.3);
@@ -1516,15 +1518,6 @@
     .saux.dense .aux-sub { font-size: 2.6em; max-width: 56ch; }
     .saux.dense .aux-foot { font-size: 2.3em; margin-top: 0.9em; }
 
-    /* marcador amarelo pro que ainda falta o time fechar */
-    .todo {
-      display: inline-block;
-      font-weight: 800; font-size: 0.8em; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #8a5a00; background: #ffe9a8;
-      border: 0.1em dashed #c99a20; border-radius: 0.4em; padding: 0.25em 0.6em;
-    }
-
-
     /* ============================================
        Letterboxd — o precedente do modelo (depois do Descubra)
        ============================================ */
@@ -1553,8 +1546,8 @@
     }
     .slb-head em { font-style: normal; color: var(--tomate); }
     .slb-nums {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 6em; margin-top: 1em;
+      display: grid; grid-template-columns: 1fr; justify-items: center;
+      margin-top: 1em;
     }
     .slb-num { display: flex; flex-direction: column; align-items: center; gap: 0.5em; }
     .slb-num .v {
@@ -1566,7 +1559,7 @@
     .slb-num.hot .v { color: var(--tomate); }
     .slb-num .l {
       font-weight: 500; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.012em;
-      color: rgba(31, 77, 64, 0.78); max-width: 20ch;
+      color: rgba(31, 77, 64, 0.78); max-width: 40ch; text-align: center;
     }
     .slb-num .l b { font-weight: 800; color: var(--garrafa); }
 
@@ -1718,6 +1711,7 @@
   <!-- ============ 06 — Yotakes: um só feed ============ -->
   <section class="slide s4">
     <div class="pitch-tag light"></div>
+    <img class="yo-logo" src="yo-bubble.png?v=20260915" alt="Yo" />
 
     <div class="s4-col">
       <div class="s4-word">Yotakes</div>
@@ -1733,6 +1727,7 @@
   <!-- ============ 07 — Avalie ============ -->
   <section class="slide sv">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
 
     <div class="sv-col">
       <div class="sv-title">
@@ -1754,6 +1749,7 @@
   <!-- ============ 08 — Siga ============ -->
   <section class="slide sv dark">
     <div class="pitch-tag light"></div>
+    <img class="yo-logo" src="yo-bubble.png?v=20260915" alt="Yo" />
 
     <div class="sv-col">
       <div class="sv-title">
@@ -1778,6 +1774,7 @@
   <!-- ============ 09 — Descubra ============ -->
   <section class="slide sv wine">
     <div class="pitch-tag light"></div>
+    <img class="yo-logo" src="yo-bubble.png?v=20260915" alt="Yo" />
 
     <div class="sv-col">
       <div class="sv-title">
@@ -1801,6 +1798,7 @@
   <!-- ============ 10 — Letterboxd: o precedente do modelo ============ -->
   <section class="slide slb">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
 
     <div class="slb-mark">
       <svg viewBox="0 0 141 52" role="img" aria-label="Letterboxd">
@@ -1825,13 +1823,9 @@
         <div class="v">30<span class="unit">mi</span></div>
         <div class="l">usuários registrando o que assistem</div>
       </div>
-      <div class="slb-num hot">
-        <div class="v">1,5<span class="unit">mi</span></div>
-        <div class="l"><b>pagam</b> por recurso extra</div>
-      </div>
     </div>
 
-    <div class="s-dado-source">ROLLINGSTONE · 2026 · PADDLE · 2026</div>
+    <div class="s-dado-source">ROLLINGSTONE · 2026</div>
   </section>
 
   <!-- ============ 10 — Não são todas iguais ============ -->
@@ -1847,6 +1841,7 @@
   <!-- ============ 11 — Plano Free ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
     <div class="splan-head">A Júlia entra <em>de graça</em> e pode ir além</div>
 
     <div class="splan-grid solo">
@@ -1865,6 +1860,7 @@
   <!-- ============ 12 — Plano Sous Chef ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
     <div class="splan-head">Plano <em>Sous Chef</em></div>
 
     <div class="splan-grid solo">
@@ -1883,6 +1879,7 @@
   <!-- ============ 13 — Plano Chefe ============ -->
   <section class="slide splan">
     <div class="pitch-tag"></div>
+    <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
     <div class="splan-head">Plano <em>Chefe</em></div>
 
     <div class="splan-grid solo">
@@ -2042,7 +2039,7 @@
 
   <!-- ============ AUXILIAR — Como o algoritmo pondera ============ -->
   <section class="slide saux">
-    <div class="aux-head">Como a nota é <em>ponderada</em>.</div>
+    <div class="aux-head">Como a nota é <em>ponderada</em></div>
     <div class="aux-sub">A nota que aparece não é média simples. Cada avaliação entra com um peso, calculado por quatro fatores.</div>
 
     <div class="aux-grid">
@@ -2073,7 +2070,7 @@
 
   <!-- ============ AUXILIAR — Tipos de promoção ============ -->
   <section class="slide saux">
-    <div class="aux-head">Os tipos de <em>promoção</em>.</div>
+    <div class="aux-head">Os tipos de <em>promoção</em></div>
     <div class="aux-sub">Toda promoção parte do restaurante parceiro e aparece rotulada como tal. Nenhuma delas encosta em nota ou avaliação.</div>
 
     <div class="aux-grid">
@@ -2085,7 +2082,7 @@
       <div class="aux-card">
         <div class="k">Editorial</div>
         <div class="t">Ação sazonal</div>
-        <div class="d">Dois por um, Restaurant Week, menu de data comemorativa — entram como lista interativa na newsletter.</div>
+        <div class="d">Dois por um, Restaurant Week, menu de data comemorativa. Entram como lista interativa na newsletter.</div>
       </div>
       <div class="aux-card">
         <div class="k">Assinatura</div>
@@ -2099,12 +2096,12 @@
       </div>
     </div>
 
-    <div class="aux-foot"><span class="todo">rascunho</span> &nbsp;Tipos derivados do BMC e do plano de marketing — regras e valores a fechar com o time.</div>
+    <div class="aux-foot">Tipos derivados do BMC e do plano de marketing. Regras e valores a fechar com o time.</div>
   </section>
 
   <!-- ============ APOIO — O painel do parceiro, com dado na tela ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">O que o parceiro <em>enxerga</em>.</div>
+    <div class="aux-head">O que o parceiro <em>enxerga</em></div>
 
     <div class="painel">
       <div class="painel-mod">
@@ -2151,7 +2148,7 @@
 
   <!-- ============ APOIO — O pipeline da IA com um take atravessando ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Como a <em>IA</em> lê os takes.</div>
+    <div class="aux-head">Como a <em>IA</em> lê os takes</div>
 
     <div class="fluxo">
       <div class="etapa">
@@ -2195,7 +2192,7 @@
 
   <!-- ============ AUXILIAR — Por que R$ 23,90 ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Por que <em>R$ 23,90</em>.</div>
+    <div class="aux-head">Por que <em>R$ 23,90</em></div>
     <div class="aux-sub">Duas âncoras: o que o nicho já paga lá fora, e o que o brasileiro já assina sem pensar.</div>
 
     <div class="aux-regua">
@@ -2241,7 +2238,7 @@
 
   <!-- ============ APOIO — A conta mensal e quantos assinantes ela custa ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Quantos <em>Chefes</em> sustentam o app.</div>
+    <div class="aux-head">Quantos <em>Chefes</em> sustentam o app</div>
 
     <div class="aux-conta">
       <div class="conta-linhas">
