@@ -8,10 +8,10 @@ ranking genérico.
 
 ## Como funciona
 
-`index.html` é um arquivo único auto-contido: 40 seções em 16:9, navegáveis pelo teclado —
+`index.html` é um arquivo único auto-contido: 41 seções em 16:9, navegáveis pelo teclado —
 19 slides de pitch (o CTA fecha duas vezes: com a ilustração da Júlia e com a foto),
 um separador preto que marca o fim da apresentação, e o material de
-apoio (7 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
+apoio (8 slides auxiliares numerados, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
 `<section class="slide sN">` ocupa a viewport e só a que tem `.active` aparece.
 
 Os números dos slides auxiliares de preço e de sustentação têm memória de cálculo em

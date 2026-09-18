@@ -1247,6 +1247,60 @@
       color: rgba(242, 234, 215, 0.75); text-align: center;
     }
 
+    /* numero do slide de apoio, no canto superior direito */
+    .aux-num {
+      position: absolute; top: 0.5em; right: 0.72em;
+      font-family: 'Unbounded', sans-serif; font-weight: 800;
+      font-size: 5.4em; line-height: 1; letter-spacing: -0.04em;
+      color: rgba(232, 75, 63, 0.28);
+      z-index: 3;
+    }
+
+    /* balao de mensagem: o take como chega, na voz do cliente */
+    .msg {
+      background: rgba(31, 77, 64, 0.07);
+      border-radius: 1.2em 1.2em 1.2em 0.3em;
+      padding: 1.4em 1.5em;
+      font-weight: 500; font-size: 2.1em; line-height: 1.3; letter-spacing: -0.014em;
+      color: var(--garrafa);
+    }
+
+    /* aspecto com barra: quanto cada tema pesa no agregado */
+    .asp-bar { display: flex; flex-direction: column; gap: 0.5em; }
+    .asp-bar .cab {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-weight: 700; font-size: 2.1em; letter-spacing: -0.014em;
+      color: var(--garrafa);
+    }
+    .asp-bar .cab .q { font-weight: 800; font-variant-numeric: tabular-nums; color: var(--tomate); }
+    .asp-bar .trilho { height: 0.8em; border-radius: 0.4em; background: rgba(31, 77, 64, 0.1); }
+    .asp-bar .preenche { height: 100%; border-radius: 0.4em; background: var(--tomate); }
+    .asp-bar:not(:first-child) { margin-top: 1.2em; }
+
+    /* ---- LGPD: os principios, um por coluna ---- */
+    .lgpd {
+      width: 100%; margin-top: 1.4em;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.8em;
+      align-items: stretch;
+    }
+    .lgpd-item {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.6em; padding: 2.6em 2em 2.8em;
+      display: flex; flex-direction: column; align-items: center; gap: 1.4em;
+      text-align: center;
+    }
+    .lgpd-ico {
+      flex: none; width: 8em; height: 8em; border-radius: 50%;
+      background: rgba(232, 75, 63, 0.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lgpd-ico svg { width: 4.2em; height: 4.2em; stroke: var(--tomate); fill: none;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .lgpd-t {
+      font-weight: 800; font-size: 2.6em; line-height: 1.15; letter-spacing: -0.022em;
+      color: var(--garrafa);
+    }
+
     /* ---- Slides auxiliares (backup, junto do Q&A) ---- */
     .slide.active.saux {
       display: flex; flex-direction: column; justify-content: center;
@@ -1307,6 +1361,7 @@
       font-size: 5.6em; line-height: 1; letter-spacing: -0.04em;
       color: var(--garrafa); font-variant-numeric: tabular-nums;
       display: flex; align-items: baseline; gap: 0.12em;
+      margin-top: auto;
     }
     .pex-big .star { font-family: 'Inter', sans-serif; font-size: 0.6em; }
     .pex-cap {
@@ -1347,7 +1402,7 @@
     }
     .pex-fala-h {
       font-weight: 800; font-size: 1.7em; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--tomate); margin-bottom: 1em;
+      color: var(--tomate); margin-bottom: 1em; text-align: center;
     }
     .pex-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3em; }
     .pex-sent { display: flex; flex-direction: column; gap: 0.8em; }
@@ -1494,10 +1549,6 @@
     .regua-row.yo .regua-nome { color: var(--garrafa); font-weight: 800; }
     .regua-row.yo .regua-bar { background: var(--tomate); }
     .regua-row.yo .regua-val { color: var(--tomate); }
-    .regua-row.ancora .regua-bar {
-      background: rgba(31, 77, 64, 0.18);
-      border: 0.14em dashed var(--garrafa);
-    }
 
     /* ---- a conta: quantos assinantes pagam a infra ---- */
     .aux-conta {
@@ -2109,6 +2160,7 @@
 
   <!-- ============ AUXILIAR — Como o algoritmo pondera ============ -->
   <section class="slide saux">
+    <div class="aux-num">1</div>
     <div class="aux-head">Como a nota é <em>ponderada</em></div>
     <div class="aux-sub">A nota que aparece não é média simples. Cada avaliação entra com um peso, calculado por quatro fatores.</div>
 
@@ -2140,27 +2192,24 @@
 
   <!-- ============ AUXILIAR — Tipos de promoção ============ -->
   <section class="slide saux">
+    <div class="aux-num">2</div>
     <div class="aux-head">Os tipos de <em>promoção</em></div>
     <div class="aux-sub">Toda promoção parte do restaurante parceiro e aparece rotulada como tal. Nenhuma delas encosta em nota ou avaliação.</div>
 
     <div class="aux-grid">
       <div class="aux-card">
-        <div class="k">Descoberta</div>
         <div class="t">Destaque patrocinado</div>
         <div class="d">O parceiro paga pra aparecer na tela inicial e nas buscas do bairro. Sempre marcado como patrocinado.</div>
       </div>
       <div class="aux-card">
-        <div class="k">Editorial</div>
         <div class="t">Ação sazonal</div>
         <div class="d">Dois por um, Restaurant Week, menu de data comemorativa. Entram como lista interativa na newsletter.</div>
       </div>
       <div class="aux-card">
-        <div class="k">Assinatura</div>
         <div class="t">Cupom de assinante</div>
         <div class="d">Desconto ou cortesia exclusiva de quem paga plano. Vira motivo pra assinar e pra visitar a casa.</div>
       </div>
       <div class="aux-card">
-        <div class="k">Presencial</div>
         <div class="t">Evento e selo</div>
         <div class="d">Ativação no parceiro com menu exclusivo e selo comemorativo pra quem avaliou no dia.</div>
       </div>
@@ -2171,6 +2220,7 @@
 
   <!-- ============ APOIO — O painel do parceiro, com dado na tela ============ -->
   <section class="slide saux dense">
+    <div class="aux-num">3</div>
     <div class="aux-head">O que o parceiro <em>enxerga</em></div>
 
     <div class="pex-tiles">
@@ -2302,51 +2352,63 @@
 
   <!-- ============ APOIO — O pipeline da IA com um take atravessando ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Como a <em>IA</em> lê os takes</div>
+    <div class="aux-num">4</div>
+    <div class="aux-head">Como a <em>IA</em> transforma takes em decisões</div>
 
     <div class="fluxo">
       <div class="etapa">
         <div class="k">O take</div>
         <div class="caixa">
-          <div class="take-cru">“Demorou 40 minutos pro prato sair. Mas o risoto valeu a espera.”</div>
-          <div class="take-meta">★ 4,0 · conta com 2 anos</div>
+          <div class="msg">&#8220;Demorou 40 minutos, mas a comida estava &#243;tima&#8221;</div>
+          <div class="msg">&#8220;Atendimento muito lento hoje&#8221;</div>
+          <div class="msg">&#8220;O risoto estava excelente&#8221;</div>
         </div>
       </div>
 
       <div class="etapa">
-        <div class="k">Quebra por aspecto</div>
+        <div class="k">A IA entende</div>
         <div class="caixa">
-          <div class="asp"><span>Espera</span><span class="s neg">▼</span></div>
-          <div class="asp"><span>Comida</span><span class="s pos">▲</span></div>
-          <div class="asp"><span>Preço</span><span class="s neu">—</span></div>
-          <div class="asp"><span>Serviço</span><span class="s neu">—</span></div>
+          <div class="asp"><span>Comida</span><span class="s pos">&#9650;</span></div>
+          <div class="asp"><span>Atendimento</span><span class="s neg">&#9660;</span></div>
+          <div class="asp"><span>Pre&#231;o</span><span class="s neu">&#8212;</span></div>
+          <div class="asp"><span>Espera</span><span class="s neg">&#9660;</span></div>
+          <div class="asp"><span>Ambiente</span><span class="s neu">&#8212;</span></div>
         </div>
       </div>
 
       <div class="etapa">
-        <div class="k">Vira padrão</div>
+        <div class="k">A IA encontra padr&#245;es</div>
         <div class="caixa">
-          <div class="asp forte"><span>Espera</span><span class="q">23</span></div>
-          <div class="asp"><span>Comida</span><span class="q">31</span></div>
-          <div class="asp"><span>Preço</span><span class="q">7</span></div>
-          <div class="take-meta">takes deste mês</div>
+          <div class="asp-bar">
+            <div class="cab"><span>Espera</span><span class="q">41%</span></div>
+            <div class="trilho"><div class="preenche" style="width: 41%"></div></div>
+          </div>
+          <div class="asp-bar">
+            <div class="cab"><span>Atendimento</span><span class="q">32%</span></div>
+            <div class="trilho"><div class="preenche" style="width: 32%"></div></div>
+          </div>
+          <div class="asp-bar">
+            <div class="cab"><span>Pre&#231;o</span><span class="q">27%</span></div>
+            <div class="trilho"><div class="preenche" style="width: 27%"></div></div>
+          </div>
         </div>
       </div>
 
       <div class="etapa fim">
         <div class="k">A leitura</div>
         <div class="caixa">
-          <div class="saida">A espera é <b>o único aspecto pior que o da rua</b>. Some nos sábados à noite. A cozinha não é o problema.</div>
+          <div class="saida">O tempo de espera &#233; o principal ponto negativo e concentra-se
+            principalmente nos per&#237;odos de maior movimento.</div>
         </div>
       </div>
     </div>
 
-    <div class="aux-foot">O modelo nunca lê o take cru — lê o agregado. Mesmo pipeline do Yelp, a <b>R$ 1,40 por parceiro/mês</b> contra US$ 89 a 349 do mercado.</div>
   </section>
 
   <!-- ============ AUXILIAR — Por que R$ 23,90 ============ -->
   <section class="slide saux dense">
-    <div class="aux-head">Por que <em>R$ 23,90</em></div>
+    <div class="aux-num">5</div>
+    <div class="aux-head">Por que <em>R$ 9,90</em> e <em>R$ 23,90</em></div>
     <div class="aux-sub">Duas âncoras: o que o nicho já paga lá fora, e o que o brasileiro já assina sem pensar.</div>
 
     <div class="aux-regua">
@@ -2387,11 +2449,11 @@
       </div>
     </div>
 
-    <div class="aux-nota">A régua justifica a faixa, não o centavo · falta teste de preço com a base real</div>
   </section>
 
   <!-- ============ APOIO — A conta mensal e quantos assinantes ela custa ============ -->
   <section class="slide saux dense">
+    <div class="aux-num">6</div>
     <div class="aux-head">Quantos <em>Chefs</em> sustentam o app</div>
 
     <div class="aux-conta">
@@ -2428,6 +2490,7 @@
 
   <!-- ============ AUXILIAR — Corner e Beli, os dois que já fazem isso ============ -->
   <section class="slide saux dense">
+    <div class="aux-num">7</div>
     <div class="aux-head">Corner e <em>Beli</em></div>
     <div class="aux-sub">Corner é mapa social de lugares, sem nota. Beli ordena por comparação e
       tem clube por convite em Nova York. Os dois provaram a tese — fora daqui.</div>
@@ -2461,6 +2524,41 @@
 
     <div class="aux-foot">A disputa não é quem tem a comunidade mais bonita — é quem tem a nota que
       se defende e o restaurante dentro.</div>
+  </section>
+
+  <!-- ============ AUXILIAR — LGPD e privacidade ============ -->
+  <section class="slide saux">
+    <div class="aux-num">8</div>
+    <div class="aux-head">LGPD e <em>privacidade</em></div>
+    <div class="aux-sub">A Yotakes trata os dados dos usu&#225;rios de forma segura e respons&#225;vel,
+      seguindo os princ&#237;pios da LGPD.</div>
+
+    <div class="lgpd">
+      <div class="lgpd-item">
+        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></svg></div>
+        <div class="lgpd-t">Coleta apenas dos dados necess&#225;rios</div>
+      </div>
+
+      <div class="lgpd-item">
+        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="lgpd-t">Transpar&#234;ncia no uso das informa&#231;&#245;es</div>
+      </div>
+
+      <div class="lgpd-item">
+        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 3v6c0 4.2-3 7.7-7.5 9-4.5-1.3-7.5-4.8-7.5-9V6L12 3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="lgpd-t">Prote&#231;&#227;o e seguran&#231;a dos dados</div>
+      </div>
+
+      <div class="lgpd-item">
+        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c0-3.8 3.4-6 7.5-6s7.5 2.2 7.5 6"/></svg></div>
+        <div class="lgpd-t">Respeito aos direitos dos usu&#225;rios</div>
+      </div>
+
+      <div class="lgpd-item">
+        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg></div>
+        <div class="lgpd-t">Uso dos dados para gerar an&#225;lises e insights</div>
+      </div>
+    </div>
   </section>
 
   <!-- Q&A 1 -->
