@@ -1256,15 +1256,6 @@
       z-index: 3;
     }
 
-    /* balao de mensagem: o take como chega, na voz do cliente */
-    .msg {
-      background: rgba(31, 77, 64, 0.07);
-      border-radius: 1.2em 1.2em 1.2em 0.3em;
-      padding: 1.4em 1.5em;
-      font-weight: 500; font-size: 2.1em; line-height: 1.3; letter-spacing: -0.014em;
-      color: var(--garrafa);
-    }
-
     /* aspecto com barra: quanto cada tema pesa no agregado */
     .asp-bar { display: flex; flex-direction: column; gap: 0.5em; }
     .asp-bar .cab {
@@ -1299,6 +1290,150 @@
     .lgpd-t {
       font-weight: 800; font-size: 2.6em; line-height: 1.15; letter-spacing: -0.022em;
       color: var(--garrafa);
+    }
+
+    /* ---- fluxo da IA: captura, entende, encontra padrao, vira insight ---- */
+    .etapa .caixa.rica { gap: 0.9em; padding: 1.8em 1.7em; }
+    .et-num {
+      font-family: 'Unbounded', sans-serif; font-weight: 800;
+      font-size: 3em; line-height: 1; color: rgba(31, 77, 64, 0.22);
+    }
+    .et-tit {
+      font-weight: 800; font-size: 2.1em; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--tomate); line-height: 1.1;
+    }
+    .et-sub {
+      font-weight: 500; font-size: 1.8em; line-height: 1.3; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.7);
+    }
+    .et-fim {
+      margin-top: auto; padding-top: 0.6em;
+      font-weight: 500; font-size: 1.8em; line-height: 1.3;
+      color: rgba(31, 77, 64, 0.7);
+    }
+    .et-rot {
+      font-weight: 800; font-size: 1.5em; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.45);
+    }
+
+    /* 01 — os takes como chegam, e de onde */
+    .msg {
+      background: rgba(31, 77, 64, 0.07);
+      border-radius: 1.1em 1.1em 1.1em 0.25em;
+      padding: 1em 1.2em;
+      font-weight: 500; font-size: 1.75em; line-height: 1.28; letter-spacing: -0.012em;
+      color: var(--garrafa);
+    }
+    .canais {
+      margin-top: auto; padding-top: 1.2em;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8em;
+    }
+    .canal { display: flex; flex-direction: column; align-items: center; gap: 0.5em; }
+    .canal .bolha {
+      width: 4.4em; height: 4.4em; border-radius: 50%;
+      background: rgba(31, 77, 64, 0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1em; color: var(--garrafa);
+    }
+    .canal .bolha svg { width: 2.2em; height: 2.2em; stroke: var(--garrafa); fill: none;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .canal .nome {
+      font-weight: 600; font-size: 1.4em; letter-spacing: -0.005em;
+      color: rgba(31, 77, 64, 0.55);
+    }
+
+    /* 02 — o que a IA separa do take */
+    .ia-map { display: grid; grid-template-columns: auto 1fr; gap: 1.4em; align-items: center; }
+    .ia-badge {
+      width: 8.2em; height: 8.2em; border-radius: 2em;
+      background: var(--garrafa);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1em;
+      color: var(--creme);
+    }
+    .ia-badge span { font-size: 2.6em; letter-spacing: -0.03em; }
+    .ia-pills { position: relative; padding-left: 1.6em; display: flex; flex-direction: column; gap: 0.55em; }
+    .ia-pills::before {
+      content: ""; position: absolute; left: 0; top: 1.2em; bottom: 1.2em;
+      border-left: 0.14em solid rgba(31, 77, 64, 0.18);
+    }
+    .pill {
+      position: relative;
+      background: rgba(31, 77, 64, 0.06);
+      border-radius: 0.7em; padding: 0.55em 0.9em;
+      font-weight: 700; font-size: 1.8em; letter-spacing: -0.012em;
+      color: var(--garrafa);
+    }
+    .pill::before {
+      content: ""; position: absolute; left: -0.9em; top: 50%;
+      width: 0.42em; height: 0.42em; border-radius: 50%;
+      background: var(--tomate); transform: translateY(-50%);
+    }
+    .sent3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8em; }
+    .sent3 .um { display: flex; flex-direction: column; align-items: center; gap: 0.4em; }
+    .sent3 svg { width: 3.6em; height: 3.6em; fill: none; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round; }
+    .sent3 .lab {
+      font-weight: 600; font-size: 1.4em; color: rgba(31, 77, 64, 0.6);
+    }
+
+    /* 03 — o peso de cada tema e a curva do que mais dói */
+    .tema {
+      display: grid; grid-template-columns: 7.4em 1fr 3em; align-items: center; gap: 0.7em;
+      font-weight: 600; font-size: 1.7em; letter-spacing: -0.012em;
+      color: var(--garrafa); font-variant-numeric: tabular-nums;
+    }
+    .tema + .tema { margin-top: 0.55em; }
+    .tema .trilho { display: block; height: 0.72em; border-radius: 0.36em; background: rgba(31, 77, 64, 0.1); }
+    .tema .preenche { display: block; height: 100%; border-radius: 0.36em; background: var(--tomate); }
+    .tema .q { text-align: right; font-weight: 800; color: rgba(31, 77, 64, 0.6); }
+    .tema.forte .q { color: var(--tomate); }
+    .mini-plot { width: 100%; height: auto; display: block; }
+    .mini-plot .base { stroke: rgba(31, 77, 64, 0.16); stroke-width: 1; }
+    .mini-plot .serie { fill: none; stroke: #e84b3f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .mini-plot .ponto { fill: #e84b3f; stroke: #fff; stroke-width: 2; }
+    .mini-plot .rot {
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800;
+      fill: #e84b3f; text-anchor: middle;
+    }
+    .mini-plot .mes {
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      fill: rgba(31, 77, 64, 0.45); text-anchor: middle;
+    }
+
+    /* 04 — o insight fechado, e o que fazer com ele */
+    .insight {
+      flex: 1; background: var(--garrafa); border-radius: 1.2em;
+      padding: 1.8em 1.7em; display: flex; flex-direction: column; gap: 1.2em;
+    }
+    .insight-h { display: flex; align-items: center; gap: 0.8em; }
+    .insight-h svg { width: 2.6em; height: 2.6em; fill: none; stroke: var(--creme);
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .insight-h .t {
+      font-weight: 800; font-size: 1.6em; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(242, 234, 215, 0.75);
+    }
+    .insight-txt {
+      font-weight: 700; font-size: 2.2em; line-height: 1.32; letter-spacing: -0.016em;
+      color: var(--creme);
+    }
+    .insight-txt mark {
+      background: var(--tomate); color: #fff;
+      border-radius: 0.35em; padding: 0.05em 0.3em;
+    }
+    .insight-op {
+      margin-top: auto; padding-top: 1.2em;
+      border-top: 0.08em solid rgba(242, 234, 215, 0.25);
+      display: flex; gap: 0.8em; align-items: flex-start;
+    }
+    .insight-op svg { flex: none; width: 2.4em; height: 2.4em; margin-top: 0.2em;
+      fill: none; stroke: var(--creme); stroke-width: 1.7; stroke-linecap: round; }
+    .insight-op .t {
+      font-weight: 800; font-size: 1.7em; color: var(--creme); line-height: 1.25;
+    }
+    .insight-op .d {
+      font-weight: 500; font-size: 1.7em; line-height: 1.3;
+      color: rgba(242, 234, 215, 0.78);
     }
 
     /* ---- Slides auxiliares (backup, junto do Q&A) ---- */
@@ -2357,206 +2492,123 @@
 
     <div class="fluxo">
       <div class="etapa">
-        <div class="k">O take</div>
-        <div class="caixa">
-          <div class="msg">&#8220;Demorou 40 minutos, mas a comida estava &#243;tima&#8221;</div>
-          <div class="msg">&#8220;Atendimento muito lento hoje&#8221;</div>
-          <div class="msg">&#8220;O risoto estava excelente&#8221;</div>
+        <div class="caixa rica">
+          <div class="et-num">01</div>
+          <div class="et-tit">Captura</div>
+          <div class="et-sub">Milhares de opini&#245;es, em diferentes canais.</div>
+
+          <div class="msg">&#8220;Demorou 40 minutos, mas a comida estava &#243;tima.&#8221;</div>
+          <div class="msg">&#8220;Atendimento muito lento hoje.&#8221;</div>
+          <div class="msg">&#8220;O risoto estava excelente.&#8221;</div>
+          <div class="msg">&#8220;Achei caro pelo tamanho do prato.&#8221;</div>
+          <div class="msg">&#8220;Ambiente agrad&#225;vel e atendimento r&#225;pido.&#8221;</div>
+
+          <div class="canais">
+            <div class="canal"><div class="bolha">G</div><div class="nome">Google</div></div>
+            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v4a2 2 0 002 2M9 3v4a2 2 0 01-2 2M7 11v10M17 3c-1.7 1.5-2.5 3.6-2.5 6 0 1.7.6 2.7 2.5 3v9"/></svg></div><div class="nome">iFood</div></div>
+            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.5 6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5z"/></svg></div><div class="nome">Yotakes</div></div>
+            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="nome">Outros</div></div>
+          </div>
         </div>
       </div>
 
       <div class="etapa">
-        <div class="k">A IA entende</div>
-        <div class="caixa">
-          <div class="asp"><span>Comida</span><span class="s pos">&#9650;</span></div>
-          <div class="asp"><span>Atendimento</span><span class="s neg">&#9660;</span></div>
-          <div class="asp"><span>Pre&#231;o</span><span class="s neu">&#8212;</span></div>
-          <div class="asp"><span>Espera</span><span class="s neg">&#9660;</span></div>
-          <div class="asp"><span>Ambiente</span><span class="s neu">&#8212;</span></div>
+        <div class="caixa rica">
+          <div class="et-num">02</div>
+          <div class="et-tit">A IA entende</div>
+
+          <div class="ia-map">
+            <div class="ia-badge"><span>IA</span></div>
+            <div class="ia-pills">
+              <div class="pill">Comida</div>
+              <div class="pill">Atendimento</div>
+              <div class="pill">Pre&#231;o</div>
+              <div class="pill">Espera</div>
+              <div class="pill">Ambiente</div>
+            </div>
+          </div>
+
+          <div class="et-rot">An&#225;lise de sentimento</div>
+          <div class="sent3">
+            <div class="um">
+              <svg viewBox="0 0 24 24" stroke="#1f4d40"><circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="#1f4d40" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="#1f4d40" stroke="none"/><path d="M8 14.4c1 1.4 2.4 2.1 4 2.1s3-.7 4-2.1"/></svg>
+              <div class="lab">Positivo</div>
+            </div>
+            <div class="um">
+              <svg viewBox="0 0 24 24" stroke="rgba(31,77,64,0.5)"><circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="rgba(31,77,64,0.5)" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="rgba(31,77,64,0.5)" stroke="none"/><path d="M8.4 15h7.2"/></svg>
+              <div class="lab">Neutro</div>
+            </div>
+            <div class="um">
+              <svg viewBox="0 0 24 24" stroke="#e84b3f"><circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="#e84b3f" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="#e84b3f" stroke="none"/><path d="M8 16.5c1-1.4 2.4-2.1 4-2.1s3 .7 4 2.1"/></svg>
+              <div class="lab">Negativo</div>
+            </div>
+          </div>
+
+          <div class="et-fim">A IA identifica assunto, sentimento e contexto.</div>
         </div>
       </div>
 
       <div class="etapa">
-        <div class="k">A IA encontra padr&#245;es</div>
-        <div class="caixa">
-          <div class="asp-bar">
-            <div class="cab"><span>Espera</span><span class="q">41%</span></div>
-            <div class="trilho"><div class="preenche" style="width: 41%"></div></div>
+        <div class="caixa rica">
+          <div class="et-num">03</div>
+          <div class="et-tit">A IA encontra padr&#245;es</div>
+
+          <div class="et-rot">Principais temas</div>
+          <div>
+            <div class="tema forte"><span>Espera</span><span class="trilho"><span class="preenche" style="width: 41%"></span></span><span class="q">41%</span></div>
+            <div class="tema forte"><span>Atendimento</span><span class="trilho"><span class="preenche" style="width: 32%"></span></span><span class="q">32%</span></div>
+            <div class="tema"><span>Pre&#231;o</span><span class="trilho"><span class="preenche" style="width: 18%"></span></span><span class="q">18%</span></div>
+            <div class="tema"><span>Comida</span><span class="trilho"><span class="preenche" style="width: 8%"></span></span><span class="q">8%</span></div>
+            <div class="tema"><span>Ambiente</span><span class="trilho"><span class="preenche" style="width: 1%"></span></span><span class="q">1%</span></div>
           </div>
-          <div class="asp-bar">
-            <div class="cab"><span>Atendimento</span><span class="q">32%</span></div>
-            <div class="trilho"><div class="preenche" style="width: 32%"></div></div>
+
+          <div class="et-rot">Evolu&#231;&#227;o do tema &#8220;espera&#8221;</div>
+          <svg class="mini-plot" viewBox="0 0 300 132" role="img"
+               aria-label="Tema espera de marco a julho: 12%, 18%, 23%, 31%, 41%">
+            <line class="base" x1="16" y1="112" x2="292" y2="112"/>
+            <polyline class="serie" points="34,88.4 96,77.6 158,68.6 220,54.2 282,36.2"/>
+            <g class="ponto">
+              <circle cx="34" cy="88.4" r="5"/><circle cx="96" cy="77.6" r="5"/>
+              <circle cx="158" cy="68.6" r="5"/><circle cx="220" cy="54.2" r="5"/>
+              <circle cx="282" cy="36.2" r="5"/>
+            </g>
+            <g class="rot">
+              <text x="34" y="74">12%</text><text x="96" y="63">18%</text>
+              <text x="158" y="54">23%</text><text x="220" y="40">31%</text>
+              <text x="282" y="22">41%</text>
+            </g>
+            <g class="mes">
+              <text x="34" y="128">Mar</text><text x="96" y="128">Abr</text>
+              <text x="158" y="128">Mai</text><text x="220" y="128">Jun</text>
+              <text x="282" y="128">Jul</text>
+            </g>
+          </svg>
+
+          <div class="et-fim">Uma reclama&#231;&#227;o isolada vira um padr&#227;o quando se repete.</div>
+        </div>
+      </div>
+
+      <div class="etapa">
+        <div class="caixa rica">
+          <div class="et-num">04</div>
+          <div class="et-tit">Vira insight</div>
+
+          <div class="insight">
+            <div class="insight-h">
+              <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6h5.4c0-.6.3-1.2.8-1.6A6 6 0 0012 3z"/></svg>
+              <div class="t">Insight Yotakes</div>
+            </div>
+            <div class="insight-txt">O <mark>tempo de espera</mark> &#233; o principal ponto negativo e
+              concentra-se principalmente nos per&#237;odos de maior movimento.</div>
+            <div class="insight-op">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3"/></svg>
+              <div>
+                <div class="t">Oportunidade</div>
+                <div class="d">Revisar opera&#231;&#227;o e tempo de sa&#237;da dos pedidos nos hor&#225;rios de pico.</div>
+              </div>
+            </div>
           </div>
-          <div class="asp-bar">
-            <div class="cab"><span>Pre&#231;o</span><span class="q">27%</span></div>
-            <div class="trilho"><div class="preenche" style="width: 27%"></div></div>
-          </div>
         </div>
-      </div>
-
-      <div class="etapa fim">
-        <div class="k">A leitura</div>
-        <div class="caixa">
-          <div class="saida">O tempo de espera &#233; o principal ponto negativo e concentra-se
-            principalmente nos per&#237;odos de maior movimento.</div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ============ AUXILIAR — Por que R$ 23,90 ============ -->
-  <section class="slide saux dense">
-    <div class="aux-num">5</div>
-    <div class="aux-head">Por que <em>R$ 9,90</em> e <em>R$ 23,90</em></div>
-    <div class="aux-sub">Duas âncoras: o que o nicho já paga lá fora, e o que o brasileiro já assina sem pensar.</div>
-
-    <div class="aux-regua">
-      <div class="regua-row">
-        <div class="regua-nome">Letterboxd Pro<span class="src">US$ 19/ano · câmbio 5,15</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 18.2%"></div></div>
-        <div class="regua-val">R$ 8,15</div>
-      </div>
-      <div class="regua-row yo">
-        <div class="regua-nome">Sous Chef<span class="src">Yotakes</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 22.0%"></div></div>
-        <div class="regua-val">R$ 9,90</div>
-      </div>
-      <div class="regua-row">
-        <div class="regua-nome">Duolingo Super<span class="src">individual, mensal</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 33.4%"></div></div>
-        <div class="regua-val">R$ 14,99</div>
-      </div>
-      <div class="regua-row">
-        <div class="regua-nome">Letterboxd Patron<span class="src">US$ 49/ano · câmbio 5,15</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 46.8%"></div></div>
-        <div class="regua-val">R$ 21,03</div>
-      </div>
-      <div class="regua-row ancora">
-        <div class="regua-nome">Spotify Individual<span class="src">a âncora do hábito brasileiro</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 53.2%"></div></div>
-        <div class="regua-val">R$ 23,90</div>
-      </div>
-      <div class="regua-row yo">
-        <div class="regua-nome">Chef<span class="src">Yotakes</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 53.2%"></div></div>
-        <div class="regua-val">R$ 23,90</div>
-      </div>
-      <div class="regua-row">
-        <div class="regua-nome">Netflix Padrão<span class="src">sem anúncios</span></div>
-        <div class="regua-track"><div class="regua-bar" style="width: 100.0%"></div></div>
-        <div class="regua-val">R$ 44,90</div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ============ APOIO — A conta mensal e quantos assinantes ela custa ============ -->
-  <section class="slide saux dense">
-    <div class="aux-num">6</div>
-    <div class="aux-head">Quantos <em>Chefs</em> sustentam o app</div>
-
-    <div class="aux-conta">
-      <div class="conta-linhas">
-        <div class="conta-l"><span>Banco de dados e autenticação<span class="nota">100 mil contas ativas inclusas</span></span><span class="v">R$ 129</span></div>
-        <div class="conta-l"><span>Hospedagem e entrega de conteúdo<span class="nota">1 TB de tráfego</span></span><span class="v">R$ 103</span></div>
-        <div class="conta-l"><span>E-mail transacional<span class="nota">acesso e notificação</span></span><span class="v">R$ 103</span></div>
-        <div class="conta-l"><span>Armazenamento de mídia<span class="nota">7 GB de fotos por mês</span></span><span class="v">R$ 0</span></div>
-        <div class="conta-l"><span>Domínio e certificado</span><span class="v">R$ 6</span></div>
-        <div class="conta-l total"><span>Custo mensal · 10 mil usuários</span><span class="v">R$ 341</span></div>
-      </div>
-
-      <div class="escada">
-        <div class="degrau">
-          <div class="n">18</div>
-          <div class="l">Chefs pagam a conta de<br/><b>10 mil</b> usuários</div>
-        </div>
-        <div class="degrau">
-          <div class="n">53</div>
-          <div class="l">Chefs pagam a conta de<br/><b>100 mil</b> usuários</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="painel-faixa">
-      <div class="item"><div class="v">R$ 19,10</div><div class="l">líquidos por Chef, já fora loja e imposto</div></div>
-      <div class="item"><div class="v">0,18<em>%</em></div><div class="l">da base assinando cobre a infra</div></div>
-      <div class="item"><div class="v">5<em>%</em></div><div class="l">é o que o Letterboxd converte</div></div>
-      <div class="item"><div class="v">R$ 0,03</div><div class="l">é o custo de infra por usuário</div></div>
-    </div>
-
-    <div class="aux-nota">Só infraestrutura · time e marketing são o que o lado parceiro paga</div>
-  </section>
-
-  <!-- ============ AUXILIAR — Corner e Beli, os dois que já fazem isso ============ -->
-  <section class="slide saux dense">
-    <div class="aux-num">7</div>
-    <div class="aux-head">Corner e <em>Beli</em></div>
-    <div class="aux-sub">Corner é mapa social de lugares, sem nota. Beli ordena por comparação e
-      tem clube por convite em Nova York. Os dois provaram a tese — fora daqui.</div>
-
-    <div class="aux-grid">
-      <div class="aux-card">
-        <div class="k">Grafo</div>
-        <div class="t">Rede não se importa</div>
-        <div class="d">O Beli em São Paulo vale zero até paulistano avaliar paulistano. Nascemos com
-          700 casas mapeadas e o grafo local desde o primeiro take.</div>
-      </div>
-      <div class="aux-card">
-        <div class="k">Produto</div>
-        <div class="t">A nota tem peso</div>
-        <div class="d">Corner não dá nota. Beli ordena por comparação. Nenhum dos dois pondera por
-          frequência, recência e rede — a nota daqui se defende número por número.</div>
-      </div>
-      <div class="aux-card">
-        <div class="k">Receita</div>
-        <div class="t">O lado do balcão</div>
-        <div class="d">Beli tenta afiliado de reserva e evento; Corner não monetiza. O analytics cobra
-          de quem tem orçamento, paga o app sem anúncio e faz o parceiro divulgar por conta.</div>
-      </div>
-      <div class="aux-card">
-        <div class="k">Risco</div>
-        <div class="t">A janela</div>
-        <div class="d">Se localizarem com capital, a corrida é por grafo e por parceiro. Os dois se
-          constroem em meses e não se compram. É por isso que o beta é agora.</div>
-      </div>
-    </div>
-
-    <div class="aux-foot">A disputa não é quem tem a comunidade mais bonita — é quem tem a nota que
-      se defende e o restaurante dentro.</div>
-  </section>
-
-  <!-- ============ AUXILIAR — LGPD e privacidade ============ -->
-  <section class="slide saux">
-    <div class="aux-num">8</div>
-    <div class="aux-head">LGPD e <em>privacidade</em></div>
-    <div class="aux-sub">A Yotakes trata os dados dos usu&#225;rios de forma segura e respons&#225;vel,
-      seguindo os princ&#237;pios da LGPD.</div>
-
-    <div class="lgpd">
-      <div class="lgpd-item">
-        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></svg></div>
-        <div class="lgpd-t">Coleta apenas dos dados necess&#225;rios</div>
-      </div>
-
-      <div class="lgpd-item">
-        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <div class="lgpd-t">Transpar&#234;ncia no uso das informa&#231;&#245;es</div>
-      </div>
-
-      <div class="lgpd-item">
-        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7.5 3v6c0 4.2-3 7.7-7.5 9-4.5-1.3-7.5-4.8-7.5-9V6L12 3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <div class="lgpd-t">Prote&#231;&#227;o e seguran&#231;a dos dados</div>
-      </div>
-
-      <div class="lgpd-item">
-        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c0-3.8 3.4-6 7.5-6s7.5 2.2 7.5 6"/></svg></div>
-        <div class="lgpd-t">Respeito aos direitos dos usu&#225;rios</div>
-      </div>
-
-      <div class="lgpd-item">
-        <div class="lgpd-ico"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/></svg></div>
-        <div class="lgpd-t">Uso dos dados para gerar an&#225;lises e insights</div>
       </div>
     </div>
   </section>
