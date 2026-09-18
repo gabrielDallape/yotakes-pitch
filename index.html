@@ -1578,57 +1578,34 @@
       color: var(--garrafa);
     }
     .sdash-name em { font-style: normal; color: var(--tomate); }
-    .sdash-lead {
-      font-weight: 500; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.012em;
-      color: rgba(31, 77, 64, 0.72); max-width: 40ch;
-    }
-    .sdash-lead em { font-style: normal; font-weight: 800; color: var(--tomate); }
-
-    /* duas camadas lado a lado: o número cru e a leitura que a IA faz dele */
-    .sdash-cols {
-      margin-top: 1.2em; flex: none;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2.4em;
+    /* quatro frentes do painel, uma por card */
+    .sdash-quad {
+      margin-top: 2.4em; flex: none;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.2em;
       align-items: stretch;
     }
-    .sdash-card {
-      display: flex; flex-direction: column; gap: 1.4em;
-      padding: 2.6em 2.8em 2.8em;
-      border-radius: 1.4em;
+    .sdash-q {
+      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.6em; padding: 3.2em 2.8em;
+      display: flex; flex-direction: column; gap: 1.2em;
     }
-    .sdash-card.painel {
-      background: rgba(31, 77, 64, 0.06);
-      border: 0.08em solid rgba(31, 77, 64, 0.12);
+    .sdash-q.ia { background: var(--garrafa); border-color: var(--garrafa); }
+    .sdash-qk {
+      font-weight: 800; font-size: 1.9em; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--tomate);
     }
-    .sdash-card.ia { background: var(--garrafa); }
-
-    .sdash-kicker {
-      display: flex; align-items: center; gap: 0.9em;
-      font-weight: 800; font-size: 1.9em; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(31, 77, 64, 0.55);
-    }
-    .sdash-card.ia .sdash-kicker { color: rgba(242, 234, 215, 0.62); }
-    .sdash-kicker em { font-style: normal; font-weight: 800; color: var(--tomate); }
-    .sdash-kicker::before {
-      content: ""; flex: none;
-      width: 0.7em; height: 0.7em; border-radius: 50%;
-      background: var(--garrafa);
-    }
-    .sdash-card.ia .sdash-kicker::before { background: var(--tomate); }
-
-    .sdash-list { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-    .sdash-item {
-      font-weight: 600; font-size: 2.9em; line-height: 1.25; letter-spacing: -0.016em;
+    .sdash-q.ia .sdash-qk { color: rgba(242, 234, 215, 0.62); }
+    .sdash-q.ia .sdash-qk em { font-style: normal; color: var(--tomate); }
+    .sdash-qt {
+      font-weight: 800; font-size: 3.6em; line-height: 1.08; letter-spacing: -0.028em;
       color: var(--garrafa);
-      padding: 0.62em 0;
-      border-top: 0.055em solid rgba(31, 77, 64, 0.14);
     }
-    .sdash-item:first-child { border-top: 0; padding-top: 0; }
-    .sdash-item:last-child { padding-bottom: 0; }
-    .sdash-card.ia .sdash-item {
-      color: var(--creme);
-      border-top-color: rgba(242, 234, 215, 0.18);
+    .sdash-q.ia .sdash-qt { color: var(--creme); }
+    .sdash-qd {
+      font-weight: 500; font-size: 2.4em; line-height: 1.32; letter-spacing: -0.01em;
+      color: rgba(31, 77, 64, 0.8);
     }
-    .sdash-card.ia .sdash-item b { font-weight: 800; color: var(--tomate); }
+    .sdash-q.ia .sdash-qd { color: rgba(242, 234, 215, 0.82); }
   </style>
 </head>
 <body>
@@ -1944,27 +1921,29 @@
     <img class="yo-logo" src="yo-bubble-red.png?v=20260915" alt="Yo" />
 
     <div class="sdash-name">Yotakes <em>Analytics</em></div>
-    <div class="sdash-lead">O parceiro abre o painel e vê números. A camada de
-      <em>IA</em> lê esses números por ele.</div>
-
-    <div class="sdash-cols">
-      <div class="sdash-card painel">
-        <div class="sdash-kicker">O painel mostra</div>
-        <div class="sdash-list">
-          <div class="sdash-item">Nota média</div>
-          <div class="sdash-item">Total de avaliações</div>
-          <div class="sdash-item">Evolução da nota</div>
-          <div class="sdash-item">Ranking na região</div>
-        </div>
+    <div class="sdash-quad">
+      <div class="sdash-q">
+        <div class="sdash-qk">Nota</div>
+        <div class="sdash-qt">A nota real da casa</div>
+        <div class="sdash-qd">Ponderada pelos takes de quem come fora de verdade, não média de conta nova.</div>
       </div>
 
-      <div class="sdash-card ia">
-        <div class="sdash-kicker">A <em>IA</em> lê por ele</div>
-        <div class="sdash-list">
-          <div class="sdash-item">Comparação com <b>concorrentes</b></div>
-          <div class="sdash-item">Principais <b>reclamações</b></div>
-          <div class="sdash-item">Positivas, neutras e negativas</div>
-        </div>
+      <div class="sdash-q">
+        <div class="sdash-qk">Concorrência</div>
+        <div class="sdash-qt">Onde ela está no bairro</div>
+        <div class="sdash-qd">A casa comparada com quem disputa a mesma mesa, na mesma região.</div>
+      </div>
+
+      <div class="sdash-q">
+        <div class="sdash-qk">Evolução</div>
+        <div class="sdash-qt">Subindo ou caindo</div>
+        <div class="sdash-qd">A curva da nota mês a mês, para saber se o que mudou na cozinha pegou.</div>
+      </div>
+
+      <div class="sdash-q ia">
+        <div class="sdash-qk">Leitura por <em>IA</em></div>
+        <div class="sdash-qt">O que mais repete</div>
+        <div class="sdash-qd">As reclamações e os elogios que aparecem em todo take, já agrupados.</div>
       </div>
     </div>
   </section>
