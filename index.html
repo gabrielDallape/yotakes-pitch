@@ -1286,56 +1286,106 @@
       color: var(--garrafa);
       padding-left: 1em; border-left: 0.18em solid var(--tomate);
     }
-    /* ---- painel do parceiro: mostrar o dado, não descrever o dado ---- */
-    .painel {
-      width: 100%; margin-top: 0.6em;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2em;
+    /* ---- painel do parceiro: o dado na tela, como o parceiro vê ---- */
+    .pex-tiles {
+      width: 100%; margin-top: 0;
+      display: grid; grid-template-columns: 1fr 1fr 1.9fr 1fr; gap: 1.4em;
+      align-items: stretch;
     }
-    .painel-mod {
-      background: #fff; border: 0.16em solid rgba(31, 77, 64, 0.12);
-      border-radius: 1.4em; padding: 2.4em 2.4em;
-      display: flex; flex-direction: column; gap: 1.5em;
+    .pex-tile {
+      background: #fff; border: 0.12em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.4em; padding: 1.6em 1.8em 1.4em;
+      display: flex; flex-direction: column; gap: 0.6em;
     }
-    .painel-mod .h {
-      font-weight: 800; font-size: 1.8em; letter-spacing: 0.2em; text-transform: uppercase;
+    .pex-k {
+      font-weight: 800; font-size: 1.7em; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--tomate);
+      min-height: 2.5em; line-height: 1.25;
     }
-    .linhas { display: flex; flex-direction: column; gap: 1.15em; }
-    .linha {
-      display: grid; grid-template-columns: 6.4em 1fr 2.7em;
-      align-items: center; gap: 0.7em;
-      font-weight: 600; font-size: 2.1em; letter-spacing: -0.014em;
-      color: var(--garrafa);
+    .pex-big {
+      font-family: 'Unbounded', sans-serif; font-weight: 800;
+      font-size: 5.6em; line-height: 1; letter-spacing: -0.04em;
+      color: var(--garrafa); font-variant-numeric: tabular-nums;
+      display: flex; align-items: baseline; gap: 0.12em;
     }
-    .linha .bar-track {
-      display: block; height: 0.85em;
-      background: rgba(31, 77, 64, 0.1); border-radius: 0.3em;
+    .pex-big .star { font-family: 'Inter', sans-serif; font-size: 0.6em; }
+    .pex-cap {
+      font-weight: 500; font-size: 2em; line-height: 1.25;
+      color: rgba(31, 77, 64, 0.62);
     }
-    .linha .bar { display: block; height: 100%; background: var(--garrafa); border-radius: 0.3em; }
-    .linha .n { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
-    .linha.alerta .bar { background: var(--tomate); }
-    .linha.alerta .n { color: var(--tomate); }
+    /* o delta fica no pé do card, alinhado entre os quatro */
+    .pex-delta {
+      margin-top: auto; padding-top: 0.8em;
+      border-top: 0.08em solid rgba(31, 77, 64, 0.1);
+      display: flex; flex-direction: column; gap: 0.1em;
+      font-size: 2em; line-height: 1.25;
+    }
+    .pex-delta .up { font-weight: 800; color: var(--garrafa); }
+    .pex-delta .up::before { content: "\2191  "; }
+    .pex-delta .ref { font-weight: 500; color: rgba(31, 77, 64, 0.5); }
 
-    /* comparação casa × região */
-    .versus { display: flex; flex-direction: column; gap: 1.15em; }
-    .versus .cab {
-      display: grid; grid-template-columns: 1fr 4.4em 4.4em; gap: 0.8em;
-      font-weight: 700; font-size: 1.6em; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(31, 77, 64, 0.45); text-align: right;
+    /* linha do tempo: série única, sem legenda — o kicker já a nomeia */
+    .pex-plot { width: 100%; height: auto; display: block; margin: 0.2em 0 0.4em; }
+    .pex-plot .grade { stroke: rgba(31, 77, 64, 0.14); stroke-width: 1; }
+    .pex-plot .eixo {
+      font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+      fill: rgba(31, 77, 64, 0.42);
     }
-    .versus .cab span:first-child { text-align: left; }
-    .versus .v {
-      display: grid; grid-template-columns: 1fr 4.4em 4.4em; gap: 0.8em;
-      align-items: baseline;
-      font-weight: 600; font-size: 2.1em; letter-spacing: -0.014em;
-      color: var(--garrafa); text-align: right;
+    .pex-plot .serie { fill: none; stroke: #1f4d40; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .pex-plot .ponto { fill: #1f4d40; stroke: #fff; stroke-width: 2; }
+    .pex-plot .rot {
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
+      fill: rgba(31, 77, 64, 0.55); text-anchor: middle;
     }
-    .versus .v span:first-child { text-align: left; }
-    .versus .v .casa { font-weight: 800; font-variant-numeric: tabular-nums; }
-    .versus .v.pior .casa { color: var(--tomate); }
-    .versus .v .reg { font-variant-numeric: tabular-nums; color: rgba(31, 77, 64, 0.5); }
+    .pex-plot .rot.forte { fill: #1f4d40; font-size: 14px; }
 
-    /* faixa de números soltos embaixo do painel */
+    /* o que os clientes falam: polaridade, sempre com rótulo junto da cor */
+    .pex-fala {
+      width: 100%; margin-top: 1em;
+      background: #fff; border: 0.12em solid rgba(31, 77, 64, 0.12);
+      border-radius: 1.4em; padding: 1.8em 2.2em 1.9em;
+    }
+    .pex-fala-h {
+      font-weight: 800; font-size: 1.7em; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--tomate); margin-bottom: 1em;
+    }
+    .pex-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3em; }
+    .pex-sent { display: flex; flex-direction: column; gap: 0.8em; }
+    .pex-sent-h { display: flex; align-items: center; gap: 1.2em; }
+    .pex-face { flex: none; width: 4.6em; height: 4.6em; }
+    .pex-sent-lab {
+      font-weight: 800; font-size: 1.7em; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.55);
+    }
+    .pex-sent-pct {
+      font-weight: 800; font-size: 3.4em; line-height: 1.05; letter-spacing: -0.03em;
+      color: var(--garrafa); font-variant-numeric: tabular-nums;
+    }
+    .pex-track {
+      height: 0.9em; border-radius: 0.45em;
+      background: rgba(31, 77, 64, 0.1);
+    }
+    .pex-fill { height: 100%; border-radius: 0.45em; background: var(--garrafa); }
+    .pex-sent.neu .pex-fill { background: rgba(31, 77, 64, 0.38); }
+    .pex-sent.neg .pex-fill { background: var(--tomate); }
+    .pex-sent.neg .pex-sent-pct { color: var(--tomate); }
+    .pex-temas-h {
+      margin-top: 0.4em;
+      font-weight: 700; font-size: 1.5em; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(31, 77, 64, 0.4);
+    }
+    .pex-tema {
+      display: grid; grid-template-columns: 1em 1fr auto; align-items: center; gap: 0.8em;
+      font-weight: 600; font-size: 2em; line-height: 1.42;
+      color: var(--garrafa); font-variant-numeric: tabular-nums;
+    }
+    .pex-tema .dot { width: 0.55em; height: 0.55em; border-radius: 50%; background: var(--garrafa); }
+    .pex-sent.neu .pex-tema .dot { background: rgba(31, 77, 64, 0.38); }
+    .pex-sent.neg .pex-tema .dot { background: var(--tomate); }
+    .pex-tema .n { font-weight: 800; color: rgba(31, 77, 64, 0.62); }
+    .pex-sent.neg .pex-tema .n { color: var(--tomate); }
+
+
     .painel-faixa {
       width: 100%; margin-top: 0.4em;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 2em;
@@ -2123,47 +2173,131 @@
   <section class="slide saux dense">
     <div class="aux-head">O que o parceiro <em>enxerga</em></div>
 
-    <div class="painel">
-      <div class="painel-mod">
-        <div class="h">Quem come aqui</div>
-        <div class="linhas">
-          <div class="linha"><span>25 a 34</span><span class="bar-track"><span class="bar" style="width: 47%"></span></span><span class="n">47%</span></div>
-          <div class="linha"><span>35 a 44</span><span class="bar-track"><span class="bar" style="width: 28%"></span></span><span class="n">28%</span></div>
-          <div class="linha"><span>18 a 24</span><span class="bar-track"><span class="bar" style="width: 15%"></span></span><span class="n">15%</span></div>
-          <div class="linha"><span>45 ou mais</span><span class="bar-track"><span class="bar" style="width: 10%"></span></span><span class="n">10%</span></div>
-        </div>
+    <div class="pex-tiles">
+      <div class="pex-tile">
+        <div class="pex-k">Nota média</div>
+        <div class="pex-big">4,2<span class="star">&#9733;</span></div>
+        <div class="pex-cap">Nota média atual</div>
+        <div class="pex-delta"><span class="up">+0,3</span><span class="ref">vs. últimos 90 dias</span></div>
       </div>
 
-      <div class="painel-mod">
-        <div class="h">De onde vem</div>
-        <div class="linhas">
-          <div class="linha"><span>Pinheiros</span><span class="bar-track"><span class="bar" style="width: 38%"></span></span><span class="n">38%</span></div>
-          <div class="linha"><span>V. Madalena</span><span class="bar-track"><span class="bar" style="width: 24%"></span></span><span class="n">24%</span></div>
-          <div class="linha"><span>Perdizes</span><span class="bar-track"><span class="bar" style="width: 16%"></span></span><span class="n">16%</span></div>
-          <div class="linha"><span>Outros</span><span class="bar-track"><span class="bar" style="width: 22%"></span></span><span class="n">22%</span></div>
-        </div>
+      <div class="pex-tile">
+        <div class="pex-k">Total de avaliações</div>
+        <div class="pex-big">1.284</div>
+        <div class="pex-cap">avaliações analisadas</div>
+        <div class="pex-delta"><span class="up">+18%</span><span class="ref">nos últimos 90 dias</span></div>
       </div>
 
-      <div class="painel-mod">
-        <div class="h">O que reclamam</div>
-        <div class="versus">
-          <div class="cab"><span></span><span>Casa</span><span>Rua</span></div>
-          <div class="v pior"><span>Espera</span><span class="casa">18</span><span class="reg">9</span></div>
-          <div class="v"><span>Preço</span><span class="casa">7</span><span class="reg">12</span></div>
-          <div class="v"><span>Barulho</span><span class="casa">4</span><span class="reg">3</span></div>
-          <div class="v"><span>Atendimento</span><span class="casa">2</span><span class="reg">8</span></div>
+      <div class="pex-tile">
+        <div class="pex-k">Evolução da nota</div>
+        <svg class="pex-plot" viewBox="0 0 400 166" role="img"
+             aria-label="Nota média de março a agosto: 3,8; 3,9; 4,0; 4,0; 4,1; 4,2">
+          <g class="grade">
+            <line x1="50" y1="22" x2="396" y2="22"/>
+            <line x1="50" y1="49" x2="396" y2="49"/>
+            <line x1="50" y1="76" x2="396" y2="76"/>
+            <line x1="50" y1="103" x2="396" y2="103"/>
+            <line x1="50" y1="130" x2="396" y2="130"/>
+          </g>
+          <g class="eixo" text-anchor="end">
+            <text x="40" y="26">5,0</text>
+            <text x="40" y="53">4,5</text>
+            <text x="40" y="80">4,0</text>
+            <text x="40" y="107">3,5</text>
+            <text x="40" y="134">3,0</text>
+          </g>
+          <polyline class="serie" points="72,86.8 132,81.4 192,76 252,76 312,70.6 372,65.2"/>
+          <g class="ponto">
+            <circle cx="72" cy="86.8" r="5"/><circle cx="132" cy="81.4" r="5"/>
+            <circle cx="192" cy="76" r="5"/><circle cx="252" cy="76" r="5"/>
+            <circle cx="312" cy="70.6" r="5"/><circle cx="372" cy="65.2" r="5"/>
+          </g>
+          <g class="rot">
+            <text class="forte" x="72" y="72">3,8</text>
+            <text x="132" y="67">3,9</text>
+            <text x="192" y="62">4,0</text>
+            <text x="252" y="62">4,0</text>
+            <text x="312" y="56">4,1</text>
+            <text class="forte" x="372" y="51">4,2</text>
+          </g>
+          <g class="eixo" text-anchor="middle">
+            <text x="72" y="152">Mar</text><text x="132" y="152">Abr</text>
+            <text x="192" y="152">Mai</text><text x="252" y="152">Jun</text>
+            <text x="312" y="152">Jul</text><text x="372" y="152">Ago</text>
+          </g>
+        </svg>
+        <div class="pex-delta"><span class="up">+0,4 ponto</span><span class="ref">nos últimos 6 meses</span></div>
+      </div>
+
+      <div class="pex-tile">
+        <div class="pex-k">Ranking na região</div>
+        <div class="pex-big">7&#186;</div>
+        <div class="pex-cap">entre 42 restaurantes analisados</div>
+        <div class="pex-delta"><span class="up">Top 17%</span><span class="ref">da região</span></div>
+      </div>
+    </div>
+
+    <div class="pex-fala">
+      <div class="pex-fala-h">O que os clientes estão falando</div>
+
+      <div class="pex-cols">
+        <div class="pex-sent pos">
+          <div class="pex-sent-h">
+            <svg class="pex-face" viewBox="0 0 24 24" fill="none" stroke="#1f4d40" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="#1f4d40" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="#1f4d40" stroke="none"/>
+              <path d="M8 14.4c1 1.4 2.4 2.1 4 2.1s3-.7 4-2.1"/>
+            </svg>
+            <div>
+              <div class="pex-sent-lab">Positivas</div>
+              <div class="pex-sent-pct">68%</div>
+            </div>
+          </div>
+          <div class="pex-track"><div class="pex-fill" style="width: 68%"></div></div>
+          <div class="pex-temas-h">Principais temas</div>
+          <div class="pex-tema"><span class="dot"></span><span>Qualidade da comida</span><span class="n">42%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Atendimento</span><span class="n">31%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Ambiente</span><span class="n">18%</span></div>
+        </div>
+
+        <div class="pex-sent neu">
+          <div class="pex-sent-h">
+            <svg class="pex-face" viewBox="0 0 24 24" fill="none" stroke="rgba(31,77,64,0.5)" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="rgba(31,77,64,0.5)" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="rgba(31,77,64,0.5)" stroke="none"/>
+              <path d="M8.4 15h7.2"/>
+            </svg>
+            <div>
+              <div class="pex-sent-lab">Neutras</div>
+              <div class="pex-sent-pct">17%</div>
+            </div>
+          </div>
+          <div class="pex-track"><div class="pex-fill" style="width: 17%"></div></div>
+          <div class="pex-temas-h">Principais temas</div>
+          <div class="pex-tema"><span class="dot"></span><span>Preço</span><span class="n">36%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Tempo de espera</span><span class="n">29%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Variedade</span><span class="n">21%</span></div>
+        </div>
+
+        <div class="pex-sent neg">
+          <div class="pex-sent-h">
+            <svg class="pex-face" viewBox="0 0 24 24" fill="none" stroke="#e84b3f" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9.2"/><circle cx="8.8" cy="9.8" r="0.6" fill="#e84b3f" stroke="none"/><circle cx="15.2" cy="9.8" r="0.6" fill="#e84b3f" stroke="none"/>
+              <path d="M8 16.5c1-1.4 2.4-2.1 4-2.1s3 .7 4 2.1"/>
+            </svg>
+            <div>
+              <div class="pex-sent-lab">Negativas</div>
+              <div class="pex-sent-pct">15%</div>
+            </div>
+          </div>
+          <div class="pex-track"><div class="pex-fill" style="width: 15%"></div></div>
+          <div class="pex-temas-h">Principais temas</div>
+          <div class="pex-tema"><span class="dot"></span><span>Tempo de espera</span><span class="n">41%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Atendimento</span><span class="n">32%</span></div>
+          <div class="pex-tema"><span class="dot"></span><span>Preço</span><span class="n">18%</span></div>
         </div>
       </div>
     </div>
 
-    <div class="painel-faixa">
-      <div class="item"><div class="v">4,2</div><div class="l">nota da casa</div></div>
-      <div class="item"><div class="v">3,9</div><div class="l">média do bairro</div></div>
-      <div class="item"><div class="v">3<em>x</em></div><div class="l">come fora por semana, a mediana de quem avalia aqui</div></div>
-      <div class="item"><div class="v">41<em>%</em></div><div class="l">voltou pelo menos duas vezes</div></div>
-    </div>
-
-    <div class="aux-nota">Dados ilustrativos · o perfil da região exige massa de takes no bairro</div>
+    <div class="aux-nota">Dados ilustrativos para demonstração do dashboard yotakes</div>
   </section>
 
   <!-- ============ APOIO — O pipeline da IA com um take atravessando ============ -->
