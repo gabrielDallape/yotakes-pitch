@@ -1293,7 +1293,7 @@
     }
 
     /* ---- fluxo da IA: captura, entende, encontra padrao, vira insight ---- */
-    .etapa .caixa.rica { gap: 0.9em; padding: 1.8em 1.7em; }
+    .etapa .caixa.rica { gap: 1em; padding: 2em 1.8em; justify-content: space-between; }
     .et-num {
       font-family: 'Unbounded', sans-serif; font-weight: 800;
       font-size: 3em; line-height: 1; color: rgba(31, 77, 64, 0.22);
@@ -1307,7 +1307,7 @@
       color: rgba(31, 77, 64, 0.7);
     }
     .et-fim {
-      margin-top: auto; padding-top: 0.6em;
+      padding-top: 0.4em;
       font-weight: 500; font-size: 1.8em; line-height: 1.3;
       color: rgba(31, 77, 64, 0.7);
     }
@@ -1321,7 +1321,7 @@
       background: rgba(31, 77, 64, 0.07);
       border-radius: 1.1em 1.1em 1.1em 0.25em;
       padding: 1em 1.2em;
-      font-weight: 500; font-size: 1.75em; line-height: 1.28; letter-spacing: -0.012em;
+      font-weight: 500; font-size: 2em; line-height: 1.3; letter-spacing: -0.012em;
       color: var(--garrafa);
     }
     .canais {
@@ -1575,7 +1575,6 @@
     .pex-tema .n { font-weight: 800; color: rgba(31, 77, 64, 0.62); }
     .pex-sent.neg .pex-tema .n { color: var(--tomate); }
 
-
     .painel-faixa {
       width: 100%; margin-top: 0.4em;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 2em;
@@ -1587,6 +1586,8 @@
       color: var(--creme);
     }
     .painel-faixa .v em { font-style: normal; color: var(--tomate); }
+    /* valor em intervalo: cabe na coluna sem quebrar o numero */
+    .painel-faixa .v.faixa-larga { font-size: 3.4em; white-space: nowrap; }
     .painel-faixa .l {
       font-weight: 500; font-size: 1.9em; line-height: 1.2;
       color: rgba(242, 234, 215, 0.7);
@@ -2493,28 +2494,16 @@
     <div class="fluxo">
       <div class="etapa">
         <div class="caixa rica">
-          <div class="et-num">01</div>
           <div class="et-tit">Captura</div>
-          <div class="et-sub">Milhares de opini&#245;es, em diferentes canais.</div>
-
           <div class="msg">&#8220;Demorou 40 minutos, mas a comida estava &#243;tima.&#8221;</div>
           <div class="msg">&#8220;Atendimento muito lento hoje.&#8221;</div>
           <div class="msg">&#8220;O risoto estava excelente.&#8221;</div>
-          <div class="msg">&#8220;Achei caro pelo tamanho do prato.&#8221;</div>
-          <div class="msg">&#8220;Ambiente agrad&#225;vel e atendimento r&#225;pido.&#8221;</div>
 
-          <div class="canais">
-            <div class="canal"><div class="bolha">G</div><div class="nome">Google</div></div>
-            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><path d="M7 3v8M5 3v4a2 2 0 002 2M9 3v4a2 2 0 01-2 2M7 11v10M17 3c-1.7 1.5-2.5 3.6-2.5 6 0 1.7.6 2.7 2.5 3v9"/></svg></div><div class="nome">iFood</div></div>
-            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.5 6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5z"/></svg></div><div class="nome">Yotakes</div></div>
-            <div class="canal"><div class="bolha"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="nome">Outros</div></div>
-          </div>
         </div>
       </div>
 
       <div class="etapa">
         <div class="caixa rica">
-          <div class="et-num">02</div>
           <div class="et-tit">A IA entende</div>
 
           <div class="ia-map">
@@ -2550,7 +2539,6 @@
 
       <div class="etapa">
         <div class="caixa rica">
-          <div class="et-num">03</div>
           <div class="et-tit">A IA encontra padr&#245;es</div>
 
           <div class="et-rot">Principais temas</div>
@@ -2590,7 +2578,6 @@
 
       <div class="etapa">
         <div class="caixa rica">
-          <div class="et-num">04</div>
           <div class="et-tit">Vira insight</div>
 
           <div class="insight">
@@ -2676,21 +2663,21 @@
 
       <div class="escada">
         <div class="degrau">
-          <div class="n">18</div>
-          <div class="l">Chefs pagam a conta de<br/><b>10 mil</b> usuários</div>
+          <div class="n">35</div>
+          <div class="l">Sous Chef pagam a conta de<br/><b>10 mil</b> usuários</div>
         </div>
         <div class="degrau">
-          <div class="n">53</div>
-          <div class="l">Chefs pagam a conta de<br/><b>100 mil</b> usuários</div>
+          <div class="n">15</div>
+          <div class="l">Chef pagam a conta de<br/><b>10 mil</b> usuários</div>
         </div>
       </div>
     </div>
 
     <div class="painel-faixa">
-      <div class="item"><div class="v">R$ 19,10</div><div class="l">líquidos por Chef, já fora loja e imposto</div></div>
-      <div class="item"><div class="v">0,18<em>%</em></div><div class="l">da base assinando cobre a infra</div></div>
-      <div class="item"><div class="v">5<em>%</em></div><div class="l">é o que o Letterboxd converte</div></div>
-      <div class="item"><div class="v">R$ 0,03</div><div class="l">é o custo de infra por usuário</div></div>
+      <div class="item"><div class="v">R$ 341</div><div class="l">por mês, só de infraestrutura básica</div></div>
+      <div class="item"><div class="v faixa-larga">R$ 600<em>&#8211;</em>1.250</div><div class="l">por mês, com IA, monitoramento e serviços</div></div>
+      <div class="item"><div class="v">10<em> mil</em></div><div class="l">usuários cobertos pela infra atual</div></div>
+      <div class="item"><div class="v">100<em> mil</em></div><div class="l">usuários: a conta já depende de IA e tráfego, não só de contas</div></div>
     </div>
 
     <div class="aux-nota">Só infraestrutura · time e marketing são o que o lado parceiro paga</div>
