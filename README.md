@@ -33,8 +33,8 @@ no meio não obriga a renumerar os outros na mão.
 - `julia-v4.png` — retrato da Júlia (decepcionada) no slide da persona.
 - `julia-v3.png` — Júlia sorrindo, no medalhão do slide de CTA.
 - `julia-v2.png` — retrato anterior da persona, sem uso hoje.
-- `julia-casal.jpg` — foto no slide preto, o separador que fecha o pitch.
-- `casal-circulo.jpg` — a mesma foto recortada no quadrado, para o medalhão do CTA.
+- `julia-casal.jpg` — a foto original do casal, de onde sai o recorte do medalhão; não é usada no deck.
+- `casal-circulo.jpg` — a mesma foto recortada no quadrado, no medalhão do segundo CTA.
 - `qr-yotakes.png` — QR do roadmap e do último slide, apontando para a produção.
 - `telas/` — prints das telas do app no Figma (feed, avaliação, perfil, descoberta),
   usados dentro da moldura de celular nos slides de produto. Duas delas foram editadas
