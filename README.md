@@ -8,9 +8,10 @@ ranking genérico.
 
 ## Como funciona
 
-`index.html` é um arquivo único auto-contido: 38 seções em 16:9, navegáveis pelo teclado —
-18 slides de pitch, um separador preto que marca o fim da apresentação, e o material de
-apoio (6 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
+`index.html` é um arquivo único auto-contido: 40 seções em 16:9, navegáveis pelo teclado —
+19 slides de pitch (o CTA fecha duas vezes: com a ilustração da Júlia e com a foto),
+um separador preto que marca o fim da apresentação, e o material de
+apoio (7 slides auxiliares, 8 de Q&A e 5 de dados) guardado para as perguntas. Cada
 `<section class="slide sN">` ocupa a viewport e só a que tem `.active` aparece.
 
 Os números dos slides auxiliares de preço e de sustentação têm memória de cálculo em
@@ -33,6 +34,7 @@ no meio não obriga a renumerar os outros na mão.
 - `julia-v3.png` — Júlia sorrindo, no medalhão do slide de CTA.
 - `julia-v2.png` — retrato anterior da persona, sem uso hoje.
 - `julia-casal.jpg` — foto no slide preto, o separador que fecha o pitch.
+- `casal-circulo.jpg` — a mesma foto recortada no quadrado, para o medalhão do CTA.
 - `qr-yotakes.png` — QR do roadmap e do último slide, apontando para a produção.
 - `telas/` — prints das telas do app no Figma (feed, avaliação, perfil, descoberta),
   usados dentro da moldura de celular nos slides de produto. Duas delas foram editadas
