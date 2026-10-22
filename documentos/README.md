@@ -3,7 +3,9 @@
 Entrega final da disciplina Business Intelligence & Startup Development (TCC FIAP 2026, Grupo 3).
 Cópia pública dos arquivos gerados em `documentos fiap/BIS-Final/` no repositório do produto.
 
-**Baixar tudo:** [BIS-Final - Yotakes.zip](https://raw.githubusercontent.com/gabrielDallape/yotakes-pitch/claude/business-documents-list-p0br8b/documentos/BIS-Final%20-%20Yotakes.zip)
+**Baixar tudo em DOCX:** [BIS-Final - Yotakes.zip](https://raw.githubusercontent.com/gabrielDallape/yotakes-pitch/claude/business-documents-list-p0br8b/documentos/BIS-Final%20-%20Yotakes.zip)
+
+**Baixar tudo em PDF:** [BIS-Final - Yotakes (PDF).zip](https://raw.githubusercontent.com/gabrielDallape/yotakes-pitch/claude/business-documents-list-p0br8b/documentos/BIS-Final%20-%20Yotakes%20%28PDF%29.zip) · os PDFs individuais estão em [`pdf/`](pdf/)
 
 | # | Documento |
 |---|---|
